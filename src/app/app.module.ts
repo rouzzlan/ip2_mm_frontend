@@ -1,22 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-
-import { AppComponent } from './app.component';
-import {TestService} from './services/test.service';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+
+
+import {AppComponent} from './app.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import {FormsModule} from '@angular/forms';
+import {RestService} from './services/rest.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  // service aan providers toevoegen
-  providers: [TestService],
+  providers: [RestService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
