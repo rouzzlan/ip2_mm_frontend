@@ -18,7 +18,7 @@ export class RestService {
   }
 
   public createUser(userToCreate: User): Observable<User> {
-    return this.http.post<User>(this.path, userToCreate);
+    return this.http.post<User>(this.path + '/adduser', userToCreate);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

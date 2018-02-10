@@ -7,12 +7,14 @@ import {AppComponent} from './app.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import {FormsModule} from '@angular/forms';
 import {RestService} from './services/rest.service';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent
+    UserListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

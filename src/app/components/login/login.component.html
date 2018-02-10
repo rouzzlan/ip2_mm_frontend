@@ -1,0 +1,43 @@
+<div class="user-content">
+  <h1 class="page-title">Create user</h1>
+  <div class="user-create">
+    <form #userForm="ngForm" (ngSubmit)="createUser(userForm)" novalidate>
+      <label for="username">Username:</label>
+      <br>
+      <input type="text" id="username" class="form-control" placeholder="username"
+             required
+             name="username" [(ngModel)]="newUser.username"
+             #title="ngModel">
+      <br>
+      <label for="firstname">First name:</label>
+      <br>
+      <input type="text" id="firstname" class="form-control" placeholder="firstname"
+             required
+             name="fistname" [(ngModel)]="newUser.firstname"
+             #title="ngModel">
+      <br>
+      <label for="lastname">Last name:</label>
+      <br>
+      <input type="text" id="lastname" class="form-control" placeholder="lastname"
+             required
+             name="lastname" [(ngModel)]="newUser.lastname"
+             #title="ngModel">
+      <br>
+      <label for="email">Email:</label>
+      <br>
+      <input type="text" id="email" class="form-control" placeholder="email"
+             required
+             name="email" [(ngModel)]="newUser.email"
+             #title="ngModel">
+      <br>
+      <label for="password">Password:</label>
+      <br>
+      <input type="text" id="password" class="form-control" placeholder="password"
+             required
+             name="password" [(ngModel)]="newUser.password"
+             #title="ngModel">
+      <br>
+      <button type="submit" value="Send">Send</button>
+    </form>
+  </div>
+</div>
