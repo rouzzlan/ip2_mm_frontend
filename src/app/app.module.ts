@@ -8,13 +8,15 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import {FormsModule} from '@angular/forms';
 import {RestService} from './services/rest.service';
 import { LoginComponent } from './components/login/login.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    LoginComponent
+    LoginComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

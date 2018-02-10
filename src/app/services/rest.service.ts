@@ -17,8 +17,16 @@ export class RestService {
     return this.http.get<User[]>(this.path + '/getusersJson');
   }
 
+  public getUser(userId: number): Observable<User> {
+    return this.http.get<User>(this.path + '/getuserJson/' + userId);
+  }
+
   public createUser(userToCreate: User): Observable<User> {
     return this.http.post<User>(this.path + '/adduser', userToCreate);
+  }
+
+  public editUser(userToEdit: User): Observable<User> {
+    return this.http.put<User>(this.path + '/edituser', userToEdit);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
