@@ -1,11 +1,13 @@
 <h1>Voeg nieuwe gebruiker toe/pas gebruiker aan</h1>
 <form id="createForm" #userForm="ngForm" (ngSubmit)="createUser(userForm)" >
-  <input type="checkbox" name="roles" value="beheerder" (click)="toggleAdmin()">
-  Beheerder <br>
-  <input type="checkbox" name="roles" value="lesgever" (click)="toggleTeacher()">
-  Lesgever <br>
-  <input type="checkbox" name="roles" value="leerling" (click)="toggleStudent()">
-  Leerling <br>
+  <div class="checkboxContainer">
+  <input id="admin" type="checkbox" name="roles[]" value="beheerder" (click)="toggleAdmin()">
+  <label for="admin">Beheerder</label>
+  <input id="teacher" type="checkbox" name="roles[]" value="lesgever" (click)="toggleTeacher()">
+  <label for="teacher">Lesgever</label>
+  <input id="student" type="checkbox" name="roles[]" value="leerling" (click)="toggleStudent()">
+  <label for="student">Leerling</label>
+  </div>
   <label for="username">Gebruikersnaam: </label>
   <input id="username" type="text" placeholder="username"
          required
@@ -47,6 +49,8 @@
   <!--<button type="button" value="+" (click)="add()">+</button>-->
   <!--<button type="button" value="-" (click)="delete()">-</button>-->
 <!--</div>-->
-  <button type="submit" value="Voltooi">Voltooi</button>
-  <button type="reset" value="Stop" (click)="setTeacherFalse()">Stop</button>
+  <div class="btnContainer">
+    <button type="submit" value="Voltooi">Voltooi</button>
+    <button type="reset" value="Stop" (click)="setTeacherFalse()">Stop</button>
+  </div>
 </form>

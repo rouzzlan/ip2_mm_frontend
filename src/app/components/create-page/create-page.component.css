@@ -1,0 +1,44 @@
+h1 {
+  text-align: center;
+}
+
+form {
+  box-sizing: border-box;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.checkboxContainer {
+  width: 100%;
+}
+
+input[type=checkbox] {
+  padding: 5px;
+
+}
+
+label {
+  padding: 5px 5px 5px 0;
+  display: inline-block;
+}
+
+.btnContainer {
+  padding: 5px 5px 5px 0;
+  text-align: center;
+}
+
+button {
+  margin: 10px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: lightgreen;
+}

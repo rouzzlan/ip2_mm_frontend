@@ -19,6 +19,7 @@ export class CreatePageComponent implements OnInit {
   role: Role = new Role();
 
   constructor(private restService: RestService) {
+    this.newUser.roles = [];
   }
 
   ngOnInit() {
@@ -32,20 +33,23 @@ export class CreatePageComponent implements OnInit {
       .subscribe(createUser => {
         userForm.reset();
         this.newUser = new User();
-        this.newUser.roles = [];
-        if (this.isTeacher) {
-          this.role.name = 'leerkracht';
-          this.newUser.roles.push(this.role);
-          console.log(this.newUser.roles.values() + 'Riga');
-        }
-        if (this.isAdmin) {
-          this.role.name = 'beheerder';
-          this.newUser.roles.push(this.role);
-        }
-        if (this.isStudent) {
-          this.role.name = 'student';
-          this.newUser.roles.push(this.role);
-        }
+        // this.newUser.roles = [];
+        // if (this.isTeacher) {
+        //   this.role.id = 0;
+        //   this.role.name = 'leerkracht';
+        //   this.newUser.roles[0] = this.role;
+        //   for (const rollie of this.newUser.roles) {
+        //     console.log(rollie.id + ' checkmark');
+        //   }
+        // }
+        // if (this.isAdmin) {
+        //   this.role.name = 'beheerder';
+        //   this.newUser.roles.push(this.role);
+        // }
+        // if (this.isStudent) {
+        //   this.role.name = 'student';
+        //   this.newUser.roles.push(this.role);
+        // }
         // unshift adds the user at the beginning of the array and returns the count
         this.users.unshift(createUser);
       });

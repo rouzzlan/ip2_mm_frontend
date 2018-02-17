@@ -18,14 +18,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  createUser(userForm: NgForm): void {
-    this.restService.createUser(this.newUser)
-      .subscribe(createUser => {
-        userForm.reset();
-        this.newUser = new User();
-        // unshift adds the user at the beginning of the array and returns the count
-        this.users.unshift(createUser);
-      });
+  logIn(userForm: NgForm): void {
+
   }
 
 }
