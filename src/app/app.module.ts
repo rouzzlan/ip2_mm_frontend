@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {RestService} from './services/rest.service';
 import { LoginComponent } from './components/login/login.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { CreatePageComponent } from './components/create-page/create-page.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     AppComponent,
     UserListComponent,
     LoginComponent,
-    EditUserComponent
+    EditUserComponent,
+    CreatePageComponent
   ],
   imports: [
     BrowserModule,

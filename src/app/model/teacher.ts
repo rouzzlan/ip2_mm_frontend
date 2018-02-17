@@ -1,17 +1,19 @@
-import {Instrument} from './instrument';
-import {Role} from './role';
+// Mag normaal weg
 
-export class User {
+import {Instrument} from './instrument';
+
+export class Teacher {
   id: number;
   username: String;
   firstname: String;
   lastname: String;
-  email: String;
-  password: String;
+  birthDate: Date;
+  address: String;
   houseNumber: number;
   zipcode: number;
   city: number;
   country: String;
-  instruments: Instrument[];
-  roles: Role[];
+  email: String;
+  password: String;
+  insturments: Instrument[];
 }

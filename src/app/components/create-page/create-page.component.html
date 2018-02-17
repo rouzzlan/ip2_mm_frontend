@@ -1,0 +1,52 @@
+<h1>Voeg nieuwe gebruiker toe/pas gebruiker aan</h1>
+<form id="createForm" #userForm="ngForm" (ngSubmit)="createUser(userForm)" >
+  <input type="checkbox" name="roles" value="beheerder" (click)="toggleAdmin()">
+  Beheerder <br>
+  <input type="checkbox" name="roles" value="lesgever" (click)="toggleTeacher()">
+  Lesgever <br>
+  <input type="checkbox" name="roles" value="leerling" (click)="toggleStudent()">
+  Leerling <br>
+  <label for="username">Gebruikersnaam: </label>
+  <input id="username" type="text" placeholder="username"
+         required
+         name="username" [(ngModel)]="newUser.username"
+         #title="ngModel">
+  <label for="password">wachtwoord: </label>
+  <input id="password" type="password" placeholder="password"
+         required
+         name="password" [(ngModel)]="newUser.password"
+         #title="ngModel">
+  <label for="firstname">voornaam: </label>
+  <input id="firstname" type="text" placeholder="firstname"
+         required
+         name="fistname" [(ngModel)]="newUser.firstname"
+         #title="ngModel">
+  <label for="lastname">familienaam: </label>
+  <input id="lastname" type="text" placeholder="lastname"
+         required
+         name="lastname" [(ngModel)]="newUser.lastname"
+         #title="ngModel">
+  <!--<label for="birthDate">geboortedatum: </label>-->
+  <!--<input id="birthDate" type="text" name="birthDate">-->
+  <!--<label for="street">straat: </label>-->
+  <!--<input id="street" type="text" name="street">-->
+  <!--<input id="streetNumber" type="text" name="streetNumber">-->
+  <!--<label for="zipcode">postcode + gemeente: </label>-->
+  <!--<input id="zipcode" type="text" name="zipcode">-->
+  <!--<input id="city" type="text" name="city">-->
+  <!--<label for="country">land: </label>-->
+  <!--<input id="country" type="text" name="country">-->
+  <label for="email">email: </label>
+  <input id="email" type="text" placeholder="email"
+         required
+         name="email" [(ngModel)]="newUser.email"
+         #title="ngModel">
+  <!--<div *ngIf="isTeacher">-->
+  <!--<label for="instrument">Instrument(en): </label>-->
+  <!--<input id="instrument" type="text" name="instrument">-->
+  <!--<button type="button" value="+" (click)="add()">+</button>-->
+  <!--<button type="button" value="-" (click)="delete()">-</button>-->
+<!--</div>-->
+  <button type="submit" value="Voltooi">Voltooi</button>
+  <button type="reset" value="Stop" (click)="setTeacherFalse()">Stop</button>
+</form>
