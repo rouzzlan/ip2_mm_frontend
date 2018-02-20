@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {User} from '../model/user';
 import 'rxjs/add/operator/map';
 import {of} from 'rxjs/observable/of';
+import {Role} from '../model/role';
 
 
 @Injectable()
@@ -13,6 +14,7 @@ export class RestService {
   constructor(private http: HttpClient) {
   }
 
+  // region User calls
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.path + '/getusersJson');
   }
@@ -21,6 +23,11 @@ export class RestService {
     return this.http.get<User>(this.path + '/getuserJson/' + userId);
   }
 
+  public getStudents(): Observable<User[]> {
+    return this.http.get<User[]>(this.path + '/getUsersJson');
+  }
+
+
   public createUser(userToCreate: User): Observable<User> {
     return this.http.post<User>(this.path + '/adduser', userToCreate);
   }
@@ -28,6 +35,15 @@ export class RestService {
   public editUser(userToEdit: User): Observable<User> {
     return this.http.put<User>(this.path + '/edituser', userToEdit);
   }
+
+  // endregion
+
+  // region Role calls
+  public getRoles(): Observable<Role[]> {
+    return this.http.get<Role[]>(this.path + '/getRoles');
+  }
+
+  // endregion
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

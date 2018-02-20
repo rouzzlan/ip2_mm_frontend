@@ -1,0 +1,32 @@
+<h1>Nieuwe band</h1>
+<form id="createBandForm" #createBandForm="ngForm" (ngSubmit)="createBand(createBandForm)">
+  <label for="bandName">Naam</label>
+  <input id="bandName" type="text" placeholder="naam"
+         required
+         name="bandName" [(ngModel)]="newBand.name"
+         #title="ngModel">
+  <label for="bandTeacher">Lesgever</label>
+  <input id="bandTeacher" type="text" placeholder="lesgever"
+         required
+         name="bandTeacher" [(ngModel)]="newBand.teacher"
+         #title="ngModel">
+  <label for="bandStudents">Leerlingen</label>
+  <textarea readonly id="bandStudents" type="text"
+            required
+            name="bandName" [(ngModel)]="newBand.students"
+            #title="ngModel">
+  </textarea>
+  <button id="addStudentBtn" type="button" value="addStudentBtn" (click)="addStudent()">Voeg toe</button>
+  <div id="nameStudent" *ngIf="addTrigger">
+    <label for="studentName">Naam leerling</label>
+    <select id="studentName" type="text">
+      <option value="{{student.name}}">{{student.name}}</option>
+      <!--required-->
+      <!--name="bandTeacher" [(ngModel)]="newBand.teacher"-->
+      <!--#title="ngModel">-->
+    </select>
+    <button id="okBtn" type="button" value="OK" (click)="addingStudent()">OK</button>
+  </div>
+  <button id="submitBtn" type="submit" value="Verstuur">Verstuur</button>
+  <button id="cancelBtn" type="reset" value="Stop">Stop</button>
+</form>

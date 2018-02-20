@@ -1,0 +1,8 @@
+.checkboxContainer {
+  width: 100%;
+}
+
+input[type=checkbox] {
+  padding: 5px;
+
+}

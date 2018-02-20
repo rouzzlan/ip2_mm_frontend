@@ -1,0 +1,4 @@
+<div class="checkboxContainer" *ngFor="let role of roles">
+  <input id="{{role.name}}" type="checkbox" name="roles[]" value="{{role.name}}">
+  <label for="{{role.name}}">{{role.name}}</label>
+</div>

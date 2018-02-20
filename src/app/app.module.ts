@@ -10,6 +10,8 @@ import {RestService} from './services/rest.service';
 import { LoginComponent } from './components/login/login.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { CreatePageComponent } from './components/create-page/create-page.component';
+import { GetRolesComponent } from './components/get-roles/get-roles.component';
+import { CreateBandComponent } from './components/create-band/create-band.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { CreatePageComponent } from './components/create-page/create-page.compon
     UserListComponent,
     LoginComponent,
     EditUserComponent,
-    CreatePageComponent
+    CreatePageComponent,
+    GetRolesComponent,
+    CreateBandComponent
   ],
   imports: [
     BrowserModule,
