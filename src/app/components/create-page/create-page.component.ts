@@ -16,7 +16,7 @@ export class CreatePageComponent implements OnInit {
   public isStudent = false;
   users: User[] = null;
   newUser: User = new User();
-  role: Role = new Role();
+  roles: Role[] = null;
 
   constructor(private restService: RestService) {
     this.newUser.roles = [];
@@ -24,6 +24,7 @@ export class CreatePageComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+    this.getRoles();
   }
 
 
@@ -59,6 +60,10 @@ export class CreatePageComponent implements OnInit {
     this.restService.getUsers().subscribe(users => this.users = users);
   }
 
+  public getRoles(): void {
+    this.restService.getRoles().subscribe(roles => this.roles = roles);
+  }
+
   // endregion
 
   public add() {
@@ -83,5 +88,14 @@ export class CreatePageComponent implements OnInit {
 
   public setTeacherFalse() {
     this.isTeacher = false;
+  }
+
+  addRole(roleName: String) {
+    let role = this.roles.find(r => r.name == roleName);
+    if(!this.newUser.roles.find( r => r == role)){
+      this.newUser.roles.push(role)
+    }else{
+      this.newUser.roles.splice(this.newUser.roles.indexOf(role),1)
+    }
   }
 }
