@@ -24,7 +24,7 @@ export class RestService {
   }
 
   public getStudents(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getUsersJson');
+    return this.http.get<User[]>(this.path + '/getusersJson');
   }
 
 
