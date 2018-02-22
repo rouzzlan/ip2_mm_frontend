@@ -8,23 +8,29 @@
   <!--<input id="student" type="checkbox" name="roles[]" value="leerling" (click)="toggleStudent()">-->
   <!--<label for="student">Leerling</label>-->
   <!--</div>-->
-  <app-get-roles></app-get-roles>
-  <label for="username">Gebruikersnaam: </label>
+  <label>bevoegdheden</label>
+  <!--<app-get-roles></app-get-roles>-->
+  <div class="checkboxContainer" *ngFor="let role of roles">
+    <input id="{{role.name}}" type="checkbox" name="roles[]" value="{{role.name}}" (change)="addRole(role.name)">
+    <label for="{{role.name}}">{{role.name.substring(5).toLowerCase()}}</label>
+  </div>
+
+  <label for="username">Gebruikersnaam</label>
   <input id="username" type="text" placeholder="username"
          required
          name="username" [(ngModel)]="newUser.username"
          #title="ngModel">
-  <label for="password">wachtwoord: </label>
+  <label for="password">wachtwoord</label>
   <input id="password" type="password" placeholder="password"
          required
          name="password" [(ngModel)]="newUser.password"
          #title="ngModel">
-  <label for="firstname">voornaam: </label>
+  <label for="firstname">voornaam</label>
   <input id="firstname" type="text" placeholder="firstname"
          required
          name="fistname" [(ngModel)]="newUser.firstname"
          #title="ngModel">
-  <label for="lastname">familienaam: </label>
+  <label for="lastname">familienaam</label>
   <input id="lastname" type="text" placeholder="lastname"
          required
          name="lastname" [(ngModel)]="newUser.lastname"
@@ -39,7 +45,7 @@
   <!--<input id="city" type="text" name="city">-->
   <!--<label for="country">land: </label>-->
   <!--<input id="country" type="text" name="country">-->
-  <label for="email">email: </label>
+  <label for="email">email</label>
   <input id="email" type="text" placeholder="email"
          required
          name="email" [(ngModel)]="newUser.email"
