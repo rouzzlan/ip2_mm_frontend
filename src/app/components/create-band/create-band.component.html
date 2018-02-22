@@ -16,16 +16,17 @@
             name="bandName" [(ngModel)]="newBand.students"
             #title="ngModel">
   </textarea>
-  <button id="addStudentBtn" type="button" value="addStudentBtn" (click)="addStudent()">Voeg toe</button>
+  <button id="addStudentBtn" type="button" value="Voeg toe" (click)="addStudent()">Voeg toe</button>
+  <button id="verwijderStudentBtn" type="reset" value="Verwijder">Verwijder</button>
   <div id="nameStudent" *ngIf="addTrigger">
     <label for="studentName">Naam leerling</label>
-    <select id="studentName" type="text">
-      <option value="{{student.name}}">{{student.name}}</option>
+    <select id="studentName" type="text" [ngModel]="students" (ngModelChange)="selectItem($event)">
+      <option *ngFor="let student of students" [value]="student.username">{{student.username}}</option>
       <!--required-->
       <!--name="bandTeacher" [(ngModel)]="newBand.teacher"-->
       <!--#title="ngModel">-->
     </select>
-    <button id="okBtn" type="button" value="OK" (click)="addingStudent()">OK</button>
+    <button id="okBtn" type="button" value="OK"> <!--(click)="addingStudent(student)"-->OK</button>
   </div>
   <button id="submitBtn" type="submit" value="Verstuur">Verstuur</button>
   <button id="cancelBtn" type="reset" value="Stop">Stop</button>

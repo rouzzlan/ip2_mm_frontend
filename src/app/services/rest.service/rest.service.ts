@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {User} from '../model/user';
+import {User} from '../../model/user';
 import 'rxjs/add/operator/map';
 import {of} from 'rxjs/observable/of';
-import {Role} from '../model/role';
+import {Role} from '../../model/role';
 
 
 @Injectable()
@@ -19,8 +19,8 @@ export class RestService {
     return this.http.get<User[]>(this.path + '/getusersJson');
   }
 
-  public getUser(userId: number): Observable<User> {
-    return this.http.get<User>(this.path + '/getuserJson/' + userId);
+  public getUser(userEmail: string): Observable<User> {
+    return this.http.get<User>(this.path + '/getusersJson/' + userEmail);
   }
 
   public getStudents(): Observable<User[]> {

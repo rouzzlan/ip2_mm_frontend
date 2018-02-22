@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Role} from '../../model/role';
-import {RestService} from '../../services/rest.service';
+import {RestService} from '../../services/rest.service/rest.service';
 
 @Component({
   selector: 'app-get-roles',

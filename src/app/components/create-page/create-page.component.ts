@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RestService} from '../../services/rest.service';
+import {RestService} from '../../services/rest.service/rest.service';
 import {NgForm} from '@angular/forms';
 import {User} from '../../model/user';
 import {Role} from '../../model/role';
