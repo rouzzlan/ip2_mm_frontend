@@ -40,7 +40,7 @@ export class RestService {
 
   // region Role calls
   public getRoles(): Observable<Role[]> {
-    return this.http.get<Role[]>(this.path + '/getrolesJson');
+    return this.http.get<Role[]>(this.path + '/getRoles');
   }
 
   // endregion

@@ -10,7 +10,6 @@ import {RestService} from './services/rest.service';
 import { LoginComponent } from './components/login/login.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { CreatePageComponent } from './components/create-page/create-page.component';
-import { GetRolesComponent } from './components/get-roles/get-roles.component';
 import { CreateBandComponent } from './components/create-band/create-band.component';
 
 
@@ -21,7 +20,6 @@ import { CreateBandComponent } from './components/create-band/create-band.compon
     LoginComponent,
     EditUserComponent,
     CreatePageComponent,
-    GetRolesComponent,
     CreateBandComponent
   ],
   imports: [

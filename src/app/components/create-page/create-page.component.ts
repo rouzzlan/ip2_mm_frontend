@@ -92,10 +92,10 @@ export class CreatePageComponent implements OnInit {
 
   addRole(roleName: String) {
     let role = this.roles.find(r => r.name == roleName);
-    if(!this.newUser.roles.find( r => r == role)){
-      this.newUser.roles.push(role)
+    if(!this.newUser.roles.find( r => r == role.name)){
+      this.newUser.roles.push(role.name)
     }else{
-      this.newUser.roles.splice(this.newUser.roles.indexOf(role),1)
+      this.newUser.roles.splice(this.newUser.roles.indexOf(role.name),1)
     }
   }
 }

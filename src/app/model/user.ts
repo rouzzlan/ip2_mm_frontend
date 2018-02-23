@@ -13,5 +13,5 @@ export class User {
   city: number;
   country: String;
   instruments: Instrument[];
-  roles: Role[];
+  roles: String[];
 }
