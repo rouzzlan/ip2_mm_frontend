@@ -35,7 +35,7 @@ export class CreateeventComponent implements OnInit {
   }
 
   public getBands(): void {
-    this.bandService().subscribe(bands => this.bands = bands);
+    this.bandService.getBands().subscribe(bands => this.bands = bands);
   }
 
   // endregion

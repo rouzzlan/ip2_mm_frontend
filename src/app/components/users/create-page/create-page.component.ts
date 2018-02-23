@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {RestService} from '../../services/rest.service/rest.service';
 import {NgForm} from '@angular/forms';
-import {User} from '../../model/user';
-import {Role} from '../../model/role';
+import {Role} from '../../../model/role';
+import {RestService} from '../../../services/rest.service/rest.service';
+import {User} from '../../../model/user';
 
 @Component({
   selector: 'app-create-page',
@@ -91,11 +91,11 @@ export class CreatePageComponent implements OnInit {
   }
 
   addRole(roleName: String) {
-    let role = this.roles.find(r => r.name == roleName);
-    if(!this.newUser.roles.find( r => r == role.name)){
-      this.newUser.roles.push(role.name)
-    }else{
-      this.newUser.roles.splice(this.newUser.roles.indexOf(role.name),1)
+    const role = this.roles.find(r => r.name === roleName);
+    if (!this.newUser.roles.find(r => r === role)) {
+      this.newUser.roles.push(role);
+    } else {
+      this.newUser.roles.splice(this.newUser.roles.indexOf(role), 1);
     }
   }
 }

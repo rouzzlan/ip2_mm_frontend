@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AlertServiceComponent} from '../../services/alert.service/alert.service.component';
-import {AuthenticationServiceComponent} from '../../services/authentication.service/authentication-service.component';
+import {AlertServiceComponent} from '../../../services/alert.service/alert.service.component';
+import {AuthenticationServiceComponent} from '../../../services/authentication.service/authentication-service.component';
 
 /**
  * Used for login and logout.

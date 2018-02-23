@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Band} from '../../model/Band';
-import {User} from '../../model/user';
-import {RestService} from '../../services/rest.service/rest.service';
+import {Band} from '../../../model/band';
+import {User} from '../../../model/user';
+import {RestService} from '../../../services/rest.service/rest.service';
 
 @Component({
   selector: 'app-create-band',
