@@ -4,13 +4,20 @@ import {HttpClientModule} from '@angular/common/http';
 
 
 import {AppComponent} from './app.component';
-import { UserListComponent } from './components/user-list/user-list.component';
+import {UserListComponent} from './components/users/user-list/user-list.component';
 import {FormsModule} from '@angular/forms';
-import {RestService} from './services/rest.service';
-import { LoginComponent } from './components/login/login.component';
-import { EditUserComponent } from './components/edit-user/edit-user.component';
-import { CreatePageComponent } from './components/create-page/create-page.component';
-import { CreateBandComponent } from './components/create-band/create-band.component';
+import {RestService} from './services/rest.service/rest.service';
+import {LoginComponent} from './components/users/login/login.component';
+import {EditUserComponent} from './components/users/edit-user/edit-user.component';
+import {CreatePageComponent} from './components/users/create-page/create-page.component';
+import {CreateBandComponent} from './components/band/create-band/create-band.component';
+import {AlertComponent} from './components/Utilities/alert/alert.component';
+import {AlertServiceComponent} from './services/alert.service/alert.service.component';
+import {AuthenticationServiceComponent} from './services/authentication.service/authentication-service.component';
+import {AuthGuardComponent} from './services/authentication.service/auth-guard.component';
+import { EventServiceComponent } from './services/event.service/event-service.component';
+import {CreateeventComponent} from './components/agenda/create-event/createevent.component';
+import {BandServiceService} from './services/band.service/band-service.service';
 
 
 @NgModule({
@@ -20,14 +27,18 @@ import { CreateBandComponent } from './components/create-band/create-band.compon
     LoginComponent,
     EditUserComponent,
     CreatePageComponent,
-    CreateBandComponent
+    CreateBandComponent,
+    AlertComponent,
+    CreateeventComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule
   ],
-  providers: [RestService],
+  providers: [RestService, AlertServiceComponent,
+    AuthenticationServiceComponent,
+    AuthGuardComponent, EventServiceComponent, BandServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
