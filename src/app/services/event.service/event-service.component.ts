@@ -23,7 +23,16 @@ export class EventServiceComponent {
     return this.http.get<Event[]>(this.path + '/getEvents');
   }
 
+  public editEvent(eventToUpdate: Event): Observable<Event> {
+    return this.http.put<Event>(this.path + '/editEvent', eventToUpdate);
+  }
+
+  // public deleteEvent(eventToDelete: Event) {
+  //   this.http.delete<Event>(this.path + '/deleteEvent', eventToDelete);
+  // }
+
   // endRegion
+
 
 }
 

@@ -1,0 +1,26 @@
+<h1>Pas evenement {{eventToDelete.name}} aan</h1>
+<form id="editEventForm" #editEventForm="ngForm" (ngSubmit)="updateEvent(editEventForm)">
+  <label for="eventName">Naam: </label>
+  <input id="eventName" type="text" placeholder="{{eventToDelete.name}}"
+         required
+         name="eventName" [(ngModel)]="eventToDelete.name"
+         #title="ngModel">
+  <label for="eventDate">Tijd: </label>
+  <input id="eventDate" type="date"
+         required
+         name="eventDate" [(ngModel)]="eventToDelete.date"
+         #title="ngModel">
+  <label for="eventTime">Tijd: </label>
+  <input id="eventTime" type="time"
+         required
+         name="eventTime" [(ngModel)]="eventToDelete.time"
+         #title="ngModel">
+  <!--<label for="eventBand">Band: </label>-->
+  <!--<select id="eventBand" type="text" [ngModel]="bands" (ngModelChange)="selectItem($event)">-->
+    <!--<option *ngFor="let band of bands" [value]="band.name">{{band.name}}</option>-->
+  <!--</select>-->
+  <div class="btnContainer">
+    <button id="submitBtn" type="submit" value="Aanpassen">Aanpassen</button>
+    <button id="cancelBtn" type="reset" value="Cancel">Cancel</button>
+  </div>
+</form>

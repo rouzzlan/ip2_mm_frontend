@@ -2,9 +2,11 @@ h1 {
   text-align: center;
 }
 
-label{
+label {
   font-weight: bold;
   text-transform: capitalize;
+  padding: 5px 5px 5px 0;
+  display: inline-block;
 }
 
 form {
@@ -21,18 +23,18 @@ input[type=text], input[type=password] {
 }
 
 /*.checkboxContainer {*/
-  /*width: 100%;*/
+/*width: 100%;*/
 /*}*/
 
 /*input[type=checkbox] {*/
-  /*padding: 5px;*/
+/*padding: 5px;*/
 
 /*}*/
 
-label {
-  padding: 5px 5px 5px 0;
-  display: inline-block;
-}
+/*label {*/
+/*padding: 5px 5px 5px 0;*/
+/*display: inline-block;*/
+/*}*/
 
 .btnContainer {
   padding: 5px 5px 5px 0;

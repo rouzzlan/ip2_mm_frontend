@@ -18,6 +18,8 @@ import {AuthGuardComponent} from './services/authentication.service/auth-guard.c
 import { EventServiceComponent } from './services/event.service/event-service.component';
 import {CreateeventComponent} from './components/agenda/create-event/createevent.component';
 import {BandServiceService} from './services/band.service/band-service.service';
+import { EditEventComponent } from './components/agenda/edit-event/edit-event.component';
+import { DeleteEventComponent } from './components/agenda/delete-event/delete-event.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {BandServiceService} from './services/band.service/band-service.service';
     CreatePageComponent,
     CreateBandComponent,
     AlertComponent,
-    CreateeventComponent
+    CreateeventComponent,
+    EditEventComponent,
+    DeleteEventComponent
   ],
   imports: [
     BrowserModule,

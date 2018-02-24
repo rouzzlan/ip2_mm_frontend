@@ -39,4 +39,8 @@ export class CreateeventComponent implements OnInit {
   }
 
   // endregion
+
+  public selectItem(event: Event): void {
+
+  }
 }

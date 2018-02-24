@@ -1,19 +1,26 @@
 <h1>Maak evenement aan</h1>
-<form id="createForm" #eventForm="ngForm" (ngSubmit)="createEvent(eventForm)">
+<form id="createEventForm" #createEventForm="ngForm" (ngSubmit)="createEvent(createEventForm)">
   <label for="eventName">Naam: </label>
-  <input id="eventName" type="text" placeholder="naam"
+  <input id="eventName" type="text" placeholder="name"
          required
          name="eventName" [(ngModel)]="newEvent.name"
          #title="ngModel">
-  <!--<label for="eventDateTime">Datum en tijd: </label>-->
-  <!--<input id="eventDateTime" type="datetime-local"-->
-         <!--required-->
-         <!--name="eventDateTime" [(ngModel)]="newEvent.dateTime" -->
-         <!--#title="ngModel">-->
+  <label for="eventDate">Tijd: </label>
+  <input id="eventDate" type="date"
+         required
+         name="eventDate" [(ngModel)]="newEvent.date"
+         #title="ngModel">
+  <label for="eventTime">Tijd: </label>
+  <input id="eventTime" type="time"
+         required
+         name="eventTime" [(ngModel)]="newEvent.time"
+         #title="ngModel">
   <label for="eventBand">Band: </label>
   <select id="eventBand" type="text" [ngModel]="bands" (ngModelChange)="selectItem($event)">
     <option *ngFor="let band of bands" [value]="band.name">{{band.name}}</option>
   </select>
-  <button id="submitBtn" type="submit" value="Aanmaken">Aanmaken</button>
-  <button id="cancelBtn" type="reset" value="Cancel">Cancel</button>
+  <div class="btnContainer">
+    <button id="submitBtn" type="submit" value="Aanmaken">Aanmaken</button>
+    <button id="cancelBtn" type="reset" value="Cancel">Cancel</button>
+  </div>
 </form>
