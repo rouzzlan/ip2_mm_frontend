@@ -11,7 +11,7 @@ import {LoginComponent} from './components/users/login/login.component';
 import {EditUserComponent} from './components/users/edit-user/edit-user.component';
 import {CreatePageComponent} from './components/users/create-page/create-page.component';
 import {CreateBandComponent} from './components/band/create-band/create-band.component';
-import {AlertComponent} from './components/Utilities/alert/alert.component';
+import {AlertComponent} from './components/utilities/alert/alert.component';
 import {AlertServiceComponent} from './services/alert.service/alert.service.component';
 import {AuthenticationServiceComponent} from './services/authentication.service/authentication-service.component';
 import {AuthGuardComponent} from './services/authentication.service/auth-guard.component';

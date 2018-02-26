@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {Event} from '../../model/event';
 import {Band} from '../../model/band';
 
 @Injectable()
@@ -13,7 +12,7 @@ export class BandServiceService {
   }
 
   // region Band calls
-  public createBand(bandToCreate: Event): Observable<Band> {
+  public createBand(bandToCreate: Band): Observable<Band> {
     return this.http.post<Band>(this.path + '/addBands', bandToCreate);
   }
 

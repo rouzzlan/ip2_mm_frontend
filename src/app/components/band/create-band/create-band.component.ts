@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Band} from '../../../model/band';
 import {User} from '../../../model/user';
 import {RestService} from '../../../services/rest.service/rest.service';
+import {NgForm} from '@angular/forms';
+import {BandServiceService} from '../../../services/band.service/band-service.service';
 
 @Component({
   selector: 'app-create-band',
@@ -10,20 +12,51 @@ import {RestService} from '../../../services/rest.service/rest.service';
 })
 export class CreateBandComponent implements OnInit {
   newBand: Band = new Band();
-  students: User[] = null;
+  allUsers: User[] = null;
+  bands: Band[] = null;
   index = 0;
-  chosenStudents: User[] = null;
+  indexS = 0;
+  indexT = 0;
+  students: User[] = null;
+  teachers: User[] = null;
   public addTrigger = false;
 
-  constructor(private restService: RestService) {
+  constructor(private restService: RestService, private bandService: BandServiceService) {
   }
 
   ngOnInit() {
     this.getStudents();
+    this.retrieveStudentsAndTeachers();
   }
 
+  // region REST calls
   public getStudents(): void {
-    this.restService.getStudents().subscribe(students => this.students = students);
+    this.restService.getStudents().subscribe(students => this.allUsers = students);
+  }
+
+  public createBand(bandForm: NgForm): void {
+    this.bandService.createBand(this.newBand)
+      .subscribe(createBand => {
+        bandForm.reset();
+        this.newBand = new Band();
+        this.bands.unshift(createBand);
+      });
+  }
+
+  // endregion
+
+  public retrieveStudentsAndTeachers(): void {
+    for (const user of this.allUsers) {
+      for (const role of user.roles) {
+        if (role === 'STUDENT') {
+          this.students[this.indexS] = user;
+          this.indexS++;
+        } else if (role === 'TEACHER') {
+          this.teachers[this.indexT] = user;
+          this.indexT++;
+        }
+      }
+    }
   }
 
   public addStudent(): void {
@@ -39,4 +72,7 @@ export class CreateBandComponent implements OnInit {
   public selectItem(event: Event): void {
   }
 
+  public setAddStudentFalse(): void {
+    this.addTrigger = false;
+  }
 }
