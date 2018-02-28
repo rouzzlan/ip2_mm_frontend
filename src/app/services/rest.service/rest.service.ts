@@ -5,6 +5,7 @@ import {User} from '../../model/user';
 import 'rxjs/add/operator/map';
 import {of} from 'rxjs/observable/of';
 import {Role} from '../../model/role';
+import {filter} from 'rxjs/operator/filter';
 
 
 @Injectable()
@@ -26,7 +27,6 @@ export class RestService {
   public getStudents(): Observable<User[]> {
     return this.http.get<User[]>(this.path + '/getusersJson');
   }
-
 
   public createUser(userToCreate: User): Observable<User> {
     return this.http.post<User>(this.path + '/adduser', userToCreate);

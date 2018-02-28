@@ -16,11 +16,15 @@ export class EventServiceComponent {
   }
 
   public getEvent(eventId: number): Observable<Event> {
-    return this.http.get<Event>(this.path + '/getEvents' + eventId);
+    return this.http.get<Event>(this.path + '/getEvents/' + eventId);
   }
 
   public getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(this.path + '/getEvents');
+  }
+
+  public getEventsOfUser(userId: number): Observable<Event[]> {
+    return this.http.get<Event[]>(this.path + '/getEvents/' + userId);
   }
 
   public editEvent(eventToUpdate: Event): Observable<Event> {

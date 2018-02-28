@@ -20,6 +20,7 @@ import {CreateeventComponent} from './components/agenda/create-event/createevent
 import {BandServiceService} from './services/band.service/band-service.service';
 import { EditEventComponent } from './components/agenda/edit-event/edit-event.component';
 import { DeleteEventComponent } from './components/agenda/delete-event/delete-event.component';
+import { GetEventComponent } from './components/agenda/get-events-User/get-events-user.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DeleteEventComponent } from './components/agenda/delete-event/delete-ev
     AlertComponent,
     CreateeventComponent,
     EditEventComponent,
-    DeleteEventComponent
+    DeleteEventComponent,
+    GetEventComponent
   ],
   imports: [
     BrowserModule,

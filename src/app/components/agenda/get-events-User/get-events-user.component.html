@@ -1,0 +1,14 @@
+<h1>Evenementen van {{user.username}}</h1>
+<table *ngFor="let event of eventsOfUser">
+  <tr>
+    <th>Datum</th>
+    <th>Naam</th>
+    <th>Plaats</th>
+  </tr>
+  <tr>
+    <th>{{event.date}}</th>
+    <th>{{event.name}}</th>
+    <th>{{event.place}}</th>
+  </tr>
+</table>
+
