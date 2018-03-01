@@ -6,7 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {UserListComponent} from './components/users/user-list/user-list.component';
 import {FormsModule} from '@angular/forms';
-import {RestService} from './services/rest.service/rest.service';
+import {UserService} from './services/user.service/user.service';
 import {LoginComponent} from './components/users/login/login.component';
 import {EditUserComponent} from './components/users/edit-user/edit-user.component';
 import {CreatePageComponent} from './components/users/create-page/create-page.component';
@@ -20,6 +20,8 @@ import {CreateeventComponent} from './components/agenda/create-event/createevent
 import {BandServiceService} from './services/band.service/band-service.service';
 import { EditEventComponent } from './components/agenda/edit-event/edit-event.component';
 import { DeleteEventComponent } from './components/agenda/delete-event/delete-event.component';
+import { CreateInstrumentComponent } from './components/Instrument/create-instrument/create-instrument.component';
+import {InstrumentService} from "./services/instrument.service/instrument.service";
 
 
 @NgModule({
@@ -33,14 +35,15 @@ import { DeleteEventComponent } from './components/agenda/delete-event/delete-ev
     AlertComponent,
     CreateeventComponent,
     EditEventComponent,
-    DeleteEventComponent
+    DeleteEventComponent,
+    CreateInstrumentComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule
   ],
-  providers: [RestService, AlertServiceComponent,
+  providers: [UserService, AlertServiceComponent, InstrumentService,
     AuthenticationServiceComponent,
     AuthGuardComponent, EventServiceComponent, BandServiceService],
   bootstrap: [AppComponent]

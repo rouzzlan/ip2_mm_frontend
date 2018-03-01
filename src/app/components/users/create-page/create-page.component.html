@@ -43,21 +43,13 @@
   <!--<label for="zipcode">postcode + gemeente: </label>-->
   <!--<input id="zipcode" type="text" name="zipcode">-->
   <!--<input id="city" type="text" name="city">-->
-  <!--<label for="country">land: </label>-->
-  <!--<input id="country" type="text" name="country">-->
   <label for="email">email</label>
   <input id="email" type="text" placeholder="email"
          required
          name="email" [(ngModel)]="newUser.email"
          #title="ngModel">
-  <!--<div *ngIf="isTeacher">-->
-  <!--<label for="instrument">Instrument(en): </label>-->
-  <!--<input id="instrument" type="text" name="instrument">-->
-  <!--<button type="button" value="+" (click)="add()">+</button>-->
-  <!--<button type="button" value="-" (click)="delete()">-</button>-->
-<!--</div>-->
   <div class="btnContainer">
     <button type="submit" value="Voltooi">Voltooi</button>
-    <button type="reset" value="Stop" (click)="setTeacherFalse()">Stop</button>
+    <button type="reset" value="Stop"">Stop</button>
   </div>
 </form>

@@ -22,20 +22,6 @@ input[type=text], input[type=password] {
   resize: vertical;
 }
 
-/*.checkboxContainer {*/
-/*width: 100%;*/
-/*}*/
-
-/*input[type=checkbox] {*/
-/*padding: 5px;*/
-
-/*}*/
-
-/*label {*/
-/*padding: 5px 5px 5px 0;*/
-/*display: inline-block;*/
-/*}*/
-
 .btnContainer {
   padding: 5px 5px 5px 0;
   text-align: center;
