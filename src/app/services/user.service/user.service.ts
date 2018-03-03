@@ -19,8 +19,12 @@ export class UserService {
     return this.http.get<User[]>(this.path + '/getusersJson');
   }
 
-  public getUser(userEmail: string): Observable<User> {
-    return this.http.get<User>(this.path + '/getusersJson/' + userEmail);
+//  public getUser(id: number): Observable<User> {
+//    return this.http.get<User>(this.path + '/user/'+id);
+//  }
+
+  public getUser(email: string): Observable<User> {
+    return this.http.get<User>(this.path + '/userByEmail/' + email);
   }
 
   public getStudents(): Observable<User[]> {
@@ -40,7 +44,7 @@ export class UserService {
 
   // region Role calls
   public getRoles(): Observable<Role[]> {
-    return this.http.get<Role[]>(this.path + '/getRoles');
+    return this.http.get<Role[]>(this.path + '/getroles');
   }
 
   // endregion

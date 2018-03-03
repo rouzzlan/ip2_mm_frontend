@@ -11,10 +11,10 @@ export class InstrumentService {
   constructor(private http: HttpClient) { }
 
   public createInstrument(newInstrument: Instrument): Observable<Instrument> {
-    return this.http.post<Instrument>(this.path + '/addInstrument', newInstrument);
+    return this.http.post<Instrument>(this.path + '/addinstrument', newInstrument);
   }
 
   public getInstruments(): Observable<Instrument[]> {
-      return this.http.get<Instrument[]>(this.path + '/getinstrumentsJson');
+      return this.http.get<Instrument[]>(this.path + '/getinstruments');
   }
 }

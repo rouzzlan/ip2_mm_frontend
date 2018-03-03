@@ -8,18 +8,23 @@ import {InstrumentService} from "../../../services/instrument.service/instrument
   templateUrl: './create-instrument.component.html',
   styleUrls: ['./create-instrument.component.css']
 })
+
 export class CreateInstrumentComponent implements OnInit {
   instruments: Instrument[] = [];
   newInstrument: Instrument = new Instrument();
+  sorts = ["SNAAR", "SLAG", "BLAAS"];
+  selectedValue = null;
 
-  constructor(private instrumentService: InstrumentService) { }
+  constructor(private instrumentService: InstrumentService) {
+  }
 
   ngOnInit() {
     // this.getInstruments();
   }
 
   // region REST calls
-  public createInstrument(instrumentForm: NgForm): void{
+  public createInstrument(instrumentForm: NgForm): void {
+    console.log(this.newInstrument.name, this.newInstrument.sort);
     this.instrumentService.createInstrument(this.newInstrument)
       .subscribe(createInstrument => {
         instrumentForm.reset();

@@ -22,6 +22,7 @@ import { EditEventComponent } from './components/agenda/edit-event/edit-event.co
 import { DeleteEventComponent } from './components/agenda/delete-event/delete-event.component';
 import { CreateInstrumentComponent } from './components/Instrument/create-instrument/create-instrument.component';
 import {InstrumentService} from "./services/instrument.service/instrument.service";
+import { UserProfileComponent } from './components/users/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {InstrumentService} from "./services/instrument.service/instrument.servic
     CreateeventComponent,
     EditEventComponent,
     DeleteEventComponent,
-    CreateInstrumentComponent
+    CreateInstrumentComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
