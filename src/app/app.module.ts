@@ -39,7 +39,7 @@ import { GetEventComponent } from './components/agenda/get-events-User/get-event
     EditEventComponent,
     DeleteEventComponent,
     CreateInstrumentComponent,
-    UserProfileComponent
+    UserProfileComponent,
     DeleteEventComponent,
     GetEventComponent
   ],

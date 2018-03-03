@@ -30,7 +30,7 @@ export class CreateBandComponent implements OnInit {
 
   // region REST calls
   public getUsers(): void {
-    this.restService.getUsers().subscribe(users => {
+    this.userService.getUsers().subscribe(users => {
       for (const user of users) {
         for (const role of user.roles) {
           if (role === 'ROLE_LEERLING') {
