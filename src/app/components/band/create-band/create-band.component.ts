@@ -33,13 +33,13 @@ export class CreateBandComponent implements OnInit {
 
   // region REST calls
   public getRoles(): void {
-    this.restService.getRoles().subscribe(roles => this.roles = roles);
+    this.userService.getRoles().subscribe(roles => this.roles = roles);
   }
 
   // TODO kijken waarom dees raar doet!
   public getUsers(): void {
     this.getRoles();
-    this.restService.getUsers().subscribe(users => {
+    this.userService.getUsers().subscribe(users => {
       for (const user of users) {
         const rStudent = this.roles.find(rl => rl.name === 'ROLE_LEERLING');
         const rTeacher = this.roles.find(rl => rl.name === 'ROLE_LESGEVER');

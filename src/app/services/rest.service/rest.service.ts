@@ -17,15 +17,15 @@ export class RestService {
 
   // region User calls
   public getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getusersJson');
+    return this.http.get<User[]>(this.path + '/getusers');
   }
 
   public getUser(userEmail: string): Observable<User> {
-    return this.http.get<User>(this.path + '/getusersJson/' + userEmail);
+    return this.http.get<User>(this.path + '/getusers/' + userEmail);
   }
 
   public getStudents(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getusersJson');
+    return this.http.get<User[]>(this.path + '/getusers');
   }
 
   public createUser(userToCreate: User): Observable<User> {

@@ -16,7 +16,7 @@ export class UserService {
 
   // region User calls
   public getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getusersJson');
+    return this.http.get<User[]>(this.path + '/getusers');
   }
 
 //  public getUser(id: number): Observable<User> {
@@ -28,9 +28,8 @@ export class UserService {
   }
 
   public getStudents(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getusersJson');
+    return this.http.get<User[]>(this.path + '/getusers');
   }
-
 
   public createUser(userToCreate: User): Observable<User> {
     return this.http.post<User>(this.path + '/adduser', userToCreate);

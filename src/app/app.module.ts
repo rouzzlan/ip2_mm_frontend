@@ -29,7 +29,7 @@ import {RouterModule, Routes} from '@angular/router';
 const appRoutes: Routes = [
   {path: 'users', component: UserListComponent},
   // {path: 'users/:email', component: UserDetailsComponent},
-  // {path: 'instruments', component: InstrumentListComponent},
+   {path: 'instruments', component: CreateInstrumentComponent},
   // {path: 'instrument', component: InstrumentDetailsComponent},
   // {path: 'bands', component: BandListComponent},
   // {path: 'bands/:id', component: BandDetailsComponent},
