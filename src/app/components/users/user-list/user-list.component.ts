@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../../model/user';
-import {RestService} from '../../../services/rest.service/rest.service';
+import {UserService} from '../../../services/user.service/user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -10,7 +10,7 @@ import {RestService} from '../../../services/rest.service/rest.service';
 export class UserListComponent implements OnInit {
   users: User[] = null;
 
-  constructor(private restService: RestService) {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -18,6 +18,6 @@ export class UserListComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.restService.getUsers().subscribe(users => this.users = users);
+    this.userService.getUsers().subscribe(users => this.users = users);
   }
 }

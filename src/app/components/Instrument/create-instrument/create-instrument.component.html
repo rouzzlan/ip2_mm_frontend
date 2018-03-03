@@ -1,0 +1,28 @@
+<h1>Maak instrument aan</h1>
+<form id="createInstrumentForm" #createInstrumentForm="ngForm" (ngSubmit)="createInstrument(createInstrumentForm)">
+  <label for="instrumentName">Naam</label>
+  <input id="instrumentName" type="text" placeholder="name"
+         required
+         name="instrumentName" [(ngModel)]="newInstrument.name"
+         #title="ngModel">
+  <label for="instrumentSort">Soort </label>
+  <select id="instrumentSort" name="instrumentSort" [(ngModel)]="newInstrument.sort">
+    <option  *ngFor="let sort of sorts" [value]="sort">{{sort}}</option>
+  </select>
+
+  <!--<input id="instrumentSort" type="text"
+         name="instrumentSort" [(ngModel)]="newInstrument.sort"
+         #title="ngModel">-->
+  <label for="instrumentType">Type </label>
+  <input id="instrumentType" type="text"
+         name="instrumentType" [(ngModel)]="newInstrument.type"
+         #title="ngModel">
+  <label for="instrumentVersion">Uitvoering </label>
+  <input id="instrumentVersion" type="text"
+         name="instrumentVersion" [(ngModel)]="newInstrument.version"
+         #title="ngModel">
+  <div class="btnContainer">
+    <button id="submitBtn" type="submit" value="Aanmaken">Aanmaken</button>
+    <button id="cancelBtn" type="reset" value="Cancel">Cancel</button>
+  </div>
+</form>

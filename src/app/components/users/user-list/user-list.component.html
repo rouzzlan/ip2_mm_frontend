@@ -1,6 +1,3 @@
-<!--<app-login>-->
-<!--</app-login>-->
-
 <h1 class="page-title">Exisitng users</h1>
 <ul class="user-list">
   <li *ngFor="let user of users">
@@ -8,26 +5,6 @@
         <span class="user-title">
               {{user.username}}
             </span>
-      <!--<span class="user-actions">-->
-      <!--<a (click)="editUser(user)">-->
-      <!--<i class="material-icons edit">edit</i>-->
-      <!--</a>-->
-      <!--<a (click)="deleteUser(user.id)">-->
-      <!--<i class="material-icons delete">clear</i>-->
-      <!--</a>-->
-      <!--</span>-->
-    </div>
-    <!--<div class="user-edit" *ngIf="editing && editingUser.id === user.id">-->
-    <!--<input class="form-control" type="text"-->
-    <!--[(ngModel)]="editingUser.title" required>-->
-    <!--<span class="edit-actions">-->
-    <!--<a (click)="updateUser(editingUser)">-->
-    <!--<i class="material-icons">done</i>-->
-    <!--</a>-->
-    <!--<a (click)="clearEditing()">-->
-    <!--<i class="material-icons">clear</i>-->
-    <!--</a>-->
-    <!--</span>-->
-    <!--</div>-->
-  </li>
+          </div>
+      </li>
 </ul>

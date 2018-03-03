@@ -6,7 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {UserListComponent} from './components/users/user-list/user-list.component';
 import {FormsModule} from '@angular/forms';
-import {RestService} from './services/rest.service/rest.service';
+import {UserService} from './services/user.service/user.service';
 import {LoginComponent} from './components/users/login/login.component';
 import {EditUserComponent} from './components/users/edit-user/edit-user.component';
 import {CreatePageComponent} from './components/users/create-page/create-page.component';
@@ -18,9 +18,12 @@ import {AuthGuardComponent} from './services/authentication.service/auth-guard.c
 import {EventServiceComponent} from './services/event.service/event-service.component';
 import {CreateeventComponent} from './components/agenda/create-event/createevent.component';
 import {BandServiceService} from './services/band.service/band-service.service';
-import {EditEventComponent} from './components/agenda/edit-event/edit-event.component';
-import {DeleteEventComponent} from './components/agenda/delete-event/delete-event.component';
-import {GetEventComponent} from './components/agenda/get-events-User/get-events-user.component';
+import { EditEventComponent } from './components/agenda/edit-event/edit-event.component';
+import { DeleteEventComponent } from './components/agenda/delete-event/delete-event.component';
+import { CreateInstrumentComponent } from './components/Instrument/create-instrument/create-instrument.component';
+import {InstrumentService} from "./services/instrument.service/instrument.service";
+import { UserProfileComponent } from './components/users/user-profile/user-profile.component';
+import { GetEventComponent } from './components/agenda/get-events-User/get-events-user.component';
 import {RouterModule, Routes} from '@angular/router';
 
 const appRoutes: Routes = [
@@ -50,6 +53,9 @@ const appRoutes: Routes = [
     CreateeventComponent,
     EditEventComponent,
     DeleteEventComponent,
+    CreateInstrumentComponent,
+    UserProfileComponent,
+    DeleteEventComponent,
     GetEventComponent
   ],
   imports: [
@@ -61,7 +67,7 @@ const appRoutes: Routes = [
       { enableTracing: true} // <-- debugging purposes only
     )
   ],
-  providers: [RestService, AlertServiceComponent,
+  providers: [UserService, AlertServiceComponent, InstrumentService,
     AuthenticationServiceComponent,
     AuthGuardComponent, EventServiceComponent, BandServiceService],
   bootstrap: [AppComponent]
