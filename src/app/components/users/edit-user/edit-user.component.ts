@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../../model/user';
-import {RestService} from '../../../services/rest.service/rest.service';
+import {UserService} from '../../../services/user.service/user.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -11,13 +11,13 @@ export class EditUserComponent implements OnInit {
 
   @Input() public user: User;
 
-  constructor(private restService: RestService ) {
+  constructor(private userService: UserService ) {
   }
 
   ngOnInit() {
   }
 
   editUser(userToEdit: User): void {
-    this.restService.editUser(userToEdit);
+    this.userService.editUser(userToEdit);
   }
 }

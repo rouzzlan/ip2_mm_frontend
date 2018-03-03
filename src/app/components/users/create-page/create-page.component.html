@@ -1,4 +1,4 @@
-<h1>Voeg nieuwe gebruiker toe/pas gebruiker aan</h1>
+<h1>Voeg nieuwe gebruiker toe</h1>
 <form id="createForm" #userForm="ngForm" (ngSubmit)="createUser(userForm)" >
   <!--<div class="checkboxContainer">-->
   <!--<input id="admin" type="checkbox" name="roles[]" value="beheerder" (click)="toggleAdmin()">-->
@@ -43,21 +43,13 @@
   <!--<label for="zipcode">postcode + gemeente: </label>-->
   <!--<input id="zipcode" type="text" name="zipcode">-->
   <!--<input id="city" type="text" name="city">-->
-  <!--<label for="country">land: </label>-->
-  <!--<input id="country" type="text" name="country">-->
   <label for="email">email</label>
   <input id="email" type="text" placeholder="email"
          required
          name="email" [(ngModel)]="newUser.email"
          #title="ngModel">
-  <!--<div *ngIf="isTeacher">-->
-  <!--<label for="instrument">Instrument(en): </label>-->
-  <!--<input id="instrument" type="text" name="instrument">-->
-  <!--<button type="button" value="+" (click)="add()">+</button>-->
-  <!--<button type="button" value="-" (click)="delete()">-</button>-->
-<!--</div>-->
   <div class="btnContainer">
     <button type="submit" value="Voltooi">Voltooi</button>
-    <button type="reset" value="Stop" (click)="setTeacherFalse()">Stop</button>
+    <button type="reset" value="Stop">Stop</button>
   </div>
 </form>
