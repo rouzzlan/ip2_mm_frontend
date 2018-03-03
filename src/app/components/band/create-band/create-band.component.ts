@@ -12,26 +12,37 @@ import {BandServiceService} from '../../../services/band.service/band-service.se
 })
 export class CreateBandComponent implements OnInit {
   newBand: Band = new Band();
-  allUsers: User[] = null;
   bands: Band[] = null;
   index = 0;
   indexS = 0;
   indexT = 0;
-  students: User[] = null;
-  teachers: User[] = null;
+  students: User[] = [];
+  teachers: User[] = [];
   public addTrigger = false;
 
   constructor(private userService: UserService, private bandService: BandServiceService) {
   }
 
   ngOnInit() {
-    this.getStudents();
-    this.retrieveStudentsAndTeachers();
+    this.getUsers();
+    this.newBand.students = [];
   }
 
   // region REST calls
-  public getStudents(): void {
-    this.userService.getStudents().subscribe(students => this.allUsers = students);
+  public getUsers(): void {
+    this.userService.getUsers().subscribe(users => {
+      for (const user of users) {
+        for (const role of user.roles) {
+          if (role === 'ROLE_LEERLING') {
+            this.students[this.indexS] = user;
+            this.indexS++;
+          } else if (role === 'ROLE_LESGEVER') {
+            this.teachers[this.indexT] = user;
+            this.indexT++;
+          }
+        }
+      }
+    });
   }
 
   public createBand(bandForm: NgForm): void {
@@ -45,19 +56,6 @@ export class CreateBandComponent implements OnInit {
 
   // endregion
 
-  public retrieveStudentsAndTeachers(): void {
-    for (const user of this.allUsers) {
-      for (const role of user.roles) {
-        if (role === 'STUDENT') {
-          this.students[this.indexS] = user;
-          this.indexS++;
-        } else if (role === 'TEACHER') {
-          this.teachers[this.indexT] = user;
-          this.indexT++;
-        }
-      }
-    }
-  }
 
   public addStudent(): void {
     this.addTrigger = true;
@@ -67,9 +65,6 @@ export class CreateBandComponent implements OnInit {
     this.newBand.students[this.index] = student;
     this.index++;
     this.addTrigger = false;
-  }
-
-  public selectItem(event: Event): void {
   }
 
   public setAddStudentFalse(): void {
