@@ -13,7 +13,7 @@ export class BandServiceService {
 
   // region Band calls
   public createBand(bandToCreate: Band): Observable<Band> {
-    return this.http.post<Band>(this.path + '/addBands', bandToCreate);
+    return this.http.post<Band>(this.path + '/addBand', bandToCreate);
   }
 
   public getBand(bandId: number): Observable<Band> {

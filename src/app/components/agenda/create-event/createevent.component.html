@@ -3,21 +3,26 @@
   <label for="eventName">Naam: </label>
   <input id="eventName" type="text" placeholder="name"
          required
-         name="eventName" [(ngModel)]="newEvent.name"
+         name="name" [(ngModel)]="newEvent.name"
          #title="ngModel">
-  <label for="eventDate">Tijd: </label>
+  <label for="eventPlace">Plaats: </label>
+  <input id="eventPlace" type="text" placeholder="plaats"
+         required
+         name="place" [(ngModel)]="newEvent.place"
+         #title="ngModel">
+  <label for="eventDate">Datum: </label>
   <input id="eventDate" type="date"
          required
-         name="eventDate" [(ngModel)]="newEvent.date"
+         name="date" [(ngModel)]="newEvent.date"
          #title="ngModel">
   <label for="eventTime">Tijd: </label>
   <input id="eventTime" type="time"
          required
-         name="eventTime" [(ngModel)]="newEvent.time"
+         name="time" [(ngModel)]="newEvent.time"
          #title="ngModel">
   <label for="eventBand">Band: </label>
-  <select id="eventBand" type="text" [ngModel]="bands" (ngModelChange)="selectItem($event)">
-    <option *ngFor="let band of bands" [value]="band.name">{{band.name}}</option>
+  <select id="eventBand" type="text" name="band" [ngModel]="bands" *ngFor="let band of bands">
+    <option [value]="band.name">{{band.name}}</option>
   </select>
   <div class="btnContainer">
     <button id="submitBtn" type="submit" value="Aanmaken">Aanmaken</button>

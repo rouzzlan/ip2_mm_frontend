@@ -4,6 +4,7 @@ import {User} from '../../../model/user';
 import {RestService} from '../../../services/rest.service/rest.service';
 import {NgForm} from '@angular/forms';
 import {BandServiceService} from '../../../services/band.service/band-service.service';
+import {Role} from '../../../model/role';
 
 @Component({
   selector: 'app-create-band',
@@ -12,7 +13,8 @@ import {BandServiceService} from '../../../services/band.service/band-service.se
 })
 export class CreateBandComponent implements OnInit {
   newBand: Band = new Band();
-  bands: Band[] = null;
+  bands: Band[] = [];
+  roles: Role[] = [];
   index = 0;
   indexS = 0;
   indexT = 0;
@@ -24,28 +26,37 @@ export class CreateBandComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.getRoles();
     this.getUsers();
     this.newBand.students = [];
   }
 
   // region REST calls
+  public getRoles(): void {
+    this.restService.getRoles().subscribe(roles => this.roles = roles);
+  }
+
+  // TODO kijken waarom dees raar doet!
   public getUsers(): void {
+    this.getRoles();
     this.restService.getUsers().subscribe(users => {
       for (const user of users) {
-        for (const role of user.roles) {
-          if (role === 'ROLE_LEERLING') {
-            this.students[this.indexS] = user;
-            this.indexS++;
-          } else if (role === 'ROLE_LESGEVER') {
-            this.teachers[this.indexT] = user;
-            this.indexT++;
-          }
+        const rStudent = this.roles.find(rl => rl.name === 'ROLE_LEERLING');
+        const rTeacher = this.roles.find(rl => rl.name === 'ROLE_LESGEVER');
+        if (!user.roles.find(rl => rl === rStudent.name)) {
+          this.students[this.indexS] = user;
+          this.indexS++;
+        }
+        if (!user.roles.find(rl => rl === rTeacher.name)) {
+          this.teachers[this.indexT] = user;
+          this.indexT++;
         }
       }
     });
   }
 
   public createBand(bandForm: NgForm): void {
+    console.log(this.newBand.name + ' hry');
     this.bandService.createBand(this.newBand)
       .subscribe(createBand => {
         bandForm.reset();
@@ -61,9 +72,21 @@ export class CreateBandComponent implements OnInit {
     this.addTrigger = true;
   }
 
-  public addingStudent(student: User): void {
-    this.newBand.students[this.index] = student;
-    this.index++;
+  public addingStudent(studentUsername: String): void {
+    console.log('hey');
+    const student = this.students.find(s => s.username === studentUsername);
+    if (!this.newBand.students.find(s => s === student.username)) {
+      this.newBand.students.push(student.username);
+    }
+
+    console.log(studentUsername + ' ' + this.newBand.students);
+    // this.newBand.students[this.index] = student;
+    // this.index++;
+    // this.addTrigger = false;
+  }
+
+  // TODO beter uitwerken
+  public placeStudentInTextArea(): void {
     this.addTrigger = false;
   }
 

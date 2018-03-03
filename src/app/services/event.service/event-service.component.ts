@@ -12,7 +12,7 @@ export class EventServiceComponent {
 
   // region Event calls
   public createEvent(eventToCreate: Event): Observable<Event> {
-    return this.http.post<Event>(this.path + '/addEvents', eventToCreate);
+    return this.http.post<Event>(this.path + '/addEvent', eventToCreate);
   }
 
   public getEvent(eventId: number): Observable<Event> {

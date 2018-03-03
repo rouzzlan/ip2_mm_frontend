@@ -1,8 +1,16 @@
 <!--<app-create-page></app-create-page>-->
 <!--<app-login></app-login>-->
-<app-create-band></app-create-band>
+<!--<app-create-band></app-create-band>-->
 <!--<app-create-event></app-create-event>-->
 <!--<app-user-list></app-user-list>-->
+<nav>
+  <a routerLink="/users" routerLinkActive="active">Gebruikers</a>
+  <a routerLink="/instruments" routerLinkActive="active">Instrumenten</a>
+  <a routerLink="/events" routerLinkActive="active">Evenement</a>
+  <a routerLink="/band" routerLinkActive="active">Bands</a>
+</nav>
+<!-- Routed views go here -->
+<router-outlet></router-outlet>
 
 <footer>FAQ CONTACT KdG 2018</footer>
 

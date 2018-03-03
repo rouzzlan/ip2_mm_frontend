@@ -3,7 +3,7 @@ import {User} from './user';
 export class Band {
   id: number;
   name: String;
-  teacher: User[];
-  students: User[];
+  teacher: String;
+  students: String[];
   nameStudent: String;
 }

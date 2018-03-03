@@ -6,7 +6,7 @@
          name="newBand.name" [(ngModel)]="newBand.name"
          #title="ngModel">
   <label for="bandTeacher">Lesgever: </label>
-  <select id="bandTeacher" type="text" [ngModel]="teachers">
+  <select id="bandTeacher" name="teacher" type="text" [ngModel]="newBand.teacher">
     <option *ngFor="let teacher of teachers" [value]="teacher.username">{{teacher.username}}</option>
   </select>
   <label for="bandStudents">Leerlingen: </label>
@@ -19,10 +19,10 @@
   <button id="verwijderStudentBtn" type="reset" value="Verwijder">Verwijder</button>
   <div id="nameStudent" *ngIf="addTrigger">
     <label for="studentName">Naam leerling: </label>
-    <select id="studentName" type="text" [ngModel]="students">
-      <option *ngFor="let student of students" [value]="student.username">{{student.username}}</option>
+    <select id="studentName" name="students" type="text" [ngModel]="newBand.students">
+      <option *ngFor="let student of students" [value]="student.username" (change)="addingStudent($event.target.value)">{{student.username}}</option>
     </select>
-    <button id="okBtn" type="button" value="OK" (click)="addingStudent()">OK</button>
+    <button id="okBtn" type="button" value="OK" (click)="placeStudentInTextArea()">OK</button>
   </div>
   <div class="btnContainer">
     <button id="submitBtn" type="submit" value="Verstuur">Verstuur</button>

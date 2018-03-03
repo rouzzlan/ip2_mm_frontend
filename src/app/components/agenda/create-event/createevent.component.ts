@@ -13,8 +13,8 @@ import {BandServiceService} from '../../../services/band.service/band-service.se
 export class CreateeventComponent implements OnInit {
 
   newEvent: Event = new Event();
-  events: Event[] = null;
-  bands: Band[] = null;
+  events: Event[] = [];
+  bands: Band[] = [];
 
   constructor(private eventService: EventServiceComponent, private bandService: BandServiceService) {
   }
@@ -26,6 +26,7 @@ export class CreateeventComponent implements OnInit {
   // region REST Calls
 
   public createEvent(eventForm: NgForm): void {
+    console.log(this.newEvent);
     this.eventService.createEvent(this.newEvent)
       .subscribe(createEvent => {
         eventForm.reset();
@@ -40,7 +41,4 @@ export class CreateeventComponent implements OnInit {
 
   // endregion
 
-  public selectItem(event: Event): void {
-
-  }
 }
