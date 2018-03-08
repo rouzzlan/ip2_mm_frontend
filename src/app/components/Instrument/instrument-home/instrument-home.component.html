@@ -1,0 +1,14 @@
+<div class="col-lg-8 col-md-8 col-sm-8">
+  <app-create-instrument (created)="onCreated($event)" *ngIf="create"></app-create-instrument>
+  <app-details-instrument [instrument]="selectedInstrument" *ngIf="detail"></app-details-instrument>
+  <app-edit-instrumentent (edited)="onEdited()" [instrument]="selectedInstrument" *ngIf="edit"></app-edit-instrumentent>
+  <app-delete-instrument (deleted)="onDelete()" [instrument]="selectedInstrument" *ngIf="delete"></app-delete-instrument>
+</div>
+<aside class="col-lg-4 col-md-4 col-sm-4">
+<header class="col-sm-6">Instrumenten</header><button class="col-sm-6" (click)="loadCreate()">addInstrument</button>
+  <ul>
+    <li *ngFor="let instrument of instruments">
+      <a (click)="loadDetail(instrument)">{{instrument.name}}</a> <a (click)="loadEdit(instrument)">edit</a> <a (click)="loadDelete(instrument)">delete</a>
+    </li>
+  </ul>
+</aside>

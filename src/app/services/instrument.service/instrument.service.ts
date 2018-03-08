@@ -17,4 +17,13 @@ export class InstrumentService {
   public getInstruments(): Observable<Instrument[]> {
       return this.http.get<Instrument[]>(this.path + '/getinstruments');
   }
+
+  public editInstrument(instrument: Instrument) {
+    return this.http.put(this.path+ '/editinstrument/'+instrument.id, instrument);
+  }
+
+  public deleteInstrument(instrument: Instrument) {
+    return this.http.delete(this.path+ '/deleteinstrument/'+instrument.id);
+
+  }
 }

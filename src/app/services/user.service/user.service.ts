@@ -28,7 +28,7 @@ export class UserService {
   }
 
   public getStudents(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getusers');
+    return this.http.get<User[]>(this.path + '/getstudents');
   }
 
   public createUser(userToCreate: User): Observable<User> {
@@ -53,5 +53,9 @@ export class UserService {
       console.error(error);
       return of(result as T);
     };
+  }
+
+  getTeachers() {
+    return this.http.get<User[]>(this.path + '/getteachers')
   }
 }

@@ -38,21 +38,8 @@ export class CreateBandComponent implements OnInit {
 
   // TODO kijken waarom dees raar doet!
   public getUsers(): void {
-    this.getRoles();
-    this.userService.getUsers().subscribe(users => {
-      for (const user of users) {
-        const rStudent = this.roles.find(rl => rl.name === 'ROLE_LEERLING');
-        const rTeacher = this.roles.find(rl => rl.name === 'ROLE_LESGEVER');
-        if (!user.roles.find(rl => rl === rStudent.name)) {
-          this.students[this.indexS] = user;
-          this.indexS++;
-        }
-        if (!user.roles.find(rl => rl === rTeacher.name)) {
-          this.teachers[this.indexT] = user;
-          this.indexT++;
-        }
-      }
-    });
+    this.userService.getStudents().subscribe(students => this.students = students);
+    this.userService.getTeachers().subscribe(teachers => this.teachers = teachers);
   }
 
   public createBand(bandForm: NgForm): void {

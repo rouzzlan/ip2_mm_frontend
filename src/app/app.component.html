@@ -1,14 +1,23 @@
-<!--<app-create-page></app-create-page>-->
-<!--<app-login></app-login>-->
-<!--<app-create-band></app-create-band>-->
-<!--<app-create-event></app-create-event>-->
-<!--<app-user-list></app-user-list>-->
-<nav>
-  <a routerLink="/users" routerLinkActive="active">Gebruikers</a>
-  <a routerLink="/instruments" routerLinkActive="active">Instrumenten</a>
-  <a routerLink="/events" routerLinkActive="active">Evenement</a>
-  <a routerLink="/band" routerLinkActive="active">Bands</a>
+<!-- navigation -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active"><a routerLink="/users" >Gebruikers</a></li>
+      <li routerLinkActive="active"><a routerLink="/instruments" >instrument</a></li>
+      <li routerLinkActive="active"><a routerLink="/events" >events</a></li>
+      <li routerLinkActive="active"><a routerLink="/band" >Band</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <p class="navbar-text" *ngIf="isAdminUser">You are a Beheerder!</p>
+      <p class="navbar-text" *ngIf="isUser">You are a user!</p>
+      <li>
+        <button class="btn navbar-btn" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
 </nav>
+
 <!-- Routed views go here -->
 <router-outlet></router-outlet>
 

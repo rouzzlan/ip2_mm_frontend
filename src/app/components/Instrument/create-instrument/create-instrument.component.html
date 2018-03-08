@@ -1,28 +1,46 @@
-<h1>Maak instrument aan</h1>
+<h1>Maak een instrument aan</h1>
 <form id="createInstrumentForm" #createInstrumentForm="ngForm" (ngSubmit)="createInstrument(createInstrumentForm)">
   <label for="instrumentName">Naam</label>
   <input id="instrumentName" type="text" placeholder="name"
          required
          name="instrumentName" [(ngModel)]="newInstrument.name"
-         #title="ngModel">
+         #title="ngModel"
+         #name="ngModel"
+  >
+  <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+    Name is required
+  </div>
   <label for="instrumentSort">Soort </label>
-  <select id="instrumentSort" name="instrumentSort" [(ngModel)]="newInstrument.sort">
-    <option  *ngFor="let sort of sorts" [value]="sort">{{sort}}</option>
+  <select id="instrumentSort" name="instrumentSort" [(ngModel)]="newInstrument.sort" required #sort="ngModel">
+    <option *ngFor="let sort of sorts" [value]="sort">{{sort}}</option>
   </select>
-
-  <!--<input id="instrumentSort" type="text"
-         name="instrumentSort" [(ngModel)]="newInstrument.sort"
-         #title="ngModel">-->
+  <div [hidden]="sort.valid || sort.pristine" class="alert alert-danger">
+    Soort is required
+  </div>
   <label for="instrumentType">Type </label>
   <input id="instrumentType" type="text"
          name="instrumentType" [(ngModel)]="newInstrument.type"
-         #title="ngModel">
+         #title="ngModel"
+         #type="ngModel"
+         [required]="sort.value==='SNAAR' || sort.value==='SLAG' ? true : null"
+  >
+  <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+    type is required
+  </div>
   <label for="instrumentVersion">Uitvoering </label>
   <input id="instrumentVersion" type="text"
          name="instrumentVersion" [(ngModel)]="newInstrument.version"
-         #title="ngModel">
+         #title="ngModel"
+         #version="ngModel"
+         [required]="sort.value==='SNAAR' ? true : null"
+  >
+  <!--pristing tells when field is empty-->
+  <div [hidden]="version.valid || version.pristine" class="alert alert-danger">
+    type is required
+  </div>
   <div class="btnContainer">
-    <button id="submitBtn" type="submit" value="Aanmaken">Aanmaken</button>
+    <button id="submitBtn" type="submit" value="Aanmaken" [disabled]="!createInstrumentForm.form.valid">Aanmaken
+    </button>
     <button id="cancelBtn" type="reset" value="Cancel">Cancel</button>
   </div>
 </form>
