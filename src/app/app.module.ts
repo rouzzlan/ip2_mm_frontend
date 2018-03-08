@@ -25,11 +25,15 @@ import {InstrumentService} from "./services/instrument.service/instrument.servic
 import { UserProfileComponent } from './components/users/user-profile/user-profile.component';
 import { GetEventComponent } from './components/agenda/get-events-User/get-events-user.component';
 import {RouterModule, Routes} from '@angular/router';
+import { InstrumentHomeComponent } from './components/Instrument/instrument-home/instrument-home.component';
+import { DetailsInstrumentComponent } from './components/Instrument/details-instrument/details-instrument.component';
+import { EditInstrumententComponent } from './components/Instrument/edit-instrumentent/edit-instrumentent.component';
+import { DeleteInstrumentComponent } from './components/Instrument/delete-instrument/delete-instrument.component';
 
 const appRoutes: Routes = [
   {path: 'users', component: UserListComponent},
   // {path: 'users/:email', component: UserDetailsComponent},
-   {path: 'instruments', component: CreateInstrumentComponent},
+   {path: 'instruments', component: InstrumentHomeComponent},
   // {path: 'instrument', component: InstrumentDetailsComponent},
   // {path: 'bands', component: BandListComponent},
   // {path: 'bands/:id', component: BandDetailsComponent},
@@ -56,7 +60,11 @@ const appRoutes: Routes = [
     CreateInstrumentComponent,
     UserProfileComponent,
     DeleteEventComponent,
-    GetEventComponent
+    GetEventComponent,
+    InstrumentHomeComponent,
+    DetailsInstrumentComponent,
+    EditInstrumententComponent,
+    DeleteInstrumentComponent
   ],
   imports: [
     BrowserModule,

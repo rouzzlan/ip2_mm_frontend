@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Instrument} from "../../../model/instrument";
 import {NgForm} from "@angular/forms";
 import {InstrumentService} from "../../../services/instrument.service/instrument.service";
@@ -14,28 +14,23 @@ export class CreateInstrumentComponent implements OnInit {
   newInstrument: Instrument = new Instrument();
   sorts = ["SNAAR", "SLAG", "BLAAS"];
   selectedValue = null;
+  @Output() created = new EventEmitter<Instrument>();
 
   constructor(private instrumentService: InstrumentService) {
   }
 
   ngOnInit() {
-    // this.getInstruments();
   }
 
   // region REST calls
   public createInstrument(instrumentForm: NgForm): void {
-    console.log(this.newInstrument.name, this.newInstrument.sort);
     this.instrumentService.createInstrument(this.newInstrument)
       .subscribe(createInstrument => {
         instrumentForm.reset();
         this.newInstrument = new Instrument();
         this.instruments.unshift(createInstrument);
       });
+    this.created.emit(this.newInstrument);
   }
-
-  getInstruments(): void {
-    this.instrumentService.getInstruments().subscribe(instruments => this.instruments = instruments);
-  }
-
   // endregion
 }

@@ -1,0 +1,11 @@
+<div>
+  Naam {{instrument.name}}
+  Soort {{instrument.sort}}
+  Versie {{instrument.version}}
+  Type {{instrument.type}}
+</div>
+<div class="btnContainer">
+  <button id="submitBtn" type="submit" value="Aanmaken" (click)="deleteInstrument()" routerLink="/instruments">Verwijderen
+  </button>
+  <button id="cancelBtn" type="reset" value="Cancel">Cancel</button>
+</div>
