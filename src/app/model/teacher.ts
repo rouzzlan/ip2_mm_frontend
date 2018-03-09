@@ -1,5 +1,3 @@
-// Mag normaal weg
-
 import {Instrument} from './instrument';
 
 export class Teacher {
@@ -15,5 +13,5 @@ export class Teacher {
   country: String;
   email: String;
   password: String;
-  insturments: Instrument[];
+  instruments: Instrument[];
 }

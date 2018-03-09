@@ -1,5 +1,3 @@
-import {User} from './user';
-
 export class Band {
   id: number;
   name: String;

@@ -1,24 +1,36 @@
-import {Component, OnInit} from '@angular/core';
-import {User} from './model/user';
-import {UserService} from "./services/user.service/user.service";
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
+
+import {UserService} from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+  title = 'Music Makers';
 
-  public user: User;
+  constructor(private router: Router, private userService: UserService, private cdRef:ChangeDetectorRef) {
 
-  constructor(private userService: UserService) {
   }
 
-  ngOnInit() {
-    this.getUser('user@user\.com');
+  ngAfterViewChecked() {
+    // Avoid the error: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
+    this.cdRef.detectChanges();
   }
 
-  private getUser(email: string): void {
-    this.userService.getUser(email).subscribe(user => this.user = user);
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/']);
+  }
+
+  get isAdminUser() {
+    return this.userService.isBeheerderUser();
+  }
+
+  get isUser() {
+    return this.userService.isUser();
   }
 }

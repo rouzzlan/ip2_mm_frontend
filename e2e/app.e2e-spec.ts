@@ -1,14 +1,14 @@
-import { AppPage } from './app.po';
+import { AngularSpringbootJwtPage } from './app.po';
 
-describe('resttest App', () => {
-  let page: AppPage;
+describe('angular-springboot-jwt App', () => {
+  let page: AngularSpringbootJwtPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new AngularSpringbootJwtPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });

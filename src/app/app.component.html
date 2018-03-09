@@ -1,7 +1,14 @@
-<!-- navigation -->
+<h1>
+  {{title}}
+</h1>
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
+      <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+      <li routerLinkActive="active"><a routerLink="/user">User</a></li>
+      <li routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
+      <li routerLinkActive="active"><a routerLink="/register">Register</a></li>
       <li routerLinkActive="active"><a routerLink="/users" >Gebruikers</a></li>
       <li routerLinkActive="active"><a routerLink="/instruments" >instrument</a></li>
       <li routerLinkActive="active"><a routerLink="/events" >events</a></li>
@@ -11,15 +18,11 @@
     <ul class="nav navbar-nav navbar-right">
       <p class="navbar-text" *ngIf="isAdminUser">You are a Beheerder!</p>
       <p class="navbar-text" *ngIf="isUser">You are a user!</p>
-      <li>
-        <button class="btn navbar-btn" (click)="logout()">Logout</button>
-      </li>
+      <li><button class="btn navbar-btn" (click)="logout()">Logout</button></li>
     </ul>
   </div>
 </nav>
 
-<!-- Routed views go here -->
-<router-outlet></router-outlet>
-
-<footer>FAQ CONTACT KdG 2018</footer>
-
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
