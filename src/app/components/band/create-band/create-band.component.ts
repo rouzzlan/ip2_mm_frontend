@@ -56,7 +56,6 @@ export class CreateBandComponent implements OnInit {
   }
 
   public createBand(bandForm: NgForm): void {
-    console.log(this.newBand.name + ' hry');
     this.bandService.createBand(this.newBand)
       .subscribe(createBand => {
         bandForm.reset();
@@ -72,8 +71,8 @@ export class CreateBandComponent implements OnInit {
     this.addTrigger = true;
   }
 
+  // TODO beter uitwerken
   public addingStudent(studentUsername: String): void {
-    console.log('hey');
     const student = this.students.find(s => s.username === studentUsername);
     if (!this.newBand.students.find(s => s === student.username)) {
       this.newBand.students.push(student.username);
@@ -85,7 +84,7 @@ export class CreateBandComponent implements OnInit {
     // this.addTrigger = false;
   }
 
-  // TODO beter uitwerken
+// TODO beter uitwerken
   public placeStudentInTextArea(): void {
     this.addTrigger = false;
   }

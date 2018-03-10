@@ -1,0 +1,15 @@
+<h1>Alle geplande evenementen</h1>
+<table id="eventTable">
+  <tr>
+    <th>Naam</th>
+    <th>Datum</th>
+    <th>Plaats</th>
+    <th>Band</th>
+  </tr>
+  <tr *ngFor="let event of events">
+    <td>{{event.name}}</td>
+    <td>{{event.date}}</td>
+    <td>{{event.place}}</td>
+    <td>{{event.band}}</td>
+  </tr>
+</table>

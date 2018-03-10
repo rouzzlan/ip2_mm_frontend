@@ -11,18 +11,13 @@
          name="place" [(ngModel)]="newEvent.place"
          #title="ngModel">
   <label for="eventDate">Datum: </label>
-  <input id="eventDate" type="date"
+  <input id="eventDate" type="datetime-local"
          required
-         name="date" [(ngModel)]="newEvent.date"
-         #title="ngModel">
-  <label for="eventTime">Tijd: </label>
-  <input id="eventTime" type="time"
-         required
-         name="time" [(ngModel)]="newEvent.time"
+         name="date" [(ngModel)]="newEvent.dateTime"
          #title="ngModel">
   <label for="eventBand">Band: </label>
-  <select id="eventBand" type="text" name="band" [ngModel]="bands" *ngFor="let band of bands">
-    <option [value]="band.name">{{band.name}}</option>
+  <select id="eventBand" type="text" name="band" [(ngModel)]="newEvent.band">
+    <option *ngFor="let band of bands" [value]="band.name">{{band.name}}</option>
   </select>
   <div class="btnContainer">
     <button id="submitBtn" type="submit" value="Aanmaken">Aanmaken</button>

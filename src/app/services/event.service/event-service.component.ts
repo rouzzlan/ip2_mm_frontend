@@ -12,27 +12,29 @@ export class EventServiceComponent {
 
   // region Event calls
   public createEvent(eventToCreate: Event): Observable<Event> {
-    return this.http.post<Event>(this.path + '/addEvent', eventToCreate);
+    eventToCreate.dateTime = eventToCreate.dateTime.toString();
+    console.log(eventToCreate.name + ' ' + eventToCreate.dateTime + ' ' + eventToCreate.band + ' neen');
+    return this.http.post<Event>(this.path + '/addevent', eventToCreate);
   }
 
   public getEvent(eventId: number): Observable<Event> {
-    return this.http.get<Event>(this.path + '/getEvents/' + eventId);
+    return this.http.get<Event>(this.path + '/getevent/' + eventId);
   }
 
   public getEvents(): Observable<Event[]> {
-    return this.http.get<Event[]>(this.path + '/getEvents');
+    return this.http.get<Event[]>(this.path + '/getevents');
   }
 
-  public getEventsOfUser(userId: number): Observable<Event[]> {
-    return this.http.get<Event[]>(this.path + '/getEvents/' + userId);
+  public getEventsOfUser(userEmail: String): Observable<Event[]> {
+    return this.http.get<Event[]>(this.path + '/getevents/' + userEmail);
   }
 
   public editEvent(eventToUpdate: Event): Observable<Event> {
-    return this.http.put<Event>(this.path + '/editEvent', eventToUpdate);
+    return this.http.put<Event>(this.path + '/editevent', eventToUpdate);
   }
 
   // public deleteEvent(eventToDelete: Event) {
-  //   this.http.delete<Event>(this.path + '/deleteEvent', eventToDelete);
+  //   this.http.delete<Event>(this.path + '/deleteevent', eventToDelete);
   // }
 
   // endRegion
