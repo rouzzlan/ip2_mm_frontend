@@ -1,14 +1,21 @@
 <h1>Evenementen van {{user.username}}</h1>
+<div *ngIf="eventsOfUser.length == 0">
+  <p>Geen evenementen gevonden!</p>
+</div>
 <table *ngFor="let event of eventsOfUser">
   <tr>
     <th>Datum</th>
     <th>Naam</th>
     <th>Plaats</th>
+    <th>Bandnaam</th>
+    <th>Lesgever</th>
+    <th>Studenten</th>
   </tr>
   <tr>
     <th>{{event.date}}</th>
     <th>{{event.name}}</th>
     <th>{{event.place}}</th>
+    <th>{{event.band}}</th>
   </tr>
 </table>
 

@@ -1,7 +1,6 @@
 export class Band {
   id: number;
-  name: String;
+  name: string;
   teacher: String;
   students: String[];
-  nameStudent: String;
 }

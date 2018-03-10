@@ -17,12 +17,12 @@ export class GetEventComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getEventsOfUser(this.user.id);
+    this.getEventsOfUser();
   }
 
   // region REST calls
-  public getEventsOfUser(userId: number): void {
-    this.eventService.getEventsOfUser(userId).subscribe(event => this.eventsOfUser = event);
+  public getEventsOfUser(): void {
+    this.eventService.getEventsOfUser(this.user.email).subscribe(event => this.eventsOfUser = event);
   }
 
   // endregion

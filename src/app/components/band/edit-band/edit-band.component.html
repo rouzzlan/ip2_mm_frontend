@@ -1,29 +1,30 @@
-<h1>Nieuwe band</h1>
-<form id="createBandForm" #createBandForm="ngForm" (ngSubmit)="createBand(createBandForm)">
+<h1>Pas {{bandToEdit.name}} aan</h1>
+<form id="editBandForm" #editBandForm="ngForm" (ngSubmit)="editBand(editBandForm)">
   <label for="bandName">Naam: </label>
   <input id="bandName" type="text" placeholder="naam"
          required
-         name="newBand.name" [(ngModel)]="newBand.name"
+         name="newBand.name" [(ngModel)]="bandToEdit.name"
          #title="ngModel">
   <label for="bandTeacher">Lesgever: </label>
-  <select id="bandTeacher" name="bandTeacher" type="text" [(ngModel)]="newBand.teacher">
+  <select id="bandTeacher" name="bandTeacher" type="text" [(ngModel)]="bandToEdit.teacher">
     <option *ngFor="let teacher of teachers" [value]="teacher.email">{{teacher.email}}</option>
   </select>
-  <!--<label for="bandStudents">Leerlingen: </label>-->
+  <label for="bandStudents">Leerlingen: </label>
   <!--<textarea readonly id="bandStudents" type="text"-->
-            <!--required-->
-            <!--name="newBand.students" [(ngModel)]="newBand.students"-->
-            <!--#title="ngModel" *ngFor="let student of newBand.students">-->
-    <!--student-->
+  <!--required-->
+  <!--name="newBand.students" [(ngModel)]="newBand.students"-->
+  <!--#title="ngModel" *ngFor="let student of newBand.students">-->
+  <!--student-->
   <!--</textarea>-->
+  <p id="bandStudents">{{bandToEdit.students}}</p>
   <button id="addStudentBtn" type="button" value="Voeg toe" (click)="addStudent()">Voeg toe</button>
   <button id="verwijderStudentBtn" type="reset" value="Verwijder">Verwijder</button>
   <div id="nameStudent" *ngIf="addTrigger">
     <label for="studentName">Naam leerling: </label>
-    <select id="studentName" name="students" type="text" [(ngModel)]="newBand.students[0]">
+    <select id="studentName" name="students" type="text" [(ngModel)]="bandToEdit.students[0]">
       <option *ngFor="let student of students" [value]="student.email">{{student.email}}</option>
     </select>
-    <button id="okBtn" type="button" value="OK" (click)="placeStudentInTextArea()">OK</button>
+    <button id="okBtn" type="button" value="OK">OK</button>
   </div>
   <div class="btnContainer">
     <button id="submitBtn" type="submit" value="Verstuur">Verstuur</button>
