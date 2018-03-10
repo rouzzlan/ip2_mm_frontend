@@ -61,13 +61,12 @@ export class InstrumentHomeComponent implements OnInit {
   }
 
   onDelete() {
-    const index = this.instruments.indexOf(this.selectedInstrument);
-    this.instruments.splice(index, 1);
+    this.getInstruments();
     this.loadCreate();
   }
 
-  onCreated(instrument: Instrument) {
-    this.instruments.push(instrument);
+  onCreated() {
+    this.getInstruments();
     this.loadDetail(this.instruments[this.instruments.length - 1])
   }
 

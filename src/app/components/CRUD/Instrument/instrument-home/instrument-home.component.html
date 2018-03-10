@@ -1,5 +1,5 @@
 <div class="col-lg-8 col-md-8 col-sm-8">
-  <app-create-instrument (created)="onCreated($event)" *ngIf="create"></app-create-instrument>
+  <app-create-instrument (created)="onCreated()" *ngIf="create"></app-create-instrument>
   <app-details-instrument [instrument]="selectedInstrument" *ngIf="detail"></app-details-instrument>
   <app-edit-instrumentent (edited)="onEdited()" [instrument]="selectedInstrument" *ngIf="edit"></app-edit-instrumentent>
   <app-delete-instrument (deleted)="onDelete()" [instrument]="selectedInstrument" *ngIf="delete"></app-delete-instrument>

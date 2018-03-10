@@ -10,7 +10,6 @@ import {InstrumentService} from "../../../../services/instrument/instrument.serv
 })
 
 export class CreateInstrumentComponent implements OnInit {
-  instruments: Instrument[] = [];
   newInstrument: Instrument = new Instrument();
   sorts = ["SNAAR", "SLAG", "BLAAS"];
   @Output() created = new EventEmitter<Instrument>();
@@ -27,9 +26,7 @@ export class CreateInstrumentComponent implements OnInit {
       .subscribe(createInstrument => {
         instrumentForm.reset();
         this.newInstrument = new Instrument();
-        this.instruments.unshift(createInstrument);
-      });
-    this.created.emit(this.newInstrument);
+      },error => console.log("error"),() => this.created.emit());
   }
   // endregion
 }
