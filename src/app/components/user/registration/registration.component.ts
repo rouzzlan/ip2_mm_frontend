@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../../services/user.service";
-import {RegistrationService} from "../../../services/registration.service";
+import {UserService} from '../../../services/user.service';
+import {RegistrationService} from '../../../services/registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -23,30 +23,30 @@ export class RegistrationComponent implements OnInit {
   }
 
 
-  //TODO dynamic CSS so we dont have to use booleans
+  // TODO dynamic CSS so we dont have to use booleans
 
   register() {
     this.loading = true;
     this.registrationService.register(this.model.email, this.model.password)
     .map(res => {
-      if(res.status === 201) {
-        return res.status + ": Activatiemail verzonden!";
+      if (res.status === 201) {
+        return res.status + ': Activatiemail verzonden!';
       } else {
-        return res.status + ": " + res.text;
+        return res.status + ': ' + res.text;
       }})
         .subscribe(
           (data) => {
-            this.succes = true
-            this.error = false
-            this.loading = false
-            this.response = data.toString()
+            this.succes = true;
+            this.error = false;
+            this.loading = false;
+            this.response = data.toString();
           },
           (err) => {
-            this.succes = false
-            this.error = true
-            this.loading = false
+            this.succes = false;
+            this.error = true;
+            this.loading = false;
             if (err.status === 409) {
-              this.response = err.status + ": email zit al in het systeem"
+              this.response = err.status + ': email zit al in het systeem';
             } else {
               this.response = err.toString();
             }

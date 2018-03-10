@@ -28,6 +28,10 @@ export class RestService {
     return this.http.get<User[]>(this.path + '/getusers');
   }
 
+  public getTeachers(): Observable<User[]> {
+    return this.http.get<User[]>(this.path + '/getusers');
+  }
+
   public createUser(userToCreate: User): Observable<User> {
     return this.http.post<User>(this.path + '/adduser', userToCreate);
   }

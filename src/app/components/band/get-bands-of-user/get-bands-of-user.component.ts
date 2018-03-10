@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BandServiceService} from '../../../services/band.service/band-service.service';
 import {User} from '../../../model/user';
 import {Band} from '../../../model/band';
+import {BandService} from '../../../services/band/band.service';
 
 @Component({
   selector: 'app-get-bands-of-user',
@@ -13,7 +13,7 @@ export class GetBandsOfUserComponent implements OnInit {
   @Input() user: User;
   bands: Band[] = [];
 
-  constructor(private bandService: BandServiceService) {
+  constructor(private bandService: BandService) {
   }
 
   ngOnInit() {

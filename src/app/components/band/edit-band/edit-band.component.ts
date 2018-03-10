@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BandServiceService} from '../../../services/band.service/band-service.service';
 import {Band} from '../../../model/band';
 import {User} from '../../../model/user';
+import {BandService} from '../../../services/band/band.service';
 
 @Component({
   selector: 'app-edit-band',
@@ -16,7 +16,7 @@ export class EditBandComponent implements OnInit {
   students: User[] = [];
   addTrigger: Boolean = false;
 
-  constructor(private bandService: BandServiceService) {
+  constructor(private bandService: BandService) {
   }
 
   ngOnInit() {

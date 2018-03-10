@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Instrument} from "../../../../model/instrument";
+import {Instrument} from '../../../../model/instrument';
 
 @Component({
   selector: 'app-details-instrument',

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {Instrument} from "../../../../model/instrument";
-import {InstrumentService} from "../../../../services/instrument/instrument.service";
+import {NgForm} from '@angular/forms';
+import {Instrument} from '../../../../model/instrument';
+import {InstrumentService} from '../../../../services/instrument/instrument.service';
 
 @Component({
   selector: 'app-create-instrument',
@@ -11,7 +11,7 @@ import {InstrumentService} from "../../../../services/instrument/instrument.serv
 
 export class CreateInstrumentComponent implements OnInit {
   newInstrument: Instrument = new Instrument();
-  sorts = ["SNAAR", "SLAG", "BLAAS"];
+  sorts = ['SNAAR', 'SLAG', 'BLAAS'];
   @Output() created = new EventEmitter<Instrument>();
 
   constructor(private instrumentService: InstrumentService) {
@@ -26,7 +26,7 @@ export class CreateInstrumentComponent implements OnInit {
       .subscribe(createInstrument => {
         instrumentForm.reset();
         this.newInstrument = new Instrument();
-      },error => console.log("error"),() => this.created.emit());
+      }, error => console.log('error'), () => this.created.emit());
   }
   // endregion
 }

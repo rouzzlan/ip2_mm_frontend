@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {User} from "../../../../model/user";
-import {Role} from "../../../../model/role";
-import {OldUserService} from "../../../../services/old.user/old.user.service";
+import {User} from '../../../../model/user';
+import {Role} from '../../../../model/role';
+import {RestService} from '../../../../services/rest/rest.service';
+
 
 
 @Component({
@@ -15,7 +16,7 @@ export class CreatePageComponent implements OnInit {
   newUser: User = new User();
   roles: Role[] = null;
 
-  constructor(private userService: OldUserService) {
+  constructor(private userService: RestService) {
     this.newUser.roles = [];
   }
 

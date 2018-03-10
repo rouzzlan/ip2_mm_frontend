@@ -16,14 +16,25 @@ export class BandService {
     return this.http.post<Band>(this.path + '/addband', bandToCreate);
   }
 
-  public getBand(bandId: number): Observable<Band> {
-    return this.http.get<Band>(this.path + '/getband' + bandId);
+  public getBand(bandName: string): Observable<Band> {
+    return this.http.get<Band>(this.path + '/getband' + bandName);
   }
 
   public getBands(): Observable<Band[]> {
     return this.http.get<Band[]>(this.path + '/getbands');
   }
 
-  // endRegion
+  getBandsOfUser(email: String): Observable<Band[]> {
+    return null;
+  }
 
+  editBand(bandToEdit: Band) {
+
+  }
+
+  deleteBand(band: Band) {
+
+  }
+
+  // endRegion
 }

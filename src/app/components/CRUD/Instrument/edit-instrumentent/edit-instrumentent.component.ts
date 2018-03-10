@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Instrument} from "../../../../model/instrument";
-import {NgForm} from "@angular/forms";
-import {InstrumentService} from "../../../../services/instrument/instrument.service";
+import {Instrument} from '../../../../model/instrument';
+import {NgForm} from '@angular/forms';
+import {InstrumentService} from '../../../../services/instrument/instrument.service';
 
 @Component({
   selector: 'app-edit-instrumentent',
@@ -10,7 +10,7 @@ import {InstrumentService} from "../../../../services/instrument/instrument.serv
 })
 export class EditInstrumententComponent implements OnInit {
   @Input() instrument: Instrument;
-  sorts = ["SNAAR", "SLAG", "BLAAS"];
+  sorts = ['SNAAR', 'SLAG', 'BLAAS'];
   @Output() edited = new EventEmitter<Instrument>();
 
   constructor(private instrumentService: InstrumentService) { }

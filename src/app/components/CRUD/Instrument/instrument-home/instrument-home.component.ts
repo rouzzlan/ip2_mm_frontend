@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Instrument} from "../../../../model/instrument";
-import {InstrumentService} from "../../../../services/instrument/instrument.service";
+import {Instrument} from '../../../../model/instrument';
+import {InstrumentService} from '../../../../services/instrument/instrument.service';
 
 @Component({
   selector: 'app-instrument-home',
@@ -10,10 +10,10 @@ import {InstrumentService} from "../../../../services/instrument/instrument.serv
 export class InstrumentHomeComponent implements OnInit {
   instruments: Instrument[] = [];
   selectedInstrument: Instrument;
-  create: boolean = true;
-  edit: boolean = false;
-  detail: boolean = false;
-  delete: boolean = false;
+  create = true;
+  edit = false;
+  detail = false;
+  delete = false;
 
   constructor(private instrumentService: InstrumentService) {
 
@@ -23,12 +23,12 @@ export class InstrumentHomeComponent implements OnInit {
     this.getInstruments();
   }
 
-  //region REST calls
+  // region REST calls
   getInstruments(): void {
     this.instrumentService.getInstruments().subscribe(receivedInstruments => this.instruments = receivedInstruments);
   }
 
-  //endregion
+  // endregion
   loadCreate() {
     this.create = true;
     this.detail = false;
@@ -41,7 +41,7 @@ export class InstrumentHomeComponent implements OnInit {
     this.detail = false;
     this.edit = true;
     this.delete = false;
-    this.selectedInstrument = instrument
+    this.selectedInstrument = instrument;
   }
 
   loadDelete(instrument: Instrument) {
@@ -57,7 +57,7 @@ export class InstrumentHomeComponent implements OnInit {
     this.detail = true;
     this.edit = false;
     this.delete = false;
-    this.selectedInstrument = instrument
+    this.selectedInstrument = instrument;
   }
 
   onDelete() {
@@ -67,7 +67,7 @@ export class InstrumentHomeComponent implements OnInit {
 
   onCreated() {
     this.getInstruments();
-    this.loadDetail(this.instruments[this.instruments.length - 1])
+    this.loadDetail(this.instruments[this.instruments.length - 1]);
   }
 
   onEdited() {

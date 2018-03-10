@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {Band} from "../../../../model/band";
-import {Role} from "../../../../model/role";
-import {User} from "../../../../model/user";
-import {BandService} from "../../../../services/band/band.service";
-import {OldUserService} from "../../../../services/old.user/old.user.service";
+import {Band} from '../../../../model/band';
+import {Role} from '../../../../model/role';
+import {User} from '../../../../model/user';
+import {BandService} from '../../../../services/band/band.service';
+import {RestService} from '../../../../services/rest/rest.service';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class CreateBandComponent implements OnInit {
   teachers: User[] = [];
   public addTrigger = false;
 
-  constructor(private userService: OldUserService, private bandService: BandService) {
+  constructor(private userService: RestService, private bandService: BandService) {
   }
 
   ngOnInit() {

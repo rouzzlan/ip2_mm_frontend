@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Band} from '../../../model/band';
-import {BandServiceService} from '../../../services/band.service/band-service.service';
+import {BandService} from '../../../services/band/band.service';
 
 @Component({
   selector: 'app-delete-band',
@@ -11,7 +11,7 @@ export class DeleteBandComponent implements OnInit {
 
   @Input() band: Band;
 
-  constructor(private bandService: BandServiceService) {
+  constructor(private bandService: BandService) {
   }
 
   ngOnInit() {

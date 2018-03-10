@@ -23,8 +23,8 @@ export class EventService {
     return this.http.get<Event[]>(this.path + '/getevents');
   }
 
-  public getEventsOfUser(userId: number): Observable<Event[]> {
-    return this.http.get<Event[]>(this.path + '/getevents/' + userId);
+  public getEventsOfUser(userEmail: String): Observable<Event[]> {
+    return this.http.get<Event[]>(this.path + '/getevents/' + userEmail);
   }
 
   public editEvent(eventToUpdate: Event): Observable<Event> {

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BandServiceService} from '../../../services/band.service/band-service.service';
 import {Band} from '../../../model/band';
+import {BandService} from '../../../services/band/band.service';
 
 @Component({
   selector: 'app-band-detail',
@@ -12,7 +12,7 @@ export class BandDetailComponent implements OnInit {
   @Input() bandName: string;
   band: Band = new Band();
 
-  constructor(private bandService: BandServiceService) {
+  constructor(private bandService: BandService) {
   }
 
   ngOnInit() {

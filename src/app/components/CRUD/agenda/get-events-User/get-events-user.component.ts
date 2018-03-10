@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Event} from '../../../../model/event';
 import {User} from '../../../../model/user';
-import {EventService} from "../../../../services/event/event.service";
+import {EventService} from '../../../../services/event/event.service';
 
 @Component({
   selector: 'app-get-event',
