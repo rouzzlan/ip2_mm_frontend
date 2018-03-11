@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Band} from '../../../model/band';
-import {User} from '../../../model/user';
-import {BandService} from '../../../services/band/band.service';
+import {Band} from '../../../../model/band';
+import {User} from '../../../../model/user';
+import {BandService} from '../../../../services/band/band.service';
 
 @Component({
   selector: 'app-edit-band',

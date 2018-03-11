@@ -21,6 +21,7 @@ export class CreateBandComponent implements OnInit {
   indexT = 0;
   students: User[] = [];
   teachers: User[] = [];
+  studentMails: string[] = [];
   public addTrigger = false;
 
   constructor(private userService: RestService, private bandService: BandService) {
@@ -37,7 +38,6 @@ export class CreateBandComponent implements OnInit {
     this.userService.getRoles().subscribe(roles => this.roles = roles);
   }
 
-  // TODO kijken waarom dees raar doet!
   public getUsers(): void {
     this.userService.getStudents().subscribe(students => this.students = students);
     this.userService.getTeachers().subscribe(teachers => this.teachers = teachers);

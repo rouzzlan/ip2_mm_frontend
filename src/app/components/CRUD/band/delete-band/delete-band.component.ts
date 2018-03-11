@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Band} from '../../../model/band';
-import {BandService} from '../../../services/band/band.service';
+import {Band} from '../../../../model/band';
+import {BandService} from '../../../../services/band/band.service';
 
 @Component({
   selector: 'app-delete-band',

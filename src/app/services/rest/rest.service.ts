@@ -25,11 +25,11 @@ export class RestService {
   }
 
   public getStudents(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getusers');
+    return this.http.get<User[]>(this.path + '/getstudents');
   }
 
   public getTeachers(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getusers');
+    return this.http.get<User[]>(this.path + '/getteachers');
   }
 
   public createUser(userToCreate: User): Observable<User> {

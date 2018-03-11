@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Band} from '../../../model/band';
-import {BandService} from '../../../services/band/band.service';
+import {Band} from '../../../../model/band';
+import {BandService} from '../../../../services/band/band.service';
 
 @Component({
   selector: 'app-get-bands',

@@ -42,6 +42,11 @@ import {EditInstrumententComponent} from './components/CRUD/Instrument/edit-inst
 import {DeleteInstrumentComponent} from './components/CRUD/Instrument/delete-instrument/delete-instrument.component';
 import {CreateEventComponent} from './components/CRUD/agenda/create-event/create-event.component';
 import {HttpClientModule} from '@angular/common/http';
+import {GetBandsComponent} from './components/CRUD/band/get-bands/get-bands.component';
+import {GetBandsOfUserComponent} from './components/CRUD/band/get-bands-of-user/get-bands-of-user.component';
+import {EditBandComponent} from './components/CRUD/band/edit-band/edit-band.component';
+import {DeleteBandComponent} from './components/CRUD/band/delete-band/delete-band.component';
+import {BandDetailComponent} from './components/CRUD/band/band-detail/band-detail.component';
 
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -68,6 +73,11 @@ export function authHttpServiceFactory(http: Http) {
     EditUserComponent,
     CreatePageComponent,
     CreateBandComponent,
+    BandDetailComponent,
+    GetBandsComponent,
+    GetBandsOfUserComponent,
+    EditBandComponent,
+    DeleteBandComponent,
     CreateEventComponent,
     EditEventComponent,
     DeleteEventComponent,

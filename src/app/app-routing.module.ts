@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 
 import {LoginComponent} from './components/user/login/login.component';
 import {AdminComponent} from './components/test/admin/admin.component';
@@ -13,8 +13,10 @@ import {ConfirmationComponent} from './components/user/confirmation/confirmation
 import {UserListComponent} from './components/CRUD/users/user-list/user-list.component';
 import {InstrumentHomeComponent} from './components/CRUD/Instrument/instrument-home/instrument-home.component';
 import {CreateEventComponent} from './components/CRUD/agenda/create-event/create-event.component';
-import {GetEventComponent} from './components/CRUD/agenda/get-events-User/get-events-user.component';
-import {DeleteEventComponent} from './components/CRUD/agenda/delete-event/delete-event.component';
+import {GetBandsComponent} from './components/CRUD/band/get-bands/get-bands.component';
+import {BandDetailComponent} from './components/CRUD/band/band-detail/band-detail.component';
+import {EditBandComponent} from './components/CRUD/band/edit-band/edit-band.component';
+import {DeleteBandComponent} from './components/CRUD/band/delete-band/delete-band.component';
 import {CreateBandComponent} from './components/CRUD/band/create-band/create-band.component';
 
 const routes: Routes = [
@@ -25,9 +27,12 @@ const routes: Routes = [
   {path: 'users', component: UserListComponent},
   {path: 'instruments', component: InstrumentHomeComponent},
   {path: 'events', component: CreateEventComponent},
-  {path: 'events/:id', component: GetEventComponent},
-  {path: 'events/:id', component: DeleteEventComponent},
-  {path: 'band', component: CreateBandComponent},
+  {path: 'bands', component: GetBandsComponent},
+  {path: 'bands/banddetail/:bandName', component: BandDetailComponent},
+  {path: 'bands/editband/:bandName', component: EditBandComponent},
+  {path: 'bands/deleteband/:bandName', component: DeleteBandComponent},
+  {path: 'bands/createband', component: CreateBandComponent},
+
 
   // ACCOUNT
   {path: 'register', component: RegistrationComponent},
