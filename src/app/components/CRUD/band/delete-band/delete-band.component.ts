@@ -1,6 +1,11 @@
+///<reference path="../../../../../../node_modules/@angular/router/src/router.d.ts"/>
 import {Component, Input, OnInit} from '@angular/core';
 import {Band} from '../../../../model/band';
 import {BandService} from '../../../../services/band/band.service';
+import {
+  ActivatedRoute,
+  Router,
+} from "@angular/router";
 
 @Component({
   selector: 'app-delete-band',
@@ -9,9 +14,10 @@ import {BandService} from '../../../../services/band/band.service';
 })
 export class DeleteBandComponent implements OnInit {
 
-  @Input() band: Band;
+  band: Band = new Band();
 
-  constructor(private bandService: BandService) {
+  constructor(private bandService: BandService, private route: ActivatedRoute, private router: Router) {
+
   }
 
   ngOnInit() {
@@ -21,13 +27,19 @@ export class DeleteBandComponent implements OnInit {
   // region REST calls
 
   public getBand(): void {
-    this.bandService.getBand(this.band.name).subscribe(b => this.band = b);
+    this.route.params.subscribe(params => {
+      this.bandService.getBand(params['bandName'])
+        .subscribe(receivedBand => this.band = receivedBand,
+          error => console.log('error'),
+          () => {
+            console.log(this.band);
+          }
+        );
+    });
   }
 
   public deleteBand(): void {
-    this.bandService.deleteBand(this.band);
+    this.bandService.deleteBand(this.band).subscribe();
   }
-
-  // endregion
-
+// endregion
 }

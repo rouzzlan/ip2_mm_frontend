@@ -1,0 +1,25 @@
+<h1>Alle events</h1>
+<table>
+  <tr>
+    <th>Tijdstip</th>
+    <th>Naam</th>
+    <th>Plaats</th>
+    <th>Band</th>
+  </tr>
+  <tr *ngFor="let event of events">
+    <td>{{event.id}}</td>
+    <td>{{event.dateTime}}</td>
+    <td>
+      <a routerLink="/events/detail/{{event.id}}">{{event.name}}</a>
+    </td>
+    <td>{{event.place}}</td>
+    <td>
+      <a routerLink="/bands/banddetail/{{event.band}}">{{event.band}}</a>
+    </td>
+    <td>
+      <button type="button" value="Aanpassen" routerLink="/events/edit/{{event.id}}">Aanpassen</button>
+      <button type="button" value="Verwijderen" routerLink="/events/delete/{{event.id}}">Verwijderen</button>
+    </td>
+  </tr>
+</table>
+<button type="button" value="Band aanmaken" routerLink="/events/create">Event aanmaken</button>

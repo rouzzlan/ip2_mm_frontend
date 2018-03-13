@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Band} from '../../../../model/band';
 import {BandService} from '../../../../services/band/band.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 
@@ -12,7 +12,6 @@ import 'rxjs/add/operator/switchMap';
 })
 export class BandDetailComponent implements OnInit {
 
-  // @Input() bandName: string;
   private band: Band =
     {id: 0, name: '', teacher: '', students: []};
 
@@ -20,18 +19,8 @@ export class BandDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.paramMap
-      .switchMap((params: ParamMap) =>
-        this.bandService.getBand('bandName'))
-      .subscribe(receivedBand => this.band = receivedBand);
-    // this.getBand();
+    this.route.params.subscribe(params => {
+      this.bandService.getBand(params['bandName']).subscribe(receivedBand => this.band = receivedBand);
+    })
   }
-
-  // region REST calls
-  // public getBand(): void {
-  //   this.bandService.getBand(this.bandName).subscribe(receivedBand => this.band = receivedBand);
-  // }
-
-  // endRegion
-
 }

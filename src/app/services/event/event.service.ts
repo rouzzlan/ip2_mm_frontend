@@ -16,7 +16,7 @@ export class EventService {
   }
 
   public getEvent(eventId: number): Observable<Event> {
-    return this.http.get<Event>(this.path + '/getevents/' + eventId);
+    return this.http.get<Event>(this.path + '/getevent/' + eventId);
   }
 
   public getEvents(): Observable<Event[]> {
@@ -36,8 +36,4 @@ export class EventService {
   // }
 
   // endRegion
-
-
 }
-
-

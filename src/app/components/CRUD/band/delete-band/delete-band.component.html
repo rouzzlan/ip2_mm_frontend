@@ -3,10 +3,17 @@
 <p id="bandName">{{band.name}}</p>
 <label for="bandTeacher">Lesgever: </label>
 <p id="bandTeacher">{{band.teacher}}</p>
-<label for="bandStudents">Studenten: </label>
-<textarea readonly id="bandStudents" *ngFor="let student of band.students">{{student}}</textarea>
+<table>
+  <tr>
+    <th>studenten</th>
+  </tr>
+  <tr *ngFor="let student of band.students">
+    <td>
+      {{student}}
+    </td>
+  </tr>
+</table>
 <div class="btnContainer">
-  <button id="submitBtn" type="submit" value="Verwijder">Verwijder</button>
+  <button id="submitBtn" type="submit" value="Verwijder" (click)="deleteBand()">Verwijder</button>
   <button id="cancelBtn" type="Button" value="Terug">Terug</button>
 </div>
-

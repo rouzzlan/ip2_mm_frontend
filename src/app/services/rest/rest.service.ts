@@ -21,15 +21,15 @@ export class RestService {
   }
 
   public getUser(userEmail: string): Observable<User> {
-    return this.http.get<User>(this.path + '/getusers/' + userEmail);
+    return this.http.get<User>(this.path + '/userByEmail/' + userEmail);
   }
 
-  public getStudents(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getstudents');
+  public getStudents(): Observable<String[]> {
+    return this.http.get<String[]>(this.path + '/getstudents');
   }
 
-  public getTeachers(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getteachers');
+  public getTeachers(): Observable<String[]> {
+    return this.http.get<String[]>(this.path + '/getteachers');
   }
 
   public createUser(userToCreate: User): Observable<User> {

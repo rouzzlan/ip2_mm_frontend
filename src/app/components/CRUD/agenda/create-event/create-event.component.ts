@@ -26,6 +26,7 @@ export class CreateEventComponent implements OnInit {
   // region REST Calls
 
   public createEvent(eventForm: NgForm): void {
+    this.newEvent.dateTime = this.newEvent.dateTime.concat(':00');
     console.log(this.newEvent);
     this.eventService.createEvent(this.newEvent)
       .subscribe(createEvent => {

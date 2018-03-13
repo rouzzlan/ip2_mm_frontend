@@ -16,7 +16,6 @@ export class GetBandsComponent implements OnInit {
 
   ngOnInit() {
     this.getBands();
-    console.log(this.bands.toString());
   }
 
   // region REST calls

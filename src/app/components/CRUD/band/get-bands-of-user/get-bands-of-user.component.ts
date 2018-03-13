@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../../../model/user';
 import {Band} from '../../../../model/band';
 import {BandService} from '../../../../services/band/band.service';
+import {RestService} from "../../../../services/rest/rest.service";
 
 @Component({
   selector: 'app-get-bands-of-user',
@@ -10,14 +11,16 @@ import {BandService} from '../../../../services/band/band.service';
 })
 export class GetBandsOfUserComponent implements OnInit {
 
-  @Input() user: User;
+  /*@Input()*/
+  user: User = new User();
   bands: Band[] = [];
 
-  constructor(private bandService: BandService) {
+  constructor(private bandService: BandService, private userService: RestService) {
   }
 
   ngOnInit() {
-    this.getBandsOfUser();
+    this.userService.getUser('user2@user.com').subscribe(receivedUser => this.user = receivedUser, error => {
+    }, () => this.getBandsOfUser());
   }
 
   // region REST calls

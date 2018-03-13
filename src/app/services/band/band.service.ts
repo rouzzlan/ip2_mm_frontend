@@ -17,24 +17,24 @@ export class BandService {
   }
 
   public getBand(bandName: string): Observable<Band> {
-    return this.http.get<Band>(this.path + '/bands/banddetail/' + bandName);
+    console.log(bandName);
+    return this.http.get<Band>(this.path + '/getband/' + bandName);
   }
 
   public getBands(): Observable<Band[]> {
     return this.http.get<Band[]>(this.path + '/getbands');
   }
 
-  getBandsOfUser(email: String): Observable<Band[]> {
-    return null;
+  public getBandsOfUser(email: String): Observable<Band[]> {
+    return this.http.get<Band[]>(this.path + '/getbands/' + email);
   }
 
-  editBand(bandToEdit: Band) {
-
+  public editBand(bandToEdit: Band) {
+    return this.http.put<Band>(this.path + '/editband/' + bandToEdit.id, bandToEdit);
   }
 
-  deleteBand(band: Band) {
-
+  public deleteBand(bandToDelete: Band) {
+    return this.http.delete<Band>(this.path+ '/deleteband/' + bandToDelete.id);
   }
-
   // endRegion
 }

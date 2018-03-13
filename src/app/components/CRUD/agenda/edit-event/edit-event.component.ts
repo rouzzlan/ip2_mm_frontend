@@ -1,7 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Event} from '../../../../model/event';
 import {NgForm} from '@angular/forms';
 import {EventService} from "app/services/event/event.service";
+import {ActivatedRoute} from "@angular/router";
+import {BandService} from "../../../../services/band/band.service";
+import {Band} from "../../../../model/band";
 
 @Component({
   selector: 'app-edit-event',
@@ -10,23 +13,28 @@ import {EventService} from "app/services/event/event.service";
 })
 export class EditEventComponent implements OnInit {
 
-  @Input() eventId: number;
-  eventToDelete: Event;
+  eventToEdit: Event = new Event();
+  bands: Band[] = [];
 
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private bandService: BandService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.getEvent(this.eventId);
+    this.route.params.subscribe(params => {
+      this.eventService.getEvent(params['id'])
+        .subscribe(receivedEvent => this.eventToEdit = receivedEvent);
+    });
+    this.getBands();
+  }
+
+  private getBands() {
+    this.bandService.getBands().subscribe(receivedBands => this.bands = receivedBands);
   }
 
   // region REST calls
-  public getEvent(eventId: number): void {
-    this.eventService.getEvent(eventId).subscribe(event => this.eventToDelete = event);
-  }
 
   public updateEvent(eventForm: NgForm) {
-    this.eventService.editEvent(this.eventToDelete);
+    this.eventService.editEvent(this.eventToEdit).subscribe();
   }
 
   // endregion

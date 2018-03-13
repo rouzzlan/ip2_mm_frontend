@@ -6,23 +6,34 @@
          name="newBand.name" [(ngModel)]="newBand.name"
          #title="ngModel">
   <label for="bandTeacher">Lesgever: </label>
-  <select id="bandTeacher" name="bandTeacher" type="text" [(ngModel)]="newBand.teacher">
-    <option *ngFor="let teacher of teachers" [value]="teacher.email">{{teacher.email}}</option>
+  <select id="bandTeacher" name="bandTeacher" type="text" [(ngModel)]="newBand.teacher" (change)="deleteFromStudents($event)">
+    <option *ngFor="let teacher of teachers" [value]="teacher"  >{{teacher}}</option>
   </select>
-  <label for="bandStudents">Leerlingen: </label>
-  <textarea id="bandStudents" readonly name="students" [(ngModel)]="newBand.students[0]"
-            *ngFor="let mail of studentMails">{{mail}}</textarea>
-  <button id="addStudentBtn" type="button" value="Voeg toe" (click)="addStudent()">Voeg toe</button>
-  <button id="verwijderStudentBtn" type="reset" value="Verwijder">Verwijder</button>
-  <div id="nameStudent" *ngIf="addTrigger">
-    <label for="studentName">Email leerling: </label>
-    <select id="studentName" name="studentMails" type="text" [(ngModel)]="studentMails[0]">
-      <option *ngFor="let student of students" [value]="student.email">{{student.email}}</option>
+  <!--<label for="bandStudents">Leerlingen: </label>-->
+  <!--<textarea id="bandStudents" readonly name="students" [(ngModel)]="newBand.students[0]"-->
+            <!--*ngFor="let mail of studentMails">{{mail}}</textarea>-->
+  <button id="addStudentBtn" type="button" value="Voeg student toe" (click)="addStudentArea()">Voeg student toe</button>
+  <div id="MailStudent" *ngIf="addTrigger">
+    <label for="studentMails">Email leerling: </label>
+    <select id="studentMails" name="studentMails"  type="text" [(ngModel)]="studentMail"> <!--(change)="deleteFromTeachers($event)"-->
+      <option *ngFor="let student of students" [value]="student">{{student}}</option>
     </select>
-    <button id="okBtn" type="button" value="OK" (click)="placeStudentInTextArea()">OK</button>
+    <button id="okBtn" type="button" value="OK" (click)="addStudent()">OK</button>
+  </div>
+  <div id="addedStudents" *ngIf="newBand.students.length!=0">
+    <table>
+        <tr>
+          <th>students</th>
+        </tr>
+      <tr *ngFor="let student of newBand.students">
+        <td>
+          {{student}} <button (click)="deleteStudent(student)">delete</button>
+        </td>
+      </tr>
+    </table>
   </div>
   <div class="btnContainer">
     <button id="submitBtn" type="submit" value="Verstuur">Verstuur</button>
-    <button id="cancelBtn" type="reset" value="Stop" (click)="setAddStudentFalse()">Stop</button>
+    <button id="cancelBtn" type="reset" value="Cancel" (click)="deleteStudentArea()">Cancel</button>
   </div>
 </form>

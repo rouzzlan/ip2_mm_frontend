@@ -23,7 +23,6 @@ export class EditInstrumententComponent implements OnInit {
     this.instrumentService.editInstrument(this.instrument)
       .subscribe();
     this.edited.emit();
-
   }
   // endregion
 

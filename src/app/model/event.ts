@@ -8,4 +8,5 @@ export class Event {
   // time: Timestamp<string>;
   place: string;
   band: string;
+  date: Date
 }

@@ -47,6 +47,8 @@ import {GetBandsOfUserComponent} from './components/CRUD/band/get-bands-of-user/
 import {EditBandComponent} from './components/CRUD/band/edit-band/edit-band.component';
 import {DeleteBandComponent} from './components/CRUD/band/delete-band/delete-band.component';
 import {BandDetailComponent} from './components/CRUD/band/band-detail/band-detail.component';
+import { GetEventsComponent } from './components/CRUD/agenda/get-events/get-events.component';
+import { DetailsEventComponent } from './components/CRUD/agenda/details-event/details-event.component';
 
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -88,7 +90,9 @@ export function authHttpServiceFactory(http: Http) {
     InstrumentHomeComponent,
     DetailsInstrumentComponent,
     EditInstrumententComponent,
-    DeleteInstrumentComponent
+    DeleteInstrumentComponent,
+    GetEventsComponent,
+    DetailsEventComponent
   ],
   imports: [
     BrowserModule,
