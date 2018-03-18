@@ -17,7 +17,7 @@ export class BandService {
   }
 
   public getBand(bandId: number): Observable<Band> {
-    return this.http.get<Band>(this.path + '/getband/' + bandId);
+    return this.http.get<Band>(this.path + '/getband' + bandId);
   }
 
   public getBands(): Observable<Band[]> {
