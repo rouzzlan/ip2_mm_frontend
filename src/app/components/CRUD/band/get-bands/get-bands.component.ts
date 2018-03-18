@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Band} from '../../../model/band';
-import {BandServiceService} from '../../../services/band.service/band-service.service';
+import {Band} from '../../../../model/band';
+import {BandService} from '../../../../services/band/band.service';
 
 @Component({
   selector: 'app-get-bands',
@@ -11,12 +11,11 @@ export class GetBandsComponent implements OnInit {
 
   bands: Band[] = [];
 
-  constructor(private bandService: BandServiceService) {
+  constructor(private bandService: BandService) {
   }
 
   ngOnInit() {
     this.getBands();
-    console.log(this.bands.toString());
   }
 
   // region REST calls

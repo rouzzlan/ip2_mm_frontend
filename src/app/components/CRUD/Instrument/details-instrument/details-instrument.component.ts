@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Instrument} from "../../../../model/instrument";
+import {Component, OnInit} from '@angular/core';
+import {Instrument} from '../../../../model/instrument';
+import {ActivatedRoute} from '@angular/router';
+import {InstrumentService} from '../../../../services/instrument/instrument.service';
 
 @Component({
   selector: 'app-details-instrument',
@@ -7,10 +9,14 @@ import {Instrument} from "../../../../model/instrument";
   styleUrls: ['./details-instrument.component.css']
 })
 export class DetailsInstrumentComponent implements OnInit {
-  @Input() instrument: Instrument;
-  constructor() { }
+  private instrument: Instrument;
+
+  constructor(private instrumentService: InstrumentService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.instrumentService.getInstrument(+params['id'])
+        .subscribe(receivedInstrument => this.instrument = receivedInstrument);
+    });
   }
-
 }

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../../../model/user';
-import {OldUserService} from "../../../../services/old.user/old.user.service";
+import {RestService} from '../../../../services/rest/rest.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class EditUserComponent implements OnInit {
 
   @Input() public user: User;
 
-  constructor(private userService: OldUserService ) {
+  constructor(private userService: RestService ) {
   }
 
   ngOnInit() {

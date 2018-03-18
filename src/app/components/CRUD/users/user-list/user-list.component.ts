@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../../../../model/user";
-import {OldUserService} from "../../../../services/old.user/old.user.service";
+import {User} from '../../../../model/user';
+import {RestService} from '../../../../services/rest/rest.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import {OldUserService} from "../../../../services/old.user/old.user.service";
 export class UserListComponent implements OnInit {
   users: User[] = null;
 
-  constructor(private userService: OldUserService) {
+  constructor(private userService: RestService) {
   }
 
   ngOnInit(): void {

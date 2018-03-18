@@ -1,14 +1,37 @@
-<div class="col-lg-8 col-md-8 col-sm-8">
-  <app-create-instrument (created)="onCreated()" *ngIf="create"></app-create-instrument>
-  <app-details-instrument [instrument]="selectedInstrument" *ngIf="detail"></app-details-instrument>
-  <app-edit-instrumentent (edited)="onEdited()" [instrument]="selectedInstrument" *ngIf="edit"></app-edit-instrumentent>
-  <app-delete-instrument (deleted)="onDelete()" [instrument]="selectedInstrument" *ngIf="delete"></app-delete-instrument>
+<h2>Instrumenten</h2>
+<a id="addinstr" class="btn btn-default hidden-xs  col-sm-3 pull-right" routerLink="/instrument/create"><span
+  class="glyphicon glyphicon-plus"></span>nieuw instrument</a>
+<div class="visible-xs">
+  <div *ngFor="let instrument of instruments">
+    <div class="instrumentDetails">
+      <p class="col-xs-6 title">Naam</p>
+      <p>{{instrument.name}}</p>
+      <p class="col-xs-6 title">Soort</p>
+      <p>{{instrument.sort}}</p>
+      <p class="col-xs-6 title">Type</p>
+      <p>{{instrument.type}}</p>
+      <p class="col-xs-6 title">Uitvoering</p>
+      <p>{{instrument.version}}</p>
+    </div>
+  </div>
 </div>
-<aside class="col-lg-4 col-md-4 col-sm-4">
-<header class="col-sm-6">Instrumenten</header><button class="col-sm-6" (click)="loadCreate()">addInstrument</button>
-  <ul>
-    <li *ngFor="let instrument of instruments">
-      <a (click)="loadDetail(instrument)">{{instrument.name}}</a> <a (click)="loadEdit(instrument)">edit</a> <a (click)="loadDelete(instrument)">delete</a>
-    </li>
-  </ul>
-</aside>
+<table class="col-sm-12 table table-striped table-bordered hidden-xs">
+  <tr class="bigBorder">
+    <th class="text-center">Naam</th>
+    <th class="text-center">Soort</th>
+    <th class="text-center">Type</th>
+    <th class="text-center">Uitvoering</th>
+    <th class="text-center">Opties</th>
+  </tr>
+  <tr *ngFor="let instrument of instruments">
+    <td class="col-sm-3">{{instrument.name}}</td>
+    <td class="col-sm-2 text-lowercase">{{instrument.sort}}</td>
+    <td class="col-sm-2">{{instrument.type}}</td>
+    <td class="col-sm-2">{{instrument.version}}</td>
+    <td class="col-sm-3">
+      <a class="glyphicon glyphicon-info-sign col-sm-4" routerLink="/instrument/detail/{{instrument.id}}"></a>
+      <a class="glyphicon glyphicon-edit col-sm-4" routerLink="/instrument/edit/{{instrument.id}}"></a>
+      <a class="glyphicon glyphicon-remove-circle col-sm-4" routerLink="/instrument/delete/{{instrument.id}}"></a>
+    </td>
+  </tr>
+</table>

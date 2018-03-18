@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Event} from '../../../../model/event';
 import {Band} from '../../../../model/band';
-import {EventService} from "../../../../services/event/event.service";
-import {BandService} from "../../../../services/band/band.service";
+import {EventService} from '../../../../services/event/event.service';
+import {BandService} from '../../../../services/band/band.service';
 
 @Component({
   selector: 'app-create-event',
@@ -24,7 +24,6 @@ export class CreateEventComponent implements OnInit {
   }
 
   // region REST Calls
-
   public createEvent(eventForm: NgForm): void {
     console.log(this.newEvent);
     this.eventService.createEvent(this.newEvent)
@@ -38,7 +37,6 @@ export class CreateEventComponent implements OnInit {
   public getBands(): void {
     this.bandService.getBands().subscribe(bands => this.bands = bands);
   }
-
   // endregion
 
 }

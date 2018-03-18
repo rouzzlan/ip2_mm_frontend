@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {EventServiceComponent} from '../../../services/event.service/event-service.component';
+import {EventService} from '../../../services/event/event.service';
 import {Event} from '../../../model/event';
 
 @Component({
@@ -11,18 +11,16 @@ export class GetAllEventsComponent implements OnInit {
 
   events: Event[] = [];
 
-  constructor(private eventService: EventServiceComponent) {
+  constructor(private eventService: EventService) {
   }
 
   ngOnInit() {
     this.getAllEvents();
   }
 
-  // region REST calls
+  //region REST calls
   public getAllEvents(): void {
     this.eventService.getEvents().subscribe(receivedEvents => this.events = receivedEvents);
   }
-
-  // endRegion
-
+  //endregion
 }

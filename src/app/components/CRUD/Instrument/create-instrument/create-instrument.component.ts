@@ -1,7 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {Instrument} from "../../../../model/instrument";
-import {InstrumentService} from "../../../../services/instrument/instrument.service";
+import {NgForm} from '@angular/forms';
+import {Instrument} from '../../../../model/instrument';
+import {InstrumentService} from '../../../../services/instrument/instrument.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-instrument',
@@ -11,10 +12,9 @@ import {InstrumentService} from "../../../../services/instrument/instrument.serv
 
 export class CreateInstrumentComponent implements OnInit {
   newInstrument: Instrument = new Instrument();
-  sorts = ["SNAAR", "SLAG", "BLAAS"];
-  @Output() created = new EventEmitter<Instrument>();
+  sorts = ['SNAAR', 'SLAG', 'BLAAS'];
 
-  constructor(private instrumentService: InstrumentService) {
+  constructor(private instrumentService: InstrumentService, private router: Router) {
   }
 
   ngOnInit() {
@@ -23,10 +23,11 @@ export class CreateInstrumentComponent implements OnInit {
   // region REST calls
   public createInstrument(instrumentForm: NgForm): void {
     this.instrumentService.createInstrument(this.newInstrument)
-      .subscribe(createInstrument => {
-        instrumentForm.reset();
-        this.newInstrument = new Instrument();
-      },error => console.log("error"),() => this.created.emit());
+      .subscribe(response => {
+          this.router.navigate(['/instrument/detail/' + response.id]);
+        }
+      );
   }
+
   // endregion
 }

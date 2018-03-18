@@ -1,0 +1,20 @@
+<h1>Alle bands</h1>
+<table>
+  <tr>
+    <th>Naam</th>
+    <th>Lesgever</th>
+    <th>studenten</th>
+    <th>Opties</th>
+  </tr>
+  <tr *ngFor="let band of bands">
+    <td><a routerLink="/bands/banddetail/{{band.id}}">{{band.name}}</a></td>
+    <td>{{band.teacher}}</td>
+    <td>{{band.students.toString()}}</td>
+    <td>
+      <button type="button" value="Aanpassen" routerLink="/bands/editband/{{band.id}}">Aanpassen</button>
+      <button type="button" value="Verwijderen" routerLink="/bands/deleteband/{{band.id}}">Verwijderen</button>
+    </td>
+  </tr>
+</table>
+<button type="button" value="Band aanmaken" routerLink="/bands/createband">Band aanmaken</button>
+<app-get-bands-of-user></app-get-bands-of-user>

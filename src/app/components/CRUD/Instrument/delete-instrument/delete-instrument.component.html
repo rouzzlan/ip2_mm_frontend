@@ -1,11 +1,17 @@
-<div>
-  Naam {{instrument.name}}
-  Soort {{instrument.sort}}
-  Versie {{instrument.version}}
-  Type {{instrument.type}}
-</div>
-<div class="btnContainer">
-  <button id="submitBtn" type="submit" value="Aanmaken" (click)="deleteInstrument()" routerLink="/instruments">Verwijderen
-  </button>
-  <button id="cancelBtn" type="reset" value="Cancel">Cancel</button>
+<h2>Zeker dat u {{instrument.name}} wilt verwijderen?</h2>
+<div class="info">
+  <p class="col-sm-6 title ">Naam</p>
+  <p>{{instrument.name}}</p>
+  <p class="col-sm-6 title">Soort</p>
+  <p>{{instrument.sort}}</p>
+  <div *ngIf="instrument.sort === 'SNAAR' || instrument.sort === 'BLAAS'">
+    <p class="col-sm-6 title">Versie</p>
+    <p>{{instrument.version}}</p>
+  </div>
+  <div *ngIf="instrument.sort === 'SNAAR'">
+    <p class="col-sm-6 title">Type</p>
+    <p>{{instrument.type}}</p>
+  </div>
+  <a class="btn btn-default glyphicon glyphicon-remove" (click)="deleteInstrument()">Verwijderen</a>
+  <a class="btn btn-default glyphicon glyphicon-ban-circle" routerLink="/instruments">Annuleren</a>
 </div>

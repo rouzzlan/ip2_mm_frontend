@@ -24,6 +24,16 @@ export class BandService {
     return this.http.get<Band[]>(this.path + '/getbands');
   }
 
-  // endRegion
+  public getBandsOfUser(userId: number): Observable<Band[]> {
+    return this.http.get<Band[]>(this.path + '/getbands/' + userId);
+  }
 
+  public editBand(bandToEdit: Band) {
+    return this.http.put<Band>(this.path + '/editband/' + bandToEdit.id, bandToEdit);
+  }
+
+  public deleteBand(bandToDelete: Band) {
+    return this.http.delete<Band>(this.path + '/deleteband/' + bandToDelete.id);
+  }
+  // endregion
 }

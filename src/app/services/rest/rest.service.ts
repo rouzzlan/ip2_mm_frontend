@@ -24,8 +24,12 @@ export class RestService {
     return this.http.get<User>(this.path + '/getusers/' + userEmail);
   }
 
-  public getStudents(): Observable<User[]> {
-    return this.http.get<User[]>(this.path + '/getusers');
+  public getStudents(): Observable<String[]> {
+    return this.http.get<String[]>(this.path + '/getstudents');
+  }
+
+  public getTeachers(): Observable<String[]> {
+    return this.http.get<String[]>(this.path + '/getteachers');
   }
 
   public createUser(userToCreate: User): Observable<User> {
@@ -52,87 +56,3 @@ export class RestService {
     };
   }
 }
-
-
-// import {Component, OnInit} from '@angular/core';
-// import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-// import 'rxjs/add/operator/map';
-//
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.css']
-// })
-// export class AppComponent implements OnInit {
-//   title = 'app';
-//
-//   // result = '';
-//
-//   constructor(private http: HttpClient) {
-//   }
-//
-//   ngOnInit(): void {
-//     // get all
-//     this.http.get('http://jsonplaceholder.typicode.com/posts')
-//       .subscribe(data => {
-//           console.log(data);
-//         },
-//         (err: HttpErrorResponse) => {
-//           if (err.error instanceof Error) {
-//             console.log('Client-side error occured.');
-//           } else {
-//             console.log('Server-side error occured.');
-//           }
-//         });
-//
-//     // get one
-//     this.http.get('http://jsonplaceholder.typicode.com/posts/1')
-//       .subscribe(
-//         data => {
-//           console.log(data);
-//         },
-//         (err: HttpErrorResponse) => {
-//           if (err.error instanceof Error) {
-//             console.log('Client-side error occured');
-//           } else {
-//             console.log('Server-side error occured');
-//           }
-//         }
-//       );
-//
-//     // Sending
-//     const req = this.http.post('http://jsonplaceholder.typicode.com/posts', {
-//       title: 'foo',
-//       body: 'bar',
-//       userId: 1
-//     })
-//       .subscribe(
-//         res => {
-//           console.log(res);
-//         },
-//         err => {
-//           console.log('Error occured: ' + err);
-//         }
-//       );
-//
-//     // Delete
-//     const del = this.http.delete('http://jsonplaceholder.typicode.com/posts/1');
-//
-//     // Update
-//     const upd = this.http.put('http://jsonplaceholder.typicode.com/posts/1', {
-//       id: 1,
-//       title: 'Winnie',
-//       body: 'Pooh',
-//       userId: 1
-//     })
-//       .subscribe(
-//         res => {
-//           console.log(res);
-//         },
-//         err => {
-//           console.log('Error occured: ' + err);
-//         }
-//       );
-//   }
-// }
-

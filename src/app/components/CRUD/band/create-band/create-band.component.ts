@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {Band} from "../../../../model/band";
-import {Role} from "../../../../model/role";
-import {User} from "../../../../model/user";
-import {BandService} from "../../../../services/band/band.service";
-import {OldUserService} from "../../../../services/old.user/old.user.service";
+import {Band} from '../../../../model/band';
+import {BandService} from '../../../../services/band/band.service';
+import {RestService} from '../../../../services/rest/rest.service';
 
 
 @Component({
@@ -15,15 +13,15 @@ import {OldUserService} from "../../../../services/old.user/old.user.service";
 export class CreateBandComponent implements OnInit {
   newBand: Band = new Band();
   bands: Band[] = [];
-  roles: Role[] = [];
-  index = 0;
-  indexS = 0;
-  indexT = 0;
-  students: User[] = [];
-  teachers: User[] = [];
+  students: String[] = [];
+  teachers: String[] = [];
+  studentMail: string;
   public addTrigger = false;
+  deletedTeacher: String;
+  private deletedStudent: String;
 
-  constructor(private userService: OldUserService, private bandService: BandService) {
+  constructor(private userService: RestService, private bandService: BandService) {
+
   }
 
   ngOnInit() {
@@ -33,11 +31,6 @@ export class CreateBandComponent implements OnInit {
   }
 
   // region REST calls
-  public getRoles(): void {
-    this.userService.getRoles().subscribe(roles => this.roles = roles);
-  }
-
-  // TODO kijken waarom dees raar doet!
   public getUsers(): void {
     this.userService.getStudents().subscribe(students => this.students = students);
     this.userService.getTeachers().subscribe(teachers => this.teachers = teachers);
@@ -54,30 +47,46 @@ export class CreateBandComponent implements OnInit {
 
   // endregion
 
-
   public addStudent(): void {
+    this.newBand.students.push(this.studentMail);
+    this.students.splice(this.students.indexOf(this.studentMail), 1);
+    //this.deletedStudent = '';
+    this.addTrigger = false;
+  }
+
+  public deleteStudent(student: String): void {
+    this.newBand.students.splice(this.newBand.students.indexOf(student), 1);
+    this.students.push(student);
+  }
+
+  public addStudentArea(): void {
     this.addTrigger = true;
   }
 
-  // TODO beter uitwerken
-  public addingStudent(studentUsername: String): void {
-    const student = this.students.find(s => s.username === studentUsername);
-    if (!this.newBand.students.find(s => s === student.username)) {
-      this.newBand.students.push(student.username);
+  public deleteStudentArea(): void {
+    this.addTrigger = false;
+  }
+
+  public deleteFromStudents(event) {
+    if (this.deletedTeacher != null) {
+      this.students.push(this.deletedTeacher)
     }
-
-    console.log(studentUsername + ' ' + this.newBand.students);
-    // this.newBand.students[this.index] = student;
-    // this.index++;
-    // this.addTrigger = false;
+    const teacher = event.target.value;
+    if (this.students.find(t => teacher === t)) {
+      this.students.splice(this.students.indexOf(teacher), 1)
+    }
+    this.deletedTeacher = teacher;
   }
 
-// TODO beter uitwerken
-  public placeStudentInTextArea(): void {
-    this.addTrigger = false;
-  }
-
-  public setAddStudentFalse(): void {
-    this.addTrigger = false;
-  }
+  // public deleteFromTeachers(event) {
+  //   console.log(this.deletedStudent);
+  //   if (this.deletedStudent != null) {
+  //     this.teachers.push(this.deletedStudent)
+  //   }
+  //   const student = event.target.value;
+  //   if (this.students.find(s => student === s)) {
+  //     this.teachers.splice(this.teachers.indexOf(student), 1);
+  //     this.deletedStudent = student;
+  //   }
+  // }
 }

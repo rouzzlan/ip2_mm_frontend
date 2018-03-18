@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Instrument} from "../../../../model/instrument";
-import {InstrumentService} from "../../../../services/instrument/instrument.service";
+import {Instrument} from '../../../../model/instrument';
+import {InstrumentService} from '../../../../services/instrument/instrument.service';
 
 @Component({
   selector: 'app-instrument-home',
@@ -9,68 +9,18 @@ import {InstrumentService} from "../../../../services/instrument/instrument.serv
 })
 export class InstrumentHomeComponent implements OnInit {
   instruments: Instrument[] = [];
-  selectedInstrument: Instrument;
-  create: boolean = true;
-  edit: boolean = false;
-  detail: boolean = false;
-  delete: boolean = false;
 
   constructor(private instrumentService: InstrumentService) {
-
   }
 
   ngOnInit() {
     this.getInstruments();
   }
 
-  //region REST calls
+  // region REST calls
   getInstruments(): void {
     this.instrumentService.getInstruments().subscribe(receivedInstruments => this.instruments = receivedInstruments);
   }
 
-  //endregion
-  loadCreate() {
-    this.create = true;
-    this.detail = false;
-    this.edit = false;
-    this.delete = false;
-  }
-
-  loadEdit(instrument: Instrument) {
-    this.create = false;
-    this.detail = false;
-    this.edit = true;
-    this.delete = false;
-    this.selectedInstrument = instrument
-  }
-
-  loadDelete(instrument: Instrument) {
-    this.create = false;
-    this.detail = false;
-    this.edit = false;
-    this.delete = true;
-    this.selectedInstrument = instrument;
-  }
-
-  loadDetail(instrument: Instrument) {
-    this.create = false;
-    this.detail = true;
-    this.edit = false;
-    this.delete = false;
-    this.selectedInstrument = instrument
-  }
-
-  onDelete() {
-    this.getInstruments();
-    this.loadCreate();
-  }
-
-  onCreated() {
-    this.getInstruments();
-    this.loadDetail(this.instruments[this.instruments.length - 1])
-  }
-
-  onEdited() {
-    this.loadDetail(this.selectedInstrument);
-  }
+  // endregion
 }

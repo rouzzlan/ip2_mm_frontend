@@ -16,28 +16,24 @@ export class EventService {
   }
 
   public getEvent(eventId: number): Observable<Event> {
-    return this.http.get<Event>(this.path + '/getevents/' + eventId);
+    return this.http.get<Event>(this.path + '/getevent/' + eventId);
   }
 
   public getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(this.path + '/getevents');
   }
 
-  public getEventsOfUser(userId: number): Observable<Event[]> {
-    return this.http.get<Event[]>(this.path + '/getevents/' + userId);
+  public getEventsOfUser(userEmail: String): Observable<Event[]> {
+    return this.http.get<Event[]>(this.path + '/getevents/' + userEmail);
   }
 
   public editEvent(eventToUpdate: Event): Observable<Event> {
     return this.http.put<Event>(this.path + '/editevent', eventToUpdate);
   }
 
-  // public deleteEvent(eventToDelete: Event) {
-  //   this.http.delete<Event>(this.path + '/deleteEvent', eventToDelete);
-  // }
+  public deleteEvent(eventId: number) {
+    return this.http.delete(this.path + '/deleteevent/' + eventId);
+  }
 
   // endRegion
-
-
 }
-
-

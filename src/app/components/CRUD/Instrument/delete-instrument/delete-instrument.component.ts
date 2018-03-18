@@ -1,11 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-<<<<<<< Updated upstream:src/app/components/CRUD/Instrument/delete-instrument/delete-instrument.component.ts
-import {Instrument} from "../../../../model/instrument";
-import {InstrumentService} from "../../../../services/instrument/instrument.service";
-=======
-import {Instrument} from "../../../model/instrument";
-import {InstrumentService} from "../../../services/instrument.service/instrument.service";
->>>>>>> Stashed changes:src/app/components/Instrument/delete-instrument/delete-instrument.component.ts
+import {Instrument} from '../../../../model/instrument';
+import {InstrumentService} from '../../../../services/instrument/instrument.service';
+import {ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-delete-instrument',
@@ -13,18 +10,23 @@ import {InstrumentService} from "../../../services/instrument.service/instrument
   styleUrls: ['./delete-instrument.component.css']
 })
 export class DeleteInstrumentComponent implements OnInit {
-  @Input() instrument: Instrument;
-  @Output() deleted = new EventEmitter();
+  instrument: Instrument;
 
-  constructor(private instrumentService: InstrumentService) {
+  constructor(private instrumentService: InstrumentService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.instrumentService.getInstrument(+params['id'])
+        .subscribe(receivedInstrument => this.instrument = receivedInstrument);
+    })
   }
 
   public deleteInstrument(): void {
-    this.instrumentService.deleteInstrument(this.instrument)
-      .subscribe(next => console.log("next"), error => console.log("error"), () => this.deleted.emit())
-
+    this.instrumentService.deleteInstrument(this.instrument.id)
+      .subscribe(() => {
+        },
+        () => this.router.navigate(['/instruments'])
+      )
   }
 }
