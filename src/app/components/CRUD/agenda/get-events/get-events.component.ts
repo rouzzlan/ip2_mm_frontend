@@ -11,7 +11,7 @@ import {CalendarComponent} from 'ap-angular2-fullcalendar';
 export class GetEventsComponent implements OnInit, AfterViewInit {
   // mycal here is the #mycal in the HTML
   @ViewChildren('mycal') myCal: QueryList<CalendarComponent>;
-  checked: Boolean = false;
+
   calOptions: any = {};
 
   constructor(private eventService: EventService) {
@@ -54,14 +54,4 @@ export class GetEventsComponent implements OnInit, AfterViewInit {
   }
 
   // endRegion
-
-  public placeAllOnCal(): void {
-    this.checked = false;
-    this.getEventsLessons();
-  }
-
-  public placeUserOnCal(): void {
-    this.checked = true;
-    this.getEventsLessonsOfStudents();
-  }
 }

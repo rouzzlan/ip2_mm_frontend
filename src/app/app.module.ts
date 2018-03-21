@@ -35,7 +35,7 @@ import {EditEventComponent} from './components/CRUD/agenda/edit-event/edit-event
 import {DeleteEventComponent} from './components/CRUD/agenda/delete-event/delete-event.component';
 import {CreateInstrumentComponent} from './components/CRUD/Instrument/create-instrument/create-instrument.component';
 import {UserProfileComponent} from './components/CRUD/users/user-profile/user-profile.component';
-import {GetEventComponent} from './components/CRUD/agenda/get-events-User/get-events-user.component';
+import {GetEventsUserComponent} from './components/CRUD/agenda/get-events-User/get-events-user.component';
 import {InstrumentHomeComponent} from './components/CRUD/Instrument/instrument-home/instrument-home.component';
 import {DetailsInstrumentComponent} from './components/CRUD/Instrument/details-instrument/details-instrument.component';
 import {EditInstrumententComponent} from './components/CRUD/Instrument/edit-instrumentent/edit-instrumentent.component';
@@ -89,13 +89,14 @@ export function authHttpServiceFactory(http: Http) {
     CreateInstrumentComponent,
     UserProfileComponent,
     DeleteEventComponent,
-    GetEventComponent,
+    // GetEventComponent,
     InstrumentHomeComponent,
     DetailsInstrumentComponent,
     EditInstrumententComponent,
     DeleteInstrumentComponent,
     GetEventsComponent,
     GetAllEventsComponent,
+    GetEventsUserComponent,
     DetailsEventComponent,
     CalendarComponent
   ],

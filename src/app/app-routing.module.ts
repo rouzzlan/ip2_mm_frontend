@@ -23,6 +23,7 @@ import {DetailsEventComponent} from './components/CRUD/agenda/details-event/deta
 import {EditEventComponent} from './components/CRUD/agenda/edit-event/edit-event.component';
 import {DeleteEventComponent} from './components/CRUD/agenda/delete-event/delete-event.component';
 import {GetAllEventsComponent} from './components/CRUD/agenda/get-all-events/get-all-events.component';
+import {GetEventsUserComponent} from './components/CRUD/agenda/get-events-User/get-events-user.component';
 
 const routes: Routes = [
   // HOME
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: 'events/edit/:id', component: EditEventComponent},
   {path: 'events/delete/:id', component: DeleteEventComponent},
   {path: 'events/create', component: CreateEventComponent},
+  {path: 'events/user/:id', component: GetEventsUserComponent},
   {path: 'bands', component: GetBandsComponent},
   {path: 'bands/banddetail/:bandName', component: BandDetailComponent},
   {path: 'bands/editband/:bandName', component: EditBandComponent},

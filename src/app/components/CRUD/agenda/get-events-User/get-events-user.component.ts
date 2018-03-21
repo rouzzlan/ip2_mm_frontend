@@ -1,30 +1,46 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {Event} from '../../../../model/event';
 import {User} from '../../../../model/user';
 import {EventService} from '../../../../services/event/event.service';
+import {CalendarComponent} from 'ap-angular2-fullcalendar';
 
 @Component({
   selector: 'app-get-event',
   templateUrl: './get-events-user.component.html',
   styleUrls: ['./get-events-user.component.css']
 })
-export class GetEventComponent implements OnInit {
+export class GetEventsUserComponent implements OnInit, AfterViewInit {
 
-  @Input() user: User;
-  eventsOfUser: Event[];
+  // mycal here is the #mycal in the HTML
+  @ViewChildren('mycal') myCal: QueryList<CalendarComponent>;
+
+  calOptions: any = {};
 
   constructor(private eventService: EventService) {
   }
 
   ngOnInit() {
-    this.getEventsOfUser();
+    this.getEventsLessonsOfStudents();
+  }
+
+  ngAfterViewInit() {
   }
 
   // region REST calls
-  public getEventsOfUser(): void {
-    this.eventService.getEventsOfUser(this.user.email).subscribe(event => this.eventsOfUser = event);
+  private getEventsLessonsOfStudents(): void {
+    this.eventService.getEventsLessonsOfStudent(2).subscribe(receivedEventsLessons => {
+      this.calOptions = {
+        monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'Novemeber', 'December'],
+        timeFormat: 'H:mm',
+        dayNamesShort: ['ZO', 'MA', 'DI', 'WO', 'DO', 'VR', 'ZA'],
+        buttonText: {
+          today: 'vandaag'
+        },
+        events: receivedEventsLessons
+      };
+    });
   }
 
-  // endregion
+  // endRegion
 
 }

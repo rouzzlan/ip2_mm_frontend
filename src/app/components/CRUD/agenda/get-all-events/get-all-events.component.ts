@@ -15,7 +15,7 @@ export class GetAllEventsComponent implements OnInit {
 
   lessons: Lesson[] = [];
 
-  constructor(private eventService: EventService, private lessonSerivce: LessonService) {
+  constructor(private eventService: EventService, private lessonService: LessonService) {
   }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class GetAllEventsComponent implements OnInit {
   }
 
   public getAllLessons(): void {
-    this.lessonSerivce.getLessons().subscribe(receivedLessons => this.lessons = receivedLessons);
+    this.lessonService.getLessons().subscribe(receivedLessons => this.lessons = receivedLessons);
   }
 
   // endRegion
