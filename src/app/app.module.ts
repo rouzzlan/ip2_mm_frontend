@@ -32,6 +32,7 @@ import { SearchComponent } from './components/lib/search/search.component';
 import {AdminComponent} from "./components/_admin/admin.component";
 import { UsersComponent } from './components/_admin/users/users.component';
 import {LessonService} from './services/lesson/lesson.service';
+import { LessonComponent } from './components/_admin/lesson/lesson.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -51,6 +52,7 @@ export function tokenGetter() {
     InstrumentsComponent,
     SearchComponent,
     UsersComponent,
+    LessonComponent,
     // UserListComponent,
     // EditUserComponent,
     // CreatePageComponent,
