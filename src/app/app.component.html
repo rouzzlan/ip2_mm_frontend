@@ -6,11 +6,17 @@
   <div class="order-2">
     <!--user name if logged in-->
     <!--login button if not logged in-->
-    <span class="navbar-text mr-3" *ngIf="user != null">{{user}}</span>
+    <span class="navbar-text mr-3" *ngIf="user != null">
+      <div class="d-none d-sm-block">
+        {{user}}
+      </div>
+    </span>
     <button class="btn btn-dark" *ngIf="user == null" routerLinkActive="active" routerLink="/account/login">Login</button>
 
+    <button class="btn btn-dark" *ngIf="isLesgever || isBeheerder" routerLinkActive="active" routerLink="/admin">ADMIN</button>
+
     <!--logged in user options-->
-    <div class="btn-group btn-dark" *ngIf="user != null"  role="group">
+    <div class="btn-group btn-dark rounded" *ngIf="user != null"  role="group">
       <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="fa fa-cog" style="width:24px"></span>
       </button>
@@ -22,10 +28,12 @@
       </div>
     </div>
 
+      <button class="btn btn-dark d-lg-none" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="fa fa-bars"></span>
+      </button>
+
+
     <!--Button die verschijnt als scherm kleiner wordt-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </div>
 
   <!--de effectieve navbar links-->
@@ -59,11 +67,11 @@
     </ul>
 
     <!--rechterkant components-->
-    <ul class="navbar-nav -allign-right">
-      <li class="nav-item" *ngIf="isLeerling">
-        <a class="nav-link mr-2" *ngIf="isLesgever || isBeheerder" href="/admin"><strong>ADMIN</strong></a>
-      </li>
-    </ul>
+    <!--<ul class="navbar-nav -allign-right">-->
+      <!--<li class="nav-item" *ngIf="isLeerling">-->
+        <!--<a class="nav-link mr-2" *ngIf="isLesgever || isBeheerder" href="/admin"><strong>ADMIN</strong></a>-->
+      <!--</li>-->
+    <!--</ul>-->
   </div>
 </nav>
 

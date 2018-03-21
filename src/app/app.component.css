@@ -3,7 +3,15 @@ h1 {
 }
 
 .navbar {
-  min-width: 350px;
+  min-width: 300px;
+}
+
+.btn-dark {
+  background-color: black !important;
+}
+
+.navbar-toggler {
+  background-color: black !important;
 }
 
 .dropdown-item:active  {
