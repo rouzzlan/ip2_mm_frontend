@@ -8,7 +8,7 @@ export class Lesson {
   price: number;
   state: string;
   playlist: Playlist;
-  lessontype: LessonType;
+  lessonType: LessonType;
   seriesOfLessons: SeriesOfLessons;
   date: string;
 }
