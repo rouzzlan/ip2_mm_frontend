@@ -14,6 +14,7 @@ import {InstrumentsComponent} from "./components/lib/instruments/instruments.com
 import {SearchComponent} from "./components/lib/search/search.component";
 import {UsersComponent} from "./components/_admin/users/users.component";
 import {BeheerderGuard} from "./services/guards/beheerder-guard.service";
+import {LessonComponent} from './components/_admin/lesson/lesson.component';
 import {InstrumentHomeComponent} from "./components/_admin/Instrument/instrument-home/instrument-home.component";
 import {CreateInstrumentComponent} from "./components/_admin/Instrument/create-instrument/create-instrument.component";
 import {DetailsInstrumentComponent} from "./components/_admin/Instrument/details-instrument/details-instrument.component";
@@ -81,6 +82,9 @@ const routes: Routes = [
   {path: 'lib/cords', component: CordsComponent, canActivate: [AuthGuard]},
   {path: 'lib/instruments', component: InstrumentsComponent, canActivate: [AuthGuard]},
   {path: 'lib/search', component: SearchComponent, canActivate: [AuthGuard]},
+
+  //LESSON
+  {path: 'lesson/all', component: LessonComponent, canActivate: [AuthGuard]},
 
   //RESTRICTED
   //navigation requires at least lesgever rights, some components require more

@@ -29,24 +29,26 @@ import {MusicComponent} from './components/lib/music/music.component';
 import {CordsComponent} from './components/lib/cords/cords.component';
 import {InstrumentsComponent} from './components/lib/instruments/instruments.component';
 import {SearchComponent} from './components/lib/search/search.component';
-import {AdminComponent} from "./components/_admin/admin.component";
+import {AdminComponent} from './components/_admin/admin.component';
+import {LessonService} from './services/lesson/lesson.service';
+import {LessonComponent} from './components/_admin/lesson/lesson.component';
 import {UsersComponent} from './components/_admin/users/users.component';
-import {EditInstrumententComponent} from "./components/_admin/Instrument/edit-instrumentent/edit-instrumentent.component";
-import {EditBandComponent} from "./components/_admin/band/edit-band/edit-band.component";
-import {CreateInstrumentComponent} from "./components/_admin/Instrument/create-instrument/create-instrument.component";
-import {CreateBandComponent} from "./components/_admin/band/create-band/create-band.component";
-import {DeleteInstrumentComponent} from "./components/_admin/Instrument/delete-instrument/delete-instrument.component";
-import {DetailsInstrumentComponent} from "./components/_admin/Instrument/details-instrument/details-instrument.component";
-import {BandDetailComponent} from "./components/_admin/band/band-detail/band-detail.component";
-import {GetBandsComponent} from "./components/_admin/band/get-bands/get-bands.component";
-import {DeleteBandComponent} from "./components/_admin/band/delete-band/delete-band.component";
-import {GetBandsOfUserComponent} from "./components/_admin/band/get-bands-of-user/get-bands-of-user.component";
-import {BandService} from "./services/band/band.service";
-import {InstrumentService} from "./services/instrument/instrument.service";
-import {UserService} from "./services/user/user.service";
-import {InstrumentHomeComponent} from "./components/_admin/Instrument/instrument-home/instrument-home.component";
-import { MusicpiecesComponent } from './components/_admin/musicpieces/musicpieces.component';
-import {MusicpieceService} from "./services/admin/musicpiece.service";
+import {EditInstrumententComponent} from './components/_admin/Instrument/edit-instrumentent/edit-instrumentent.component';
+import {EditBandComponent} from './components/_admin/band/edit-band/edit-band.component';
+import {CreateInstrumentComponent} from './components/_admin/Instrument/create-instrument/create-instrument.component';
+import {CreateBandComponent} from './components/_admin/band/create-band/create-band.component';
+import {DeleteInstrumentComponent} from './components/_admin/Instrument/delete-instrument/delete-instrument.component';
+import {DetailsInstrumentComponent} from './components/_admin/Instrument/details-instrument/details-instrument.component';
+import {BandDetailComponent} from './components/_admin/band/band-detail/band-detail.component';
+import {GetBandsComponent} from './components/_admin/band/get-bands/get-bands.component';
+import {DeleteBandComponent} from './components/_admin/band/delete-band/delete-band.component';
+import {GetBandsOfUserComponent} from './components/_admin/band/get-bands-of-user/get-bands-of-user.component';
+import {BandService} from './services/band/band.service';
+import {InstrumentService} from './services/instrument/instrument.service';
+import {UserService} from './services/user/user.service';
+import {InstrumentHomeComponent} from './components/_admin/Instrument/instrument-home/instrument-home.component';
+import {MusicpiecesComponent} from './components/_admin/musicpieces/musicpieces.component';
+import {MusicpieceService} from './services/admin/musicpiece.service';
 import {DetailsEventComponent} from './components/_admin/agenda/details-event/details-event.component';
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
@@ -74,6 +76,9 @@ export function tokenGetter() {
     CordsComponent,
     SearchComponent,
     UsersComponent,
+    LessonComponent,
+    CalendarComponent,
+
 
     //instrument
     InstrumentHomeComponent,
@@ -130,6 +135,9 @@ export function tokenGetter() {
     RegistrationService,
     AuthService,
     LoginService,
+
+    //LESSON
+    LessonService,
 
     //Admin
     MusicpieceService,
