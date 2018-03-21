@@ -1,0 +1,32 @@
+button {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+label {
+  margin-top: 5px;
+}
+
+input, select {
+  margin-left: 15px;
+}
+
+.alert-danger {
+  margin-top: 5px;
+}
+
+h2 {
+  font-weight: bold;
+  display: inline;
+}
+
+#studentMails{
+  margin-left: 11pt;
+}
+
+.fa-remove{
+  color: red;
+}
+#addedStudents{
+  margin-top: 20px;
+}

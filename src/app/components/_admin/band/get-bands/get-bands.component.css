@@ -1,0 +1,35 @@
+.bandDetails {
+  border: 2px solid darkslategray;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+h2 {
+  display: inline;
+}
+
+#addband {
+  align-content: center;
+  vertical-align: center;
+  font-weight: bold;
+}
+
+.infoRow {
+  border-bottom: 1px solid black
+}
+
+td > a {
+  margin-top: 5px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.col-sm-4-5{
+  width: 37.45%;
+}
+
+.fa{
+  font-size: 150%;
+}

@@ -1,0 +1,32 @@
+.fa {
+  font-size: 200%
+}
+
+.instrumentDetails {
+  border: 2px solid darkslategray;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+h2 {
+  display: inline;
+  font-weight: bold;
+}
+
+.fa-plus {
+  font-size: 150%;
+}
+
+#addinstr {
+  border: 1px lightgreen;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+}
+
+.RUDlink {
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+}
