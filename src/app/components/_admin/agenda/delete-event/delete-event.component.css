@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 5px 5px 5px 0;
+  display: inline-block;
+}
+
+form {
+  box-sizing: border-box;
+}
+
+p {
+  padding: 5px;
+}
+
+.btnContainer {
+  padding: 5px 5px 5px 0;
+  text-align: center;
+}
+
+button {
+  margin: 10px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: lightgreen;
+}

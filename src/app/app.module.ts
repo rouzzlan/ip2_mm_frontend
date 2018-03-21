@@ -3,27 +3,27 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt';
-import {AppRoutingModule} from "./app-routing.module";
-import {FormsModule} from "@angular/forms";
+import {AppRoutingModule} from './app-routing.module';
+import {FormsModule} from '@angular/forms';
 
-import {LoginService} from "./services/account/login.service";
-import {TestService} from "./services/test.service";
+import {LoginService} from './services/account/login.service';
+import {TestService} from './services/test.service';
 import {AuthService} from './services/account/auth.service';
 
-import {AuthGuard} from "./services/guards/auth-guard.service";
-import {BeheerderGuard} from "./services/guards/beheerder-guard.service";
-import {LesgeverGuard} from "./services/guards/lesgever-guard.service";
-import {LeerlingGuard} from "./services/guards/leerling-guard.service";
+import {AuthGuard} from './services/guards/auth-guard.service';
+import {BeheerderGuard} from './services/guards/beheerder-guard.service';
+import {LesgeverGuard} from './services/guards/lesgever-guard.service';
+import {LeerlingGuard} from './services/guards/leerling-guard.service';
 
-import {HomeComponent} from "./components/_home/home.component";
-import {TestComponent} from "./components/test/test/test.component";
+import {HomeComponent} from './components/_home/home.component';
+import {TestComponent} from './components/test/test/test.component';
 
-import {HttpModule} from "@angular/http";
+import {HttpModule} from '@angular/http';
 import {RegistrationService} from './services/account/registration.service';
 
-import {LoginComponent} from "./components/_account/login/login.component";
-import {RegistrationComponent} from "./components/_account/registration/registration.component";
-import {ConfirmationComponent} from "./components/_account/confirmation/confirmation.component";
+import {LoginComponent} from './components/_account/login/login.component';
+import {RegistrationComponent} from './components/_account/registration/registration.component';
+import {ConfirmationComponent} from './components/_account/confirmation/confirmation.component';
 
 import {MusicComponent} from './components/lib/music/music.component';
 import {CordsComponent} from './components/lib/cords/cords.component';
@@ -45,6 +45,15 @@ import {BandService} from "./services/band/band.service";
 import {InstrumentService} from "./services/instrument/instrument.service";
 import {UserService} from "./services/user/user.service";
 import {InstrumentHomeComponent} from "./components/_admin/Instrument/instrument-home/instrument-home.component";
+import { MusicpiecesComponent } from './components/_admin/musicpieces/musicpieces.component';
+import {MusicpieceService} from "./services/admin/musicpiece.service";
+import {DetailsEventComponent} from './components/_admin/agenda/details-event/details-event.component';
+import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
+import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
+import {GetEventsComponent} from './components/_admin/agenda/get-events/get-events.component';
+import {GetEventsUserComponent} from './components/_admin/agenda/get-events-User/get-events-user.component';
+import {DeleteEventComponent} from './components/_admin/agenda/delete-event/delete-event.component';
+import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-event.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -79,9 +88,19 @@ export function tokenGetter() {
     BandDetailComponent,
     EditBandComponent,
     DeleteBandComponent
+    // EVENT
+    CreateEventComponent,
+    DetailsEventComponent,
+    EditEventComponent,
+    DeleteEventComponent,
+    GetEventsUserComponent,
+    GetEventsComponent,
+    GetAllEventsComponent
+    MusicpiecesComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     HttpModule,
@@ -108,10 +127,13 @@ export function tokenGetter() {
     AuthService,
     LoginService,
 
+    //Admin
+    MusicpieceService,
 
     BandService,
     InstrumentService,
     UserService,
+    // EventService,
     JwtModule
   ],
   bootstrap: [AppComponent]
