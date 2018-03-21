@@ -1,6 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt';
 import {AppRoutingModule} from "./app-routing.module";
@@ -25,12 +25,26 @@ import {LoginComponent} from "./components/_account/login/login.component";
 import {RegistrationComponent} from "./components/_account/registration/registration.component";
 import {ConfirmationComponent} from "./components/_account/confirmation/confirmation.component";
 
-import { MusicComponent } from './components/lib/music/music.component';
-import { CordsComponent } from './components/lib/cords/cords.component';
-import { InstrumentsComponent } from './components/lib/instruments/instruments.component';
-import { SearchComponent } from './components/lib/search/search.component';
+import {MusicComponent} from './components/lib/music/music.component';
+import {CordsComponent} from './components/lib/cords/cords.component';
+import {InstrumentsComponent} from './components/lib/instruments/instruments.component';
+import {SearchComponent} from './components/lib/search/search.component';
 import {AdminComponent} from "./components/_admin/admin.component";
-import { UsersComponent } from './components/_admin/users/users.component';
+import {UsersComponent} from './components/_admin/users/users.component';
+import {EditInstrumententComponent} from "./components/_admin/Instrument/edit-instrumentent/edit-instrumentent.component";
+import {EditBandComponent} from "./components/_admin/band/edit-band/edit-band.component";
+import {CreateInstrumentComponent} from "./components/_admin/Instrument/create-instrument/create-instrument.component";
+import {CreateBandComponent} from "./components/_admin/band/create-band/create-band.component";
+import {DeleteInstrumentComponent} from "./components/_admin/Instrument/delete-instrument/delete-instrument.component";
+import {DetailsInstrumentComponent} from "./components/_admin/Instrument/details-instrument/details-instrument.component";
+import {BandDetailComponent} from "./components/_admin/band/band-detail/band-detail.component";
+import {GetBandsComponent} from "./components/_admin/band/get-bands/get-bands.component";
+import {DeleteBandComponent} from "./components/_admin/band/delete-band/delete-band.component";
+import {GetBandsOfUserComponent} from "./components/_admin/band/get-bands-of-user/get-bands-of-user.component";
+import {BandService} from "./services/band/band.service";
+import {InstrumentService} from "./services/instrument/instrument.service";
+import {UserService} from "./services/user/user.service";
+import {InstrumentHomeComponent} from "./components/_admin/Instrument/instrument-home/instrument-home.component";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -47,24 +61,24 @@ export function tokenGetter() {
     AdminComponent,
     MusicComponent,
     CordsComponent,
-    InstrumentsComponent,
     SearchComponent,
     UsersComponent,
-    // UserListComponent,
-    // EditUserComponent,
-    // CreatePageComponent,
-    // CreateBandComponent,
-    // CreateEventComponent,
-    // EditEventComponent,
-    // DeleteEventComponent,
-    // CreateInstrumentComponent,
-    // UserProfileComponent,
-    // DeleteEventComponent,
-    // GetEventComponent,
-    // InstrumentHomeComponent,
-    // DetailsInstrumentComponent,
-    // EditInstrumententComponent,
-    // DeleteInstrumentComponent
+
+    //instrument
+    InstrumentHomeComponent,
+    InstrumentsComponent,
+    CreateInstrumentComponent,
+    DetailsInstrumentComponent,
+    EditInstrumententComponent,
+    DeleteInstrumentComponent,
+
+    //band
+    GetBandsComponent,
+    GetBandsOfUserComponent,
+    CreateBandComponent,
+    BandDetailComponent,
+    EditBandComponent,
+    DeleteBandComponent
   ],
   imports: [
     BrowserModule,
@@ -75,8 +89,8 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:8080', ],       // TODO: Add heroku to whilelist
-        blacklistedRoutes: ['localhost:8080/oauth/', ]  // TODO: Add heroku to blacklist
+        whitelistedDomains: ['localhost:8080',],       // TODO: Add heroku to whilelist
+        blacklistedRoutes: ['localhost:8080/oauth/',]  // TODO: Add heroku to blacklist
       }
     })
   ],
@@ -95,13 +109,12 @@ export function tokenGetter() {
     LoginService,
 
 
-    // BandService,
-    // EventService,
-    // InstrumentService,
-    // OldUserService,
-    // RestService,
+    BandService,
+    InstrumentService,
+    UserService,
     JwtModule
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

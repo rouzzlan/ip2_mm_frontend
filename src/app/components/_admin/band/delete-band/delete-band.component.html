@@ -1,0 +1,16 @@
+<h2>Verwijder band {{bandToDelete.name}}?</h2>
+<p class="heading">Naam</p>
+<p class="">{{bandToDelete.name}}</p>
+<p class="heading">Lesgever</p>
+<p class="">{{bandToDelete.teacher}}</p>
+<p class="heading">Studenten</p>
+<ul>
+  <li *ngFor="let student of bandToDelete.students">
+    <p>{{student}}</p>
+  </li>
+</ul>
+<div class="btnContainer col-xs-12">
+  <button id="submitBtn" class="btn btn-default" type="submit" value="Verwijder" (click)="deleteBand()">Verwijder
+  </button>
+  <button id="cancelBtn" class="btn btn-default" type="Button" value="Terug">Terug</button>
+</div>

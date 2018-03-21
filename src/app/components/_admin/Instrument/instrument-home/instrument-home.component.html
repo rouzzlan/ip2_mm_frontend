@@ -1,0 +1,50 @@
+<h2>Instrumenten</h2>
+<a id="addinstr" class="btn btn-default d-none d-sm-inline float-right"
+   routerLink="/instrument/create">
+  <span class="fa fa-plus "></span> nieuw instrument</a>
+<div class="d-block d-sm-none">
+  <div *ngFor="let instrument of instruments">
+    <div class="instrumentDetails">
+      <div class="d-flex infoRow">
+        <p class="col-6 title">Naam</p>
+        <p>{{instrument.name}}</p>
+      </div>
+      <div class="d-flex infoRow">
+        <p class="col-6 title">Soort</p>
+        <p class="text-lowercase">{{instrument.sort}}</p>
+      </div>
+      <div class="d-flex infoRow">
+        <p class="col-6 title">Type</p>
+        <p>{{instrument.type}}</p>
+      </div>
+      <div class="d-flex infoRow">
+        <p class="col-6 title">Uitvoering</p>
+        <p>{{instrument.version}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table table-striped table-bordered table-responsive-sm d-none d-sm-table">
+  <thead class="thead-dark">
+  <tr class="d-flex">
+    <th scope="col" class="col-3 text-center">Naam</th>
+    <th scope="col" class="col-2 text-center">Soort</th>
+    <th scope="col" class="col-2 text-center">Type</th>
+    <th scope="col" class="col-2 text-center">Uitvoering</th>
+    <th scope="col" class="col-3 text-center">Opties</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="d-flex" *ngFor="let instrument of instruments">
+    <td class="col-3">{{instrument.name}}</td>
+    <td class="col-2 text-lowercase">{{instrument.sort}}</td>
+    <td class="col-2">{{instrument.type}}</td>
+    <td class="col-2">{{instrument.version}}</td>
+    <td class="col-3 d-flex">
+      <a class="fa fa-info-circle col-4 RUDlink" routerLink="/instrument/detail/{{instrument.id}}"></a>
+      <a class="fa fa-edit col-4 RUDlink" routerLink="/instrument/edit/{{instrument.id}}"></a>
+      <a class="fa fa-remove col-4 RUDlink" routerLink="/instrument/delete/{{instrument.id}}"></a>
+    </td>
+  </tr>
+  </tbody>
+</table>

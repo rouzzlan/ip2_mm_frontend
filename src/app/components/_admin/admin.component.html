@@ -1,17 +1,16 @@
 <h2>Platformbeheer</h2>
 <p>Maak u keuze</p>
 
-
 <div class="container-fluid">
   <div class="square" (click)="redirect('admin/users')" *ngIf="isBeheerder">
     <div class="content">Gebruikers</div>
     <div class="fa fa-user fa-5x"></div>
   </div>
-  <div class="square" (click)="redirect(home)">
+  <div class="square" routerLink="/bands">
     <div class="content">Bands</div>
     <div class="fa fa-users fa-5x" style="right: 27%;"></div>
   </div>
-  <div class="square" (click)="redirect(home)">
+  <div class="square" routerLink="/instruments">
     <div class="content">Instrumenten</div>
     <div class="fa fa-cube fa-5x"></div>
   </div>
@@ -19,7 +18,6 @@
     <div class="content">Lessen</div>
     <div class="fa fa-book fa-5x" style="right: 30%;"></div>
   </div>
-
 </div>
 
 <h2 style="clear: both; padding-top: 20px">Under Construction</h2>

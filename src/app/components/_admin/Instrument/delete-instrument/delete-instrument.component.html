@@ -1,0 +1,19 @@
+<h2>Zeker dat u {{instrument.name}} wilt verwijderen?</h2>
+<div id="info">
+  <p class="col-sm-6 col-lg-4 title">Naam</p>
+  <p class="left">{{instrument.name}}</p>
+  <p class="col-sm-6 col-lg-4 title">Soort</p>
+  <p class="left">{{instrument.sort}}</p>
+  <div *ngIf="instrument.sort === 'SNAAR' || instrument.sort === 'SLAG'">
+    <p class="col-sm-6 col-lg-4 title">Versie</p>
+    <p class="left">{{instrument.version}}</p>
+  </div>
+  <div *ngIf="instrument.sort==='SNAAR'">
+    <p class="col-sm-6 col-lg-4 title">Type</p>
+    <p class="left">{{instrument.type}}</p>
+  </div>
+  <div class="ml-3">
+    <button class="btn" (click)="deleteInstrument()"><span class="fa fa-remove"></span> Verwijderen</button>
+    <button class="btn" routerLink="/instruments"><span class="fa fa-arrow-left"></span> Annuleren</button>
+  </div>
+</div>
