@@ -2,6 +2,10 @@ h1 {
   text-align: center;
 }
 
+.navbar {
+  min-width: 350px;
+}
+
 .dropdown-item:active  {
   background-color: black;
 }
