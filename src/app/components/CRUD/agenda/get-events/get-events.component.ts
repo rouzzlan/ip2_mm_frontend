@@ -28,7 +28,7 @@ export class GetEventsComponent implements OnInit, AfterViewInit {
   private getEventsLessons(): void {
     this.eventService.getEventsLessons().subscribe(receivedEventsLessons => {
       this.calOptions = {
-        monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'Novemeber', 'December'],
+        monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'],
         timeFormat: 'H:mm',
         dayNamesShort: ['ZO', 'MA', 'DI', 'WO', 'DO', 'VR', 'ZA'],
         buttonText: {
@@ -38,20 +38,5 @@ export class GetEventsComponent implements OnInit, AfterViewInit {
       };
     });
   }
-
-  private getEventsLessonsOfStudents(): void {
-    this.eventService.getEventsLessonsOfStudent(2).subscribe(receivedEventsLessons => {
-      this.calOptions = {
-        monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'Novemeber', 'December'],
-        timeFormat: 'H:mm',
-        dayNamesShort: ['ZO', 'MA', 'DI', 'WO', 'DO', 'VR', 'ZA'],
-        buttonText: {
-          today: 'vandaag'
-        },
-        events: receivedEventsLessons
-      };
-    });
-  }
-
   // endRegion
 }

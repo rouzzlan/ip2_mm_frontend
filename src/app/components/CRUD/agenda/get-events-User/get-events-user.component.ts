@@ -30,7 +30,7 @@ export class GetEventsUserComponent implements OnInit, AfterViewInit {
   private getEventsLessonsOfStudents(): void {
     this.eventService.getEventsLessonsOfStudent(2).subscribe(receivedEventsLessons => {
       this.calOptions = {
-        monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'Novemeber', 'December'],
+        monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'],
         timeFormat: 'H:mm',
         dayNamesShort: ['ZO', 'MA', 'DI', 'WO', 'DO', 'VR', 'ZA'],
         buttonText: {
