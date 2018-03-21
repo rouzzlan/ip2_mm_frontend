@@ -14,6 +14,7 @@ import {InstrumentsComponent} from "./components/lib/instruments/instruments.com
 import {SearchComponent} from "./components/lib/search/search.component";
 import {UsersComponent} from "./components/_admin/users/users.component";
 import {BeheerderGuard} from "./services/guards/beheerder-guard.service";
+import {MusicpiecesComponent} from "./components/_admin/musicpieces/musicpieces.component";
 
 const routes: Routes = [
   //HOME
@@ -47,6 +48,7 @@ const routes: Routes = [
   //navigation requires at least lesgever rights, some components require more
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard, LesgeverGuard]},
   {path: 'admin/users', component: UsersComponent, canActivate: [AuthGuard, BeheerderGuard]},
+  {path: 'admin/musicpieces', component: MusicpiecesComponent, canActivate: [AuthGuard, LesgeverGuard]},
 
   //NON-SPECIFIED PATH REDIRECT
   {path: '**', redirectTo: '/home'},

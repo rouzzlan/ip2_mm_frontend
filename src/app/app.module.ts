@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt';
 import {AppRoutingModule} from "./app-routing.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {LoginService} from "./services/account/login.service";
 import {TestService} from "./services/test.service";
@@ -31,6 +31,8 @@ import { InstrumentsComponent } from './components/lib/instruments/instruments.c
 import { SearchComponent } from './components/lib/search/search.component';
 import {AdminComponent} from "./components/_admin/admin.component";
 import { UsersComponent } from './components/_admin/users/users.component';
+import { MusicpiecesComponent } from './components/_admin/musicpieces/musicpieces.component';
+import {MusicpieceService} from "./services/admin/musicpiece.service";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -50,6 +52,7 @@ export function tokenGetter() {
     InstrumentsComponent,
     SearchComponent,
     UsersComponent,
+    MusicpiecesComponent,
     // UserListComponent,
     // EditUserComponent,
     // CreatePageComponent,
@@ -68,6 +71,7 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     HttpModule,
@@ -93,6 +97,9 @@ export function tokenGetter() {
     RegistrationService,
     AuthService,
     LoginService,
+
+    //Admin
+    MusicpieceService,
 
 
     // BandService,
