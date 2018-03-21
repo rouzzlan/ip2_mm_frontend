@@ -8,7 +8,6 @@ import {BandService} from '../../../../services/band/band.service';
   styleUrls: ['./get-bands.component.css']
 })
 export class GetBandsComponent implements OnInit {
-
   bands: Band[] = [];
 
   constructor(private bandService: BandService) {
@@ -24,5 +23,4 @@ export class GetBandsComponent implements OnInit {
   }
 
   // endRegion
-
 }

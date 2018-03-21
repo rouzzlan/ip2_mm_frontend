@@ -1,23 +1,22 @@
 <h2>Instrumenten</h2>
-<a id="addinstr" class="btn btn-default d-none d-sm-inline float-right"
-   routerLink="/instrument/create">
+<a id="addinstr" class="btn d-none d-sm-inline float-right" routerLink="/instrument/create">
   <span class="fa fa-plus "></span> nieuw instrument</a>
 <div class="d-block d-sm-none">
   <div *ngFor="let instrument of instruments">
     <div class="instrumentDetails">
-      <div class="d-flex infoRow">
+      <div class="d-flex">
         <p class="col-6 title">Naam</p>
         <p>{{instrument.name}}</p>
       </div>
-      <div class="d-flex infoRow">
+      <div class="d-flex">
         <p class="col-6 title">Soort</p>
         <p class="text-lowercase">{{instrument.sort}}</p>
       </div>
-      <div class="d-flex infoRow">
+      <div class="d-flex">
         <p class="col-6 title">Type</p>
         <p>{{instrument.type}}</p>
       </div>
-      <div class="d-flex infoRow">
+      <div class="d-flex">
         <p class="col-6 title">Uitvoering</p>
         <p>{{instrument.version}}</p>
       </div>
