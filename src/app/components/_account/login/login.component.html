@@ -1,0 +1,22 @@
+<div class="form-wrapper">
+  <h2 class="text-center">Inloggen</h2>
+  <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+      <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="E-mail"/>
+      <div *ngIf="f.submitted && !email.valid" class="help-block">E-mail is required</div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel"
+             required placeholder="Password"/>
+      <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+    </div>
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-dark">
+        <i *ngIf="loading" class="fa fa-spinner fa-pulse"></i>
+        <div *ngIf="!loading">Log in</div>
+      </button>
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  </form>
+  <p>Nieuwe gebruiker? <a href="/account/register">registreer je hier!</a></p>
+</div>

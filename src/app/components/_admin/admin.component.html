@@ -1,0 +1,49 @@
+<h2>Platformbeheer</h2>
+<p>Maak u keuze</p>
+
+
+<div class="container-fluid">
+  <div class="square" (click)="redirect('admin/users')" *ngIf="isBeheerder">
+    <div class="content">Gebruikers</div>
+    <div class="fa fa-user fa-5x"></div>
+  </div>
+  <div class="square" (click)="redirect(home)">
+    <div class="content">Bands</div>
+    <div class="fa fa-users fa-5x" style="right: 27%;"></div>
+  </div>
+  <div class="square" (click)="redirect(home)">
+    <div class="content">Instrumenten</div>
+    <div class="fa fa-cube fa-5x"></div>
+  </div>
+  <div class="square" (click)="redirect(home)">
+    <div class="content">Lessen</div>
+    <div class="fa fa-book fa-5x" style="right: 30%;"></div>
+  </div>
+
+</div>
+
+<h2 style="clear: both; padding-top: 20px">Under Construction</h2>
+<p>#Wishfull thinking</p>
+
+<div class="container-fluid">
+  <div class="square" (click)="redirect(home)">
+    <div class="content">Muziekstukken</div>
+    <div class="fa fa-music fa-5x"></div>
+  </div>
+  <div class="square" (click)="redirect(home)">
+    <div class="content">Agendas</div>
+    <div class="fa fa-calendar fa-5x"></div>
+  </div>
+  <div class="square" (click)="redirect(home)">
+    <div class="content">Oefeningen</div>
+    <div class="fa fa-pencil fa-5x"></div>
+  </div>
+  <div class="square" (click)="redirect(home)">
+    <div class="content">Akkoorden</div>
+    <div class="fa fa-key fa-5x"></div>
+  </div>
+</div>
+
+
+
+

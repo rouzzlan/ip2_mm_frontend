@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+}
+
+.dropdown-item:active  {
+  background-color: black;
+}
+
+.dropdown-item {
+  background-color: white;
+}
+
+/*zware inpact op UI */
+.dropdown-item:hover {
+  color: white;
+  background-color: rgba(0,0,0,1);
+}
+
+.dropdown-menu {
+  background-color: white;
+}
+
+.navbar-nav .nav-link,.navbar-text, .nav-link {
+  color: rgba(0, 0, 0, 0.75);
+}
+.navbar-nav .nav-link:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.bg-light {
+  background-color: #FFFFFF;
+}
+.navbar {
+  border-style: solid;
+  border-bottom-width: thin;
+  border-width: 0;
+  border-bottom-width: 2px;
+}
+
+.dropdown-divider {
+  border-top: 2px solid #000000 !important;
+}
+

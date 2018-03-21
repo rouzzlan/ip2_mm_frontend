@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg bg-light navbar-light ">
+  <a class="navbar-brand" href="/home">
+    <img src="../assets/images/logo.jpg" alt="logo" style="width:30px">
+  </a>
+
+  <!--Button die verschijnt als scherm kleiner wordt-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--de effectieve navbar links-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" >
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+      <li class="nav-item" *ngIf="isLeerling">
+        <a class="nav-link" href="#">Agenda</a>
+      </li>
+      <li class="nav-item" *ngIf="isLeerling">
+        <a class="nav-link" href="#">Oefeningen</a>
+      </li>
+      <li class="nav-item" *ngIf="isLeerling">
+        <a class="nav-link" href="#">Playlists</a>
+      </li>
+
+      <li class="nav-item dropdown" *ngIf="isLeerling">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Bibliotheken
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="lib/music">Muziekstukken</a>
+          <a class="dropdown-item" href="lib/cords">Akkoorden</a>
+          <a class="dropdown-item" href="lib/instruments">Instrumenten</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="lib/search"><i class="fa fa-search mr-3"></i>Zoek</a>
+        </div>
+      </li>
+    </ul>
+
+    <!--rechterkant components-->
+    <a class="nav-link" *ngIf="isLesgever || isBeheerder" href="/admin"><strong>ADMIN</strong></a>
+
+    <span class="navbar-text mr-3" *ngIf="user != null">{{user}}</span>
+    <button class="btn btn-dark" *ngIf="user == null" routerLinkActive="active" routerLink="/account/login">Login</button>
+
+    <div class="btn-group btn-dark" *ngIf="user != null"  role="group">
+      <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="fa fa-cog" style="width:24px"></span>
+      </button>
+      <div class="dropdown-menu" style="right: 0; left: auto;" aria-labelledby="btnGroupDrop1">
+        <a class="dropdown-item" href="#">Mijn profiel</a>
+        <a *ngIf="isLeerling" class="dropdown-item" href="test">Tokentest</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink="/home" (click)="logout()">Log uit</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>
