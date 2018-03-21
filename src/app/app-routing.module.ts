@@ -18,10 +18,11 @@ import {BandDetailComponent} from './components/CRUD/band/band-detail/band-detai
 import {EditBandComponent} from './components/CRUD/band/edit-band/edit-band.component';
 import {DeleteBandComponent} from './components/CRUD/band/delete-band/delete-band.component';
 import {CreateBandComponent} from './components/CRUD/band/create-band/create-band.component';
-import {GetEventsComponent} from "./components/CRUD/agenda/get-events/get-events.component";
-import {DetailsEventComponent} from "./components/CRUD/agenda/details-event/details-event.component";
-import {EditEventComponent} from "./components/CRUD/agenda/edit-event/edit-event.component";
-import {DeleteEventComponent} from "./components/CRUD/agenda/delete-event/delete-event.component";
+import {GetEventsComponent} from './components/CRUD/agenda/get-events/get-events.component';
+import {DetailsEventComponent} from './components/CRUD/agenda/details-event/details-event.component';
+import {EditEventComponent} from './components/CRUD/agenda/edit-event/edit-event.component';
+import {DeleteEventComponent} from './components/CRUD/agenda/delete-event/delete-event.component';
+import {GetAllEventsComponent} from './components/CRUD/agenda/get-all-events/get-all-events.component';
 
 const routes: Routes = [
   // HOME
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'users', component: UserListComponent},
   {path: 'instruments', component: InstrumentHomeComponent},
   {path: 'events', component: GetEventsComponent},
+  {path: 'events/all', component: GetAllEventsComponent},
   {path: 'events/detail/:id', component: DetailsEventComponent},
   {path: 'events/edit/:id', component: EditEventComponent},
   {path: 'events/delete/:id', component: DeleteEventComponent},

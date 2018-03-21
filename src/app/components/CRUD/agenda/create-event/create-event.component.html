@@ -3,7 +3,7 @@
   <label for="eventName">Naam: </label>
   <input id="eventName" type="text" placeholder="name"
          required
-         name="name" [(ngModel)]="newEvent.name"
+         name="name" [(ngModel)]="newEvent.title"
          #title="ngModel">
   <label for="eventPlace">Plaats: </label>
   <input id="eventPlace" type="text" placeholder="plaats"
@@ -13,7 +13,7 @@
   <label for="eventDate">Datum: </label>
   <input id="eventDate" type="datetime-local"
          required
-         name="date" [(ngModel)]="newEvent.dateTime"
+         name="date" [(ngModel)]="newEvent.start"
          #title="ngModel">
   <label for="eventBand">Band: </label>
   <select id="eventBand" type="text" name="band" [(ngModel)]="newEvent.band">

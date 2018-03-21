@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Event} from '../../model/event';
 import {Observable} from 'rxjs/Observable';
+import {EventLessons} from '../../model/eventLessons';
 
 @Injectable()
 export class EventService {
@@ -21,6 +22,14 @@ export class EventService {
 
   public getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(this.path + '/getevents');
+  }
+
+  public getEventsLessons(): Observable<EventLessons[]> {
+    return this.http.get<EventLessons[]>(this.path + '/geteventslessons');
+  }
+
+  public getEventsLessonsOfStudent(id: number): Observable<EventLessons[]> {
+    return this.http.get<EventLessons[]>(this.path + '/geteventslessonsfromstudent/' + id);
   }
 
   public getEventsOfUser(userEmail: String): Observable<Event[]> {

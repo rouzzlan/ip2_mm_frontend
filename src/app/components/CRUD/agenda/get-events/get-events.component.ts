@@ -1,22 +1,67 @@
-import { Component, OnInit } from '@angular/core';
-import {EventService} from "../../../../services/event/event.service";
-import {Event} from "../../../../model/event";
+import {AfterViewInit, Component, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {EventService} from '../../../../services/event/event.service';
+import {CalendarComponent} from 'ap-angular2-fullcalendar';
+
 
 @Component({
   selector: 'app-get-events',
   templateUrl: './get-events.component.html',
   styleUrls: ['./get-events.component.css']
 })
-export class GetEventsComponent implements OnInit {
-  events: Event[] = [];
+export class GetEventsComponent implements OnInit, AfterViewInit {
+  // mycal here is the #mycal in the HTML
+  @ViewChildren('mycal') myCal: QueryList<CalendarComponent>;
+  checked: Boolean = false;
+  calOptions: any = {};
 
-  constructor(private eventService: EventService) { }
-
-  ngOnInit() {
-    this.getEvents();
+  constructor(private eventService: EventService) {
   }
 
-  private getEvents(): void {
-    this.eventService.getEvents().subscribe(receivedEvents => this.events = receivedEvents);
+  ngOnInit() {
+    this.getEventsLessons();
+  }
+
+  ngAfterViewInit() {
+  }
+
+  // region REST calls
+  private getEventsLessons(): void {
+    this.eventService.getEventsLessons().subscribe(receivedEventsLessons => {
+      this.calOptions = {
+        monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'Novemeber', 'December'],
+        timeFormat: 'H:mm',
+        dayNamesShort: ['ZO', 'MA', 'DI', 'WO', 'DO', 'VR', 'ZA'],
+        buttonText: {
+          today: 'vandaag'
+        },
+        events: receivedEventsLessons
+      };
+    });
+  }
+
+  private getEventsLessonsOfStudents(): void {
+    this.eventService.getEventsLessonsOfStudent(2).subscribe(receivedEventsLessons => {
+      this.calOptions = {
+        monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'Novemeber', 'December'],
+        timeFormat: 'H:mm',
+        dayNamesShort: ['ZO', 'MA', 'DI', 'WO', 'DO', 'VR', 'ZA'],
+        buttonText: {
+          today: 'vandaag'
+        },
+        events: receivedEventsLessons
+      };
+    });
+  }
+
+  // endRegion
+
+  public placeAllOnCal(): void {
+    this.checked = false;
+    this.getEventsLessons();
+  }
+
+  public placeUserOnCal(): void {
+    this.checked = true;
+    this.getEventsLessonsOfStudents();
   }
 }

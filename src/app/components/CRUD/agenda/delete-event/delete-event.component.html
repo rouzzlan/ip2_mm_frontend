@@ -1,7 +1,7 @@
-<h1>Verwijder evenement {{eventToDelete.name}}?</h1>
+<h1>Verwijder evenement {{eventToDelete.title}}?</h1>
 <form id="deleteEventForm" #deleteEventForm="ngForm" (ngSubmit)="deleteEvent(deleteEventForm)">
   <label for="eventName">Naam: </label>
-  <p id="eventName">{{eventToDelete.name}}</p>
+  <p id="eventName">{{eventToDelete.title}}</p>
   <label for="eventDate">Datum: </label>
   <p id="eventDate">{{eventToDelete.date}}</p>
   <label for="eventBand">Band: </label>

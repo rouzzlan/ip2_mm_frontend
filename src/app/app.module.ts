@@ -49,6 +49,9 @@ import {DeleteBandComponent} from './components/CRUD/band/delete-band/delete-ban
 import {BandDetailComponent} from './components/CRUD/band/band-detail/band-detail.component';
 import { GetEventsComponent } from './components/CRUD/agenda/get-events/get-events.component';
 import { DetailsEventComponent } from './components/CRUD/agenda/details-event/details-event.component';
+import {CalendarComponent} from 'ap-angular2-fullcalendar';
+import {LessonService} from './services/lesson/lesson.service';
+import {GetAllEventsComponent} from './components/CRUD/agenda/get-all-events/get-all-events.component';
 
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -92,7 +95,9 @@ export function authHttpServiceFactory(http: Http) {
     EditInstrumententComponent,
     DeleteInstrumentComponent,
     GetEventsComponent,
-    DetailsEventComponent
+    GetAllEventsComponent,
+    DetailsEventComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +119,8 @@ export function authHttpServiceFactory(http: Http) {
     EventService,
     InstrumentService,
     // OldUserService,
-    RestService
+    RestService,
+    LessonService
   ],
   bootstrap: [AppComponent]
 })
