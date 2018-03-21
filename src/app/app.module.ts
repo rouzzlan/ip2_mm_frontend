@@ -31,7 +31,7 @@ import {InstrumentsComponent} from './components/lib/instruments/instruments.com
 import {SearchComponent} from './components/lib/search/search.component';
 import {AdminComponent} from './components/_admin/admin.component';
 import {LessonService} from './services/lesson/lesson.service';
-import {LessonComponent} from './components/_admin/lesson/lesson.component';
+import {LessonComponent} from './components/_admin/lesson/lesson/lesson.component';
 import {UsersComponent} from './components/_admin/users/users.component';
 import {EditInstrumententComponent} from './components/_admin/Instrument/edit-instrumentent/edit-instrumentent.component';
 import {EditBandComponent} from './components/_admin/band/edit-band/edit-band.component';
@@ -58,6 +58,10 @@ import {DeleteEventComponent} from './components/_admin/agenda/delete-event/dele
 import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-event.component';
 import {CalendarComponent} from "ap-angular2-fullcalendar";
 import {EventService} from "./services/event/event.service";
+import { CreateLessonComponent } from './components/_admin/lesson/create-lesson/create-lesson.component';
+import { DeleteLessonComponent } from './components/_admin/lesson/delete-lesson/delete-lesson.component';
+import { DetailsLessonComponent } from './components/_admin/lesson/details-lesson/details-lesson.component';
+import { EditLessonComponent } from './components/_admin/lesson/edit-lesson/edit-lesson.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -76,8 +80,6 @@ export function tokenGetter() {
     CordsComponent,
     SearchComponent,
     UsersComponent,
-    LessonComponent,
-    CalendarComponent,
 
 
     //instrument
@@ -105,7 +107,14 @@ export function tokenGetter() {
     GetEventsUserComponent,
     GetEventsComponent,
     GetAllEventsComponent,
-    MusicpiecesComponent
+    MusicpiecesComponent,
+
+    //LESSON
+    LessonComponent,
+    CreateLessonComponent,
+    DeleteLessonComponent,
+    DetailsLessonComponent,
+    EditLessonComponent
   ],
   imports: [
     BrowserModule,
