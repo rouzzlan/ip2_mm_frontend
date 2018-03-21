@@ -1,6 +1,6 @@
 <h2>Lessen</h2>
 <a id="addlesson" class="btn hidden-xs d-none d-sm-inline float-right" routerLink="/instrument/create"><span
-  class="fa fa-plus"></span>nieuwe les</a>
+  class="fa fa-plus"></span> nieuwe les</a>
 <div class="d-block d-sm-none">
   <div *ngFor="let lesson of lessons">
     <div class="lessonDetails">
@@ -29,22 +29,22 @@
     <th scope="col" class="col-2 text-center">Type</th>
     <th scope="col" class="col-3 text-center">Beschrijving</th>
     <th scope="col" class="col-2 text-center">Datum</th>
-    <th scope="col" class="col-2 text-center">Begin uur</th>
+    <th scope="col" class="col-1 text-center">Begin</th>
     <th scope="col" class="col-1 text-center">Duur</th>
-    <th scope="col" class="col-2 text-center">Opties</th>
+    <th scope="col" class="col-3 text-center">Opties</th>
   </tr>
   </thead>
   <tbody>
   <tr class="d-flex" *ngFor="let lesson of lessons">
     <td class="col-sm-2">{{lesson.lessonType.name}}</td>
     <td class="col-sm-3 ">{{lesson.lessonType.description}}</td>
-    <td class="col-sm-2">{{lesson.date}}</td>
-    <td class="col-sm-2">{{lesson.date}}</td>
+    <td class="col-sm-2">{{lesson.date.substring(0, 10).split("-").reverse().join("-")}}</td>
+    <td class="col-sm-1">{{lesson.date.substring(11,16)}}</td>
     <td class="col-sm-1">{{lesson.time}}</td>
-    <td class="col-sm-2">
-      <!--<a class="glyphicon glyphicon-info-sign col-sm-4" routerLink="/instrument/detail/{{instrument.id}}"></a>-->
-      <!--<a class="glyphicon glyphicon-edit col-sm-4" routerLink="/instrument/edit/{{instrument.id}}"></a>-->
-      <!--<a class="glyphicon glyphicon-remove-circle col-sm-4" routerLink="/instrument/delete/{{instrument.id}}"></a>-->
+    <td class="col-sm-3 d-flex">
+      <a class="fa fa-info-circle col-sm-4" routerLink="/lesson/detail/{{lesson.id}}"></a>
+      <a class="fa fa-edit col-sm-4" routerLink="/lesson/edit/{{lesson.id}}"></a>
+      <a class="fa fa-remove col-sm-4" routerLink="/lesson/delete/{{lesson.id}}"></a>
     </td>
   </tr>
   </tbody>
