@@ -4,7 +4,7 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt';
 import {AppRoutingModule} from './app-routing.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {LoginService} from './services/account/login.service';
 import {TestService} from './services/test.service';
@@ -87,7 +87,8 @@ export function tokenGetter() {
     CreateBandComponent,
     BandDetailComponent,
     EditBandComponent,
-    DeleteBandComponent
+    DeleteBandComponent,
+
     // EVENT
     CreateEventComponent,
     DetailsEventComponent,
@@ -95,8 +96,8 @@ export function tokenGetter() {
     DeleteEventComponent,
     GetEventsUserComponent,
     GetEventsComponent,
-    GetAllEventsComponent
-    MusicpiecesComponent,
+    GetAllEventsComponent,
+    MusicpiecesComponent
   ],
   imports: [
     BrowserModule,

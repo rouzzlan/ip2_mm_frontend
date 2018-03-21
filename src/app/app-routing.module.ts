@@ -27,7 +27,6 @@ import {CreateBandComponent} from "./components/_admin/band/create-band/create-b
 import {GetBandsOfUserComponent} from "./components/_admin/band/get-bands-of-user/get-bands-of-user.component";
 import {MusicpiecesComponent} from './components/_admin/musicpieces/musicpieces.component';
 import {GetEventsComponent} from './components/_admin/agenda/get-events/get-events.component';
-import {GetEventsComponent} from './components/_admin/agenda/get-events/get-events.component';
 import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
 import {DetailsEventComponent} from './components/_admin/agenda/details-event/details-event.component';
 import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-event.component';
