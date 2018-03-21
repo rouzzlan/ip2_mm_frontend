@@ -15,18 +15,57 @@ import {SearchComponent} from "./components/lib/search/search.component";
 import {UsersComponent} from "./components/_admin/users/users.component";
 import {BeheerderGuard} from "./services/guards/beheerder-guard.service";
 import {LessonComponent} from './components/_admin/lesson/lesson.component';
+import {InstrumentHomeComponent} from "./components/_admin/Instrument/instrument-home/instrument-home.component";
+import {CreateInstrumentComponent} from "./components/_admin/Instrument/create-instrument/create-instrument.component";
+import {DetailsInstrumentComponent} from "./components/_admin/Instrument/details-instrument/details-instrument.component";
+import {EditInstrumententComponent} from "./components/_admin/Instrument/edit-instrumentent/edit-instrumentent.component";
+import {DeleteInstrumentComponent} from "./components/_admin/Instrument/delete-instrument/delete-instrument.component";
+import {GetBandsComponent} from "./components/_admin/band/get-bands/get-bands.component";
+import {BandDetailComponent} from "./components/_admin/band/band-detail/band-detail.component";
+import {EditBandComponent} from "./components/_admin/band/edit-band/edit-band.component";
+import {DeleteBandComponent} from "./components/_admin/band/delete-band/delete-band.component";
+import {CreateBandComponent} from "./components/_admin/band/create-band/create-band.component";
+import {GetBandsOfUserComponent} from "./components/_admin/band/get-bands-of-user/get-bands-of-user.component";
+import {MusicpiecesComponent} from './components/_admin/musicpieces/musicpieces.component';
+import {GetEventsComponent} from './components/_admin/agenda/get-events/get-events.component';
+import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
+import {DetailsEventComponent} from './components/_admin/agenda/details-event/details-event.component';
+import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-event.component';
+import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
+import {DeleteEventComponent} from './components/_admin/agenda/delete-event/delete-event.component';
+import {GetEventsUserComponent} from './components/_admin/agenda/get-events-User/get-events-user.component';
 
 const routes: Routes = [
   //HOME
   {path: 'home', component: HomeComponent},
 
-  //CRUD
-  // {path: 'users', component: UserListComponent},
-  // {path: 'instruments', component: InstrumentHomeComponent},
-  // {path: 'events', component: CreateEventComponent},
-  // {path: 'events/:id', component: GetEventComponent},
-  // {path: 'events/:id', component: DeleteEventComponent},
-  // {path: 'band', component: CreateBandComponent},
+  // EVENT
+  {path: 'events', component: GetEventsComponent},
+  {path: 'events/all', component: GetAllEventsComponent},
+  {path: 'events/detail/:id', component: DetailsEventComponent},
+  {path: 'events/edit/:id', component: EditEventComponent},
+  {path: 'events/delete/:id', component: DeleteEventComponent},
+  {path: 'events/create', component: CreateEventComponent},
+  {path: 'events/user/:id', component: GetEventsUserComponent},
+  //region CRUD
+
+  //region INSTRUMENTS
+  {path: 'instruments', component: InstrumentHomeComponent},
+  {path: 'instrument/create', component: CreateInstrumentComponent},
+  {path: 'instrument/detail/:id', component: DetailsInstrumentComponent},
+  {path: 'instrument/edit/:id', component: EditInstrumententComponent},
+  {path: 'instrument/delete/:id', component: DeleteInstrumentComponent},
+  // endregion
+
+  //region BANDS
+  {path: 'bands', component: GetBandsComponent},
+  {path: 'bands/banddetail/:id', component: BandDetailComponent},
+  {path: 'bands/editband/:id', component: EditBandComponent},
+  {path: 'bands/deleteband/:id', component: DeleteBandComponent},
+  {path: 'bands/createband', component: CreateBandComponent},
+  {path: 'bands/:userId', component: GetBandsOfUserComponent},
+  //endregion
+  // endregion
 
   //ACCOUNT
   //open to all
@@ -51,6 +90,7 @@ const routes: Routes = [
   //navigation requires at least lesgever rights, some components require more
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard, LesgeverGuard]},
   {path: 'admin/users', component: UsersComponent, canActivate: [AuthGuard, BeheerderGuard]},
+  {path: 'admin/musicpieces', component: MusicpiecesComponent, canActivate: [AuthGuard, LesgeverGuard]},
 
   //NON-SPECIFIED PATH REDIRECT
   {path: '**', redirectTo: '/home'},

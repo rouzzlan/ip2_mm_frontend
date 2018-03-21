@@ -17,8 +17,8 @@
         <div *ngIf="!loading">Registreer</div>
       </button>
     </div>
-    <div *ngIf="succes" class="alert alert-success text-center">{{response}}</div>
-    <div *ngIf="error" class="alert alert-danger text-center">{{response}}</div>
+    <div *ngIf="succes == true" class="alert alert-success text-center">{{response}}</div>
+    <div *ngIf="succes == false" class="alert alert-danger text-center">{{response}}</div>
   </form>
   <p>Inloggen? <a href="/account/login">klik hier!</a></p>
 </div>

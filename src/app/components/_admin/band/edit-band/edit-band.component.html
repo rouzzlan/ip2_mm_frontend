@@ -1,0 +1,41 @@
+<h2>Pas {{bandToEdit.name}} aan</h2>
+<form id="editBandForm" class="col-12" #editBandForm="ngForm"
+      (ngSubmit)="editBand(editBandForm)">
+  <label class="col-12" for="bandName">Naam</label>
+  <input id="bandName" class="col-12 col-sm-5 col-lg-4"
+         type="text" placeholder="naam"
+         required
+         name="newBand.name" [(ngModel)]="bandToEdit.name"
+         #title="ngModel">
+  <label class="col-12" for="bandTeacher">Lesgever</label>
+  <select id="bandTeacher" class="col-sm-4 col-lg-3" name="bandTeacher" type="text" [(ngModel)]="bandToEdit.teacher"
+          (change)="deleteFromStudents($event)">
+    <option class="col-12" *ngFor="let teacher of teachers" [value]="teacher">{{teacher}}</option>
+  </select>
+  <label class="col-12" for="studentMails">Email leerling</label>
+  <select id="studentMails" class="col-4" name="studentMails" type="text" [(ngModel)]="studentMail">
+    <option *ngFor="let student of students" [value]="student">{{student}}</option>
+  </select>
+  <div class="col-12">
+    <button id="okBtn" class="btn btn-default fa fa-plus" type="button"
+            (click)="addStudent()">OK
+    </button>
+  </div>
+  <div class="col-12">
+    <p id="students" class="col-12">Toegevoegde studenten</p>
+    <ul>
+      <li *ngFor="let student of bandToEdit.students">
+        {{student}}
+        <p class="fa fa-remove" (click)="deleteStudent(student)"></p>
+      </li>
+    </ul>
+    <p *ngIf="bandToEdit.students.length===0">
+      Er zijn nog geen studenten toegevoegd
+    </p>
+  </div>
+  <div class="btnContainer col-12">
+    <button id="submitBtn" class="btn btn-default" type="submit" value="Verstuur">Verstuur</button>
+    <button id="cancelBtn" class="btn btn-default" type="reset" value="Stop" (click)="setAddStudentFalse()">Stop
+    </button>
+  </div>
+</form>

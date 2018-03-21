@@ -1,0 +1,9 @@
+<h2>{{band.name}}</h2>
+<p class="title">Lesgever</p>
+<p>{{band.teacher}}</p>
+<p class="title">Studenten</p>
+<ul>
+  <li *ngFor="let student of band.students">
+    <p>{{student}}</p>
+  </li>
+</ul>

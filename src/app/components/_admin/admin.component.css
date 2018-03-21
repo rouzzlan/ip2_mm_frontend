@@ -38,6 +38,30 @@
   right: 32.5%;
 }
 
+label {
+  font-weight: bold;
+}
+
+.fa-plus {
+  color: green;
+}
+
+.fa-remove {
+  color: red;
+}
+
+.fa-info-circle, .fa-check {
+  color: black;
+}
+
+.fa-arrow-left{
+  color: blue;
+}
+
+.fa-refresh {
+  color: seagreen;
+}
+
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
   .content {
