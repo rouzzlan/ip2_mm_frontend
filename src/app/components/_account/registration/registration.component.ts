@@ -10,7 +10,6 @@ import {RegistrationService} from "../../../services/account/registration.servic
 export class RegistrationComponent implements OnInit {
   model: any = {};
   succes: boolean;
-  error: boolean;
   loading = false;
   response = '';
 
@@ -34,13 +33,11 @@ export class RegistrationComponent implements OnInit {
         .subscribe(
           (data) => {
             this.succes = true;
-            this.error = false;
             this.loading = false;
             this.response = data.toString()
           },
           (err) => {
             this.succes = false;
-            this.error = true;
             this.loading = false;
             if (err.status === 409) {
               this.response = "Email zit al in ons systeem"

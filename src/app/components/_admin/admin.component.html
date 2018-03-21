@@ -7,18 +7,23 @@
     <div class="content">Gebruikers</div>
     <div class="fa fa-user fa-5x"></div>
   </div>
-  <div class="square" (click)="redirect(home)">
+  <div class="square" (click)="redirect('admin/musicpieces')" *ngIf="isBeheerder">
+    <div class="content">Muziekstukken</div>
+    <div class="fa fa-music fa-5x"></div>
+  </div>
+  <div class="square" (click)="redirect('')">
     <div class="content">Bands</div>
     <div class="fa fa-users fa-5x" style="right: 27%;"></div>
   </div>
-  <div class="square" (click)="redirect(home)">
+  <div class="square" (click)="redirect('')">
     <div class="content">Instrumenten</div>
     <div class="fa fa-cube fa-5x"></div>
   </div>
-  <div class="square" (click)="redirect(home)">
+  <div class="square" (click)="redirect('')" *ngIf="isBeheerder">
     <div class="content">Lessen</div>
     <div class="fa fa-book fa-5x" style="right: 30%;"></div>
   </div>
+
 
 </div>
 
@@ -26,19 +31,15 @@
 <p>#Wishfull thinking</p>
 
 <div class="container-fluid">
-  <div class="square" (click)="redirect(home)">
-    <div class="content">Muziekstukken</div>
-    <div class="fa fa-music fa-5x"></div>
-  </div>
-  <div class="square" (click)="redirect(home)">
+  <div class="square" (click)="redirect('')">
     <div class="content">Agendas</div>
     <div class="fa fa-calendar fa-5x"></div>
   </div>
-  <div class="square" (click)="redirect(home)">
+  <div class="square" (click)="redirect('')">
     <div class="content">Oefeningen</div>
     <div class="fa fa-pencil fa-5x"></div>
   </div>
-  <div class="square" (click)="redirect(home)">
+  <div class="square" (click)="redirect('')">
     <div class="content">Akkoorden</div>
     <div class="fa fa-key fa-5x"></div>
   </div>

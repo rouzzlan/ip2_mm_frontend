@@ -38,6 +38,8 @@ import {GetEventsComponent} from './components/_admin/agenda/get-events/get-even
 import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {DetailsEventComponent} from './components/_admin/agenda/details-event/details-event.component';
+import {MusicpieceService} from "./services/admin/musicpiece.service";
+import { MusicpiecesComponent } from './components/_admin/musicpieces/musicpieces.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -65,9 +67,11 @@ export function tokenGetter() {
     GetEventsUserComponent,
     GetEventsComponent,
     GetAllEventsComponent
+    MusicpiecesComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     HttpModule,
@@ -93,6 +97,9 @@ export function tokenGetter() {
     RegistrationService,
     AuthService,
     LoginService,
+
+    //Admin
+    MusicpieceService,
 
 
     // BandService,
