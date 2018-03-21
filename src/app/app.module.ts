@@ -31,6 +31,8 @@ import { InstrumentsComponent } from './components/lib/instruments/instruments.c
 import { SearchComponent } from './components/lib/search/search.component';
 import {AdminComponent} from "./components/_admin/admin.component";
 import { UsersComponent } from './components/_admin/users/users.component';
+import {ChatComponent} from './components/chat/chat.component';
+import {WebsocketService} from './services/chat/websocket.service';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -50,6 +52,7 @@ export function tokenGetter() {
     InstrumentsComponent,
     SearchComponent,
     UsersComponent,
+    ChatComponent,
     // UserListComponent,
     // EditUserComponent,
     // CreatePageComponent,
@@ -93,6 +96,9 @@ export function tokenGetter() {
     RegistrationService,
     AuthService,
     LoginService,
+
+    //CHAT
+    WebsocketService,
 
 
     // BandService,
