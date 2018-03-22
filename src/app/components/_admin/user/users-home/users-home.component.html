@@ -1,1 +1,49 @@
-<p>users works!</p>
+<h2>Users</h2>
+<a id="adduser" class="btn d-none d-sm-inline float-right" routerLink="/admin/users/create">
+  <span class="fa fa-plus "></span> nieuwe user</a>
+<div class="d-block d-sm-none">
+  <div *ngFor="let user of users">
+    <div class="details">
+      <div class="d-flex">
+        <p class="col-6 title">ID</p>
+        <p>{{user.id}}</p>
+      </div>
+      <div class="d-flex">
+        <p class="col-6 title">EMAIL</p>
+        <p class="text-lowercase">{{user.email}}</p>
+      </div>
+      <div class="d-flex">
+        <p class="col-6 title">FIRSTNAME</p>
+        <p>{{user.firstname}}</p>
+      </div>
+      <div class="d-flex">
+        <p class="col-6 title">LASTNAME</p>
+        <p>{{user.lastname}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table table-striped table-bordered table-responsive-sm d-none d-sm-table">
+  <thead class="thead-dark">
+  <tr class="d-flex">
+    <th scope="col" class="col-1 text-center">ID</th>
+    <th scope="col" class="col-4 text-center">Email</th>
+    <th scope="col" class="col-2 text-center">Firstname</th>
+    <th scope="col" class="col-2 text-center">Lastname</th>
+    <th scope="col" class="col-3 text-center">Opties</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="d-flex" *ngFor="let user of users">
+    <td class="col-1">{{user.id}}</td>
+    <td class="col-4 text-lowercase">{{user.email}}</td>
+    <td class="col-2">{{user.firstname}}</td>
+    <td class="col-2">{{user.lastname}}</td>
+    <td class="col-3 d-flex">
+      <a class="fa fa-info-circle col-4 RUDlink" routerLink="/admin/users/detail/{{user.id}}"></a>
+      <a class="fa fa-edit col-4 RUDlink" routerLink="/admin/users/edit/{{user.id}}"></a>
+      <a class="fa fa-remove col-4 RUDlink" routerLink="/admin/users/delete/{{user.id}}"></a>
+    </td>
+  </tr>
+  </tbody>
+</table>

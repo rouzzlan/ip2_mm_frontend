@@ -71,11 +71,11 @@ export function tokenGetter() {
     HomeComponent,
     AdminComponent,
 
-    //LIBRARIES
-    MusicComponent,
-    CordsComponent,
-    SearchComponent,
-    InstrumentsComponent,
+      //LIBRARIES
+      MusicComponent,
+      CordsComponent,
+      SearchComponent,
+      InstrumentsComponent,
 
     //ACCOUNT
     LoginComponent,
