@@ -1,3 +1,20 @@
-<p>
-  details-lesson works!
-</p>
+<h2>Details van de les van {{lesson.date.substring(0, 10).split('-').reverse().join('-')}} om
+{{lesson.date.substring(11, 16).split('-').reverse().join('-')}}</h2>
+<div id="info">
+  <p class="col-sm-4 title">Les type</p>
+  <p class="detail">{{lesson.lessonType.name}}</p>
+  <p class="col-sm-4 title">Prijs:</p>
+  <p class="detail">{{lesson.price}}</p>
+  <p class="col-sm-4 title">Duurtijd:</p>
+  <p class="detail">{{lesson.time}}</p>
+  <p class="col-sm-4 title">Staat:</p>
+  <p class="detail">{{lesson.state}}</p>
+  <div class="ml-3">
+    <button class="btn btn-default" routerLink="/lesson/edit/{{lesson.id}}">
+      <span class="fa fa-edit"></span> Edit
+    </button>
+    <button class="btn btn-default" routerLink="/lesson/delete/{{lesson.id}}">
+      <span class="fa fa-remove"></span> Delete
+    </button>
+  </div>
+</div>
