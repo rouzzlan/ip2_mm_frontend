@@ -12,14 +12,16 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class DeleteInstrumentComponent implements OnInit {
   instrument: Instrument;
 
-  constructor(private instrumentService: InstrumentService, private route: ActivatedRoute, private router: Router) {
+  constructor(private instrumentService: InstrumentService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.instrumentService.getInstrument(+params['id'])
         .subscribe(receivedInstrument => this.instrument = receivedInstrument);
-    })
+    });
   }
 
   public deleteInstrument(): void {
@@ -27,6 +29,6 @@ export class DeleteInstrumentComponent implements OnInit {
       .subscribe(() => {
         },
         () => this.router.navigate(['/instruments'])
-      )
+      );
   }
 }

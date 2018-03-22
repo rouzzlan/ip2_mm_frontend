@@ -45,14 +45,14 @@ export class LessonService {
     let params = new HttpParams();
     params = params.append('id', id.toString());
 
-    this.http.put(this.baseUrl + '/update', lesson, { params: params });
+    return this.http.put(this.baseUrl + '/update', lesson, { params: params });
   }
 
-  public deleteLesson(id: number): void {
+  public deleteLesson(id: number): Observable<any> {
     let params = new HttpParams();
     params = params.append('id', id.toString());
 
-    this.http.delete(this.baseUrl + '/delete', { params: params });
+    return this.http.delete(this.baseUrl + '/delete', { params: params });
   }
 
   public getLessonTypes(): Observable<LessonType[]> {

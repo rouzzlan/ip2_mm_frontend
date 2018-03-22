@@ -88,7 +88,7 @@ const routes: Routes = [
   {path: 'lib/search', component: SearchComponent, canActivate: [AuthGuard]},
 
   //LESSON
-  {path: 'lesson/all', component: LessonComponent, canActivate: [AuthGuard]},
+  {path: 'lesson', component: LessonComponent, canActivate: [AuthGuard]},
   {path: 'lesson/detail/:id', component: DetailsLessonComponent},
   {path: 'lesson/edit/:id', component: EditLessonComponent},
   {path: 'lesson/delete/:id', component: DeleteLessonComponent},
