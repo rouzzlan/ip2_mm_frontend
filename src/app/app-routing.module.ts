@@ -3,7 +3,6 @@ import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from "./components/_home/home.component";
 import {LoginComponent} from "./components/_account/login/login.component";
 import {AuthGuard} from "./services/guards/auth-guard.service";
-import {TestComponent} from "./components/test/test/test.component";
 import {ConfirmationComponent} from "./components/_account/confirmation/confirmation.component";
 import {RegistrationComponent} from "./components/_account/registration/registration.component";
 import {LesgeverGuard} from "./services/guards/lesgever-guard.service";
@@ -12,7 +11,7 @@ import {MusicComponent} from "./components/lib/music/music.component";
 import {CordsComponent} from "./components/lib/cords/cords.component";
 import {InstrumentsComponent} from "./components/lib/instruments/instruments.component";
 import {SearchComponent} from "./components/lib/search/search.component";
-import {UsersComponent} from "./components/_admin/users/users.component";
+import {UsersHomeComponent} from "./components/_admin/user/users-home/users-home.component";
 import {BeheerderGuard} from "./services/guards/beheerder-guard.service";
 import {LessonComponent} from './components/_admin/lesson/lesson/lesson.component';
 import {InstrumentHomeComponent} from "./components/_admin/Instrument/instrument-home/instrument-home.component";
@@ -73,9 +72,6 @@ const routes: Routes = [
   {path: 'account/confirm', component: ConfirmationComponent},
   {path: 'account/login', component: LoginComponent},
 
-  //TokenTest for authenticated users
-  {path: 'test', component: TestComponent, canActivate: [AuthGuard]},
-
   //LIBRARIES
   //open to authenticated users
   {path: 'lib/music', component: MusicComponent, canActivate: [AuthGuard]},
@@ -89,7 +85,7 @@ const routes: Routes = [
   //RESTRICTED
   //navigation requires at least lesgever rights, some components require more
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard, LesgeverGuard]},
-  {path: 'admin/users', component: UsersComponent, canActivate: [AuthGuard, BeheerderGuard]},
+  {path: 'admin/users', component: UsersHomeComponent, canActivate: [AuthGuard, BeheerderGuard]},
   {path: 'admin/musicpieces', component: MusicpiecesComponent, canActivate: [AuthGuard, LesgeverGuard]},
 
   //NON-SPECIFIED PATH REDIRECT

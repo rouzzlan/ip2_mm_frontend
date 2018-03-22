@@ -5,26 +5,18 @@ import {HttpClientModule} from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 import {LoginService} from './services/account/login.service';
-import {TestService} from './services/test.service';
 import {AuthService} from './services/account/auth.service';
-
 import {AuthGuard} from './services/guards/auth-guard.service';
 import {BeheerderGuard} from './services/guards/beheerder-guard.service';
 import {LesgeverGuard} from './services/guards/lesgever-guard.service';
 import {LeerlingGuard} from './services/guards/leerling-guard.service';
-
 import {HomeComponent} from './components/_home/home.component';
-import {TestComponent} from './components/test/test/test.component';
-
 import {HttpModule} from '@angular/http';
 import {RegistrationService} from './services/account/registration.service';
-
 import {LoginComponent} from './components/_account/login/login.component';
 import {RegistrationComponent} from './components/_account/registration/registration.component';
 import {ConfirmationComponent} from './components/_account/confirmation/confirmation.component';
-
 import {MusicComponent} from './components/lib/music/music.component';
 import {CordsComponent} from './components/lib/cords/cords.component';
 import {InstrumentsComponent} from './components/lib/instruments/instruments.component';
@@ -32,7 +24,7 @@ import {SearchComponent} from './components/lib/search/search.component';
 import {AdminComponent} from './components/_admin/admin.component';
 import {LessonService} from './services/lesson/lesson.service';
 import {LessonComponent} from './components/_admin/lesson/lesson/lesson.component';
-import {UsersComponent} from './components/_admin/users/users.component';
+import {UsersHomeComponent} from './components/_admin/user/users-home/users-home.component';
 import {EditInstrumententComponent} from './components/_admin/Instrument/edit-instrumentent/edit-instrumentent.component';
 import {EditBandComponent} from './components/_admin/band/edit-band/edit-band.component';
 import {CreateInstrumentComponent} from './components/_admin/Instrument/create-instrument/create-instrument.component';
@@ -62,6 +54,10 @@ import {CreateLessonComponent} from './components/_admin/lesson/create-lesson/cr
 import {DeleteLessonComponent} from './components/_admin/lesson/delete-lesson/delete-lesson.component';
 import {DetailsLessonComponent} from './components/_admin/lesson/details-lesson/details-lesson.component';
 import {EditLessonComponent} from './components/_admin/lesson/edit-lesson/edit-lesson.component';
+import {UserEditComponent} from './components/_admin/user/user-edit/user-edit.component';
+import {UserCreateComponent} from './components/_admin/user/user-create/user-create.component';
+import {UserDetailsComponent} from './components/_admin/user/user-details/user-details.component';
+import {UserDeleteComponent} from './components/_admin/user/user-delete/user-delete.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -70,27 +66,30 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
+
+    //PAGES
     HomeComponent,
-    TestComponent,
-    LoginComponent,
-    RegistrationComponent,
-    ConfirmationComponent,
     AdminComponent,
+
+    //LIBRARIES
     MusicComponent,
     CordsComponent,
     SearchComponent,
-    UsersComponent,
-
-
-    //instrument
-    InstrumentHomeComponent,
     InstrumentsComponent,
+
+    //ACCOUNT
+    LoginComponent,
+    RegistrationComponent,
+    ConfirmationComponent,
+
+    //INSTRUMENT
+    InstrumentHomeComponent,
     CreateInstrumentComponent,
     DetailsInstrumentComponent,
     EditInstrumententComponent,
     DeleteInstrumentComponent,
 
-    //band
+    //BAND
     GetBandsComponent,
     GetBandsOfUserComponent,
     CreateBandComponent,
@@ -113,7 +112,14 @@ export function tokenGetter() {
     CreateLessonComponent,
     DeleteLessonComponent,
     DetailsLessonComponent,
-    EditLessonComponent
+    EditLessonComponent,
+
+    //USER
+    UsersHomeComponent,
+    UserEditComponent,
+    UserCreateComponent,
+    UserDetailsComponent,
+    UserDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -126,14 +132,12 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:8080',],       // TODO: Add heroku to whilelist
-        blacklistedRoutes: ['localhost:8080/oauth/',]  // TODO: Add heroku to blacklist
+        whitelistedDomains: ['localhost:8080','127.0.0.1:8080'],        // TODO: Add heroku to whilelist
+        blacklistedRoutes: ['localhost:8080/oauth/',]                   // TODO: Add heroku to blacklist
       }
     })
   ],
   providers: [
-    TestService,
-
     //GUARDS
     AuthGuard,
     BeheerderGuard,
@@ -150,7 +154,6 @@ export function tokenGetter() {
 
     //Admin
     MusicpieceService,
-
     BandService,
     InstrumentService,
     UserService,
