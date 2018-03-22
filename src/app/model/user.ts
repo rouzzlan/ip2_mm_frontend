@@ -3,12 +3,12 @@ import {Role} from "./role";
 
 export class User {
   id: number;
-  username: String;
-  firstname: String;
-  lastname: String;
-  email: String;
-  password: String;
+  username: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
   enabled: boolean;
   instruments: Instrument[];
-  roles: String[];
+  roles: string[];
 }

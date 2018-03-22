@@ -37,8 +37,8 @@ export class UserService {
 
   public deleteUser(userEmail: string) {
     let params = new HttpParams();
-    params.set('email', userEmail);
-    return this.http.delete<User>(this.path + '/delete', {params});
+    params = params.append('email', userEmail);
+    return this.http.delete<User>(this.path + '/delete', {params: params});
   }
 
   //ROLES
