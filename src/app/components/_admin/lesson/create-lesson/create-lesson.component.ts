@@ -36,7 +36,7 @@ export class CreateLessonComponent implements OnInit {
   }
 
   public createLesson(lessonForm: NgForm): void {
-    this.newLesson.date.concat('00');
+    console.log('les aangemaakt');
     this.lessonService.addLesson(this.newLesson).subscribe(result => {
       lessonForm.reset();
       this.newLesson = new Lesson();

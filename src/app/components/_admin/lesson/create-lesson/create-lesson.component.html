@@ -26,8 +26,8 @@
     <option *ngFor="let type of lessonTypes" [value]="type.name">{{type.name}}</option>
   </select>
   <div class="btnContainer">
-    <button id="submitBtn" type="submit" class="btn btn-default" routerLink="/lesson" value="Aanmaken">Aanmaken
+    <button id="submitBtn" type="submit" class="btn btn-default" routerLink="/lesson" (click)="createLesson(createLessonForm)" value="Aanmaken">Aanmaken
     </button>
-    <button id="cancelBtn" type="reset" class="btn btn-default" value="Cancel">Cancel</button>
+    <button id="cancelBtn" type="reset" class="btn btn-default" value="Cancel" routerLink="/lesson">Cancel</button>
   </div>
 </form>
