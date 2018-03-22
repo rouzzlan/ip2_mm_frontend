@@ -5,13 +5,11 @@ import {Band} from '../../model/band';
 
 @Injectable()
 export class BandService {
-
   private path = 'http://127.0.0.1:8080/band';
 
   constructor(private http: HttpClient) {
   }
 
-  // region Band calls
   public createBand(bandToCreate: Band): Observable<Band> {
     return this.http.post<Band>(this.path + '/add', bandToCreate);
   }
@@ -35,5 +33,4 @@ export class BandService {
   public deleteBand(bandToDelete: Band) {
     return this.http.delete<Band>(this.path + '/delete/' + bandToDelete.id);
   }
-  // endregion
 }
