@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Event} from '../../../../model/event';
 import {NgForm} from '@angular/forms';
-import {EventService} from "app/services/event/event.service";
 import {ActivatedRoute} from "@angular/router";
 import {BandService} from "../../../../services/band/band.service";
 import {Band} from "../../../../model/band";
+import {EventService} from "../../../../services/event/event.service";
 
 @Component({
   selector: 'app-edit-event',

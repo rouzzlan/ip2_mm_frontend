@@ -6,22 +6,22 @@ import {EventLessons} from '../../model/eventLessons';
 
 @Injectable()
 export class EventService {
-  private path = 'http://127.0.0.1:8080';
+  private path = 'http://127.0.0.1:8080/event';
 
   constructor(private http: HttpClient) {
   }
 
   // region Event calls
   public createEvent(eventToCreate: Event): Observable<Event> {
-    return this.http.post<Event>(this.path + '/addevent', eventToCreate);
+    return this.http.post<Event>(this.path + '/add', eventToCreate);
   }
 
   public getEvent(eventId: number): Observable<Event> {
-    return this.http.get<Event>(this.path + '/getevent/' + eventId);
+    return this.http.get<Event>(this.path + '/id/' + eventId);
   }
 
   public getEvents(): Observable<Event[]> {
-    return this.http.get<Event[]>(this.path + '/getevents');
+    return this.http.get<Event[]>(this.path + '/get');
   }
 
   public getEventsLessons(): Observable<EventLessons[]> {
@@ -37,12 +37,12 @@ export class EventService {
   }
 
   public editEvent(eventToUpdate: Event): Observable<Event> {
-    return this.http.put<Event>(this.path + '/editevent', eventToUpdate);
+    return this.http.put<Event>(this.path + '/edit', eventToUpdate);
   }
 
-  // public deleteEvent(eventToDelete: Event) {
-  //   this.http.delete<Event>(this.path + '/deleteEvent', eventToDelete);
-  // }
+  public deleteEvent(eventId: number) {
+    return this.http.delete<Event>(this.path + '/delete/' + eventId);
+  }
 
   // endRegion
 }
