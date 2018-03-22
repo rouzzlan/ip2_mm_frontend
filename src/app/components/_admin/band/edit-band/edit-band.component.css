@@ -24,3 +24,14 @@ h2 {
 #students {
   font-weight: bold;
 }
+.fa-plus{
+  color: green;
+}
+
+.fa-check{
+  color: green;
+}
+
+.fa-arrow-left{
+  color: blue;
+}

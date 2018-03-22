@@ -1,13 +1,24 @@
-h2{
+h2 {
   font-weight: bold;
   display: inline;
 }
-#info{
+
+#info {
   margin-top: 0px;
 }
-.title{
+
+.title {
   font-weight: bold;
 }
-.left{
+
+.left {
   margin-left: 15px;
+}
+
+.fa-remove {
+  color: red;
+}
+
+.fa-arrow-left {
+  color: blue;
 }

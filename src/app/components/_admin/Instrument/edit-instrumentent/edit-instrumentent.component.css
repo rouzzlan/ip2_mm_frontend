@@ -5,6 +5,7 @@ button {
 
 label {
   margin-top: 5px;
+  font-weight: bold;
 }
 
 input, select{
@@ -12,4 +13,12 @@ input, select{
 }
 .alert-danger{
   margin-top: 5px;
+}
+
+.fa-check{
+  color: green;
+}
+
+.fa-arrow-left{
+  color: blue;
 }
