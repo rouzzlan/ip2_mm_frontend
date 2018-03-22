@@ -34,6 +34,10 @@ import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-eve
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {DeleteEventComponent} from './components/_admin/agenda/delete-event/delete-event.component';
 import {GetEventsUserComponent} from './components/_admin/agenda/get-events-User/get-events-user.component';
+import {CreateLessonComponent} from './components/_admin/lesson/create-lesson/create-lesson.component';
+import {DeleteLessonComponent} from './components/_admin/lesson/delete-lesson/delete-lesson.component';
+import {EditLessonComponent} from './components/_admin/lesson/edit-lesson/edit-lesson.component';
+import {DetailsLessonComponent} from './components/_admin/lesson/details-lesson/details-lesson.component';
 
 const routes: Routes = [
   //HOME
@@ -85,6 +89,10 @@ const routes: Routes = [
 
   //LESSON
   {path: 'lesson/all', component: LessonComponent, canActivate: [AuthGuard]},
+  {path: 'lesson/detail/:id', component: DetailsLessonComponent},
+  {path: 'lesson/edit/:id', component: EditLessonComponent},
+  {path: 'lesson/delete/:id', component: DeleteLessonComponent},
+  {path: 'lesson/create', component: CreateLessonComponent},
 
   //RESTRICTED
   //navigation requires at least lesgever rights, some components require more
