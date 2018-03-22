@@ -6,11 +6,11 @@
     <div class="content">Gebruikers</div>
     <div class="fa fa-user fa-5x"></div>
   </div>
-  <div class="square" routerLink="/bands">
   <div class="square" (click)="redirect('admin/musicpieces')" *ngIf="isBeheerder">
     <div class="content">Muziekstukken</div>
     <div class="fa fa-music fa-5x"></div>
   </div>
+  <div class="square" routerLink="/bands">
     <div class="content">Bands</div>
     <div class="fa fa-users fa-5x" style="right: 27%;"></div>
   </div>
