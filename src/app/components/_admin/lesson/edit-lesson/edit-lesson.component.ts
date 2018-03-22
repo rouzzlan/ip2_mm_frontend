@@ -11,7 +11,22 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./edit-lesson.component.css']
 })
 export class EditLessonComponent implements OnInit {
-  newLesson: Lesson = new Lesson();
+  newLesson: Lesson = {
+    id: 0,
+    date: 'geen informatie',
+    state: 'geen informatie',
+    time: 0,
+    seriesOfLessons: null,
+    playlist: null,
+    price: 0,
+    lessonType: {
+      name: 'geen informatie',
+      description: 'geen informatie',
+      id: 0,
+      instrument: 'geen informatie',
+      price: 0
+    }
+  };
   lessonTypes: LessonType[];
 
   constructor(private lessonService: LessonService, private route: ActivatedRoute) {

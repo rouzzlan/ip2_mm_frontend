@@ -10,7 +10,22 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./create-lesson.component.css']
 })
 export class CreateLessonComponent implements OnInit {
-  newLesson: Lesson = new Lesson();
+  newLesson: Lesson = {
+    id: 0,
+    date: '',
+    state: '',
+    time: 0,
+    seriesOfLessons: null,
+    playlist: null,
+    price: 0,
+    lessonType: {
+      name: '',
+      description: '',
+      id: 0,
+      instrument: '',
+      price: 0
+    }
+  };
   lessonTypes: LessonType[];
 
   constructor(private lessonService: LessonService) {
