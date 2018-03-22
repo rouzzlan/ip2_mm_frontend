@@ -30,8 +30,8 @@ export class LessonService {
     return this.http.get<Lesson[]>(this.baseUrl + '/mine', {params:params});
   }
 
-  public addLesson(lesson: Lesson): void {
-    this.http.post(this.baseUrl + '/add', lesson);
+  public addLesson(lesson: Lesson): Observable<Lesson> {
+    return this.http.post<Lesson>(this.baseUrl + '/add', lesson);
   }
 
   public updateLesson(lesson: Lesson, id: number): void {
