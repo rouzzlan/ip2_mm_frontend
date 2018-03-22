@@ -33,12 +33,17 @@ import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-eve
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {DeleteEventComponent} from './components/_admin/agenda/delete-event/delete-event.component';
 import {GetEventsUserComponent} from './components/_admin/agenda/get-events-User/get-events-user.component';
+import {UserCreateComponent} from "./components/_admin/user/user-create/user-create.component";
+import {UserDetailsComponent} from "./components/_admin/user/user-details/user-details.component";
+import {UserEditComponent} from "./components/_admin/user/user-edit/user-edit.component";
+import {UserDeleteComponent} from "./components/_admin/user/user-delete/user-delete.component";
+import {ChatComponent} from './components/chat/chat.component';
 
 const routes: Routes = [
   //HOME
   {path: 'home', component: HomeComponent},
 
-  // EVENT
+  //EVENT
   {path: 'events', component: GetEventsComponent},
   {path: 'events/all', component: GetAllEventsComponent},
   {path: 'events/detail/:id', component: DetailsEventComponent},
@@ -46,25 +51,22 @@ const routes: Routes = [
   {path: 'events/delete/:id', component: DeleteEventComponent},
   {path: 'events/create', component: CreateEventComponent},
   {path: 'events/user/:id', component: GetEventsUserComponent},
-  //region CRUD
 
-  //region INSTRUMENTS
+  //INSTRUMENTS
   {path: 'instruments', component: InstrumentHomeComponent},
   {path: 'instrument/create', component: CreateInstrumentComponent},
   {path: 'instrument/detail/:id', component: DetailsInstrumentComponent},
   {path: 'instrument/edit/:id', component: EditInstrumententComponent},
   {path: 'instrument/delete/:id', component: DeleteInstrumentComponent},
-  // endregion
 
-  //region BANDS
+  //BANDS
   {path: 'bands', component: GetBandsComponent},
   {path: 'bands/banddetail/:id', component: BandDetailComponent},
   {path: 'bands/editband/:id', component: EditBandComponent},
   {path: 'bands/deleteband/:id', component: DeleteBandComponent},
   {path: 'bands/createband', component: CreateBandComponent},
   {path: 'bands/:userId', component: GetBandsOfUserComponent},
-  //endregion
-  // endregion
+
 
   //ACCOUNT
   //open to all
@@ -79,14 +81,25 @@ const routes: Routes = [
   {path: 'lib/instruments', component: InstrumentsComponent, canActivate: [AuthGuard]},
   {path: 'lib/search', component: SearchComponent, canActivate: [AuthGuard]},
 
+  //CHAT
+  {path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
+
   //LESSON
   {path: 'lesson/all', component: LessonComponent, canActivate: [AuthGuard]},
 
-  //RESTRICTED
+  //ADMIN
   //navigation requires at least lesgever rights, some components require more
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard, LesgeverGuard]},
-  {path: 'admin/users', component: UsersHomeComponent, canActivate: [AuthGuard, BeheerderGuard]},
-  {path: 'admin/musicpieces', component: MusicpiecesComponent, canActivate: [AuthGuard, LesgeverGuard]},
+
+      //ADMIN/MUSICPIECES
+      {path: 'admin/musicpieces', component: MusicpiecesComponent, canActivate: [AuthGuard, LesgeverGuard]},
+
+      //ADMIN/USER
+      {path: 'admin/users', component: UsersHomeComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/create', component: UserCreateComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/detail/:id', component: UserDetailsComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/edit/:id', component: UserEditComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/delete/:id', component: UserDeleteComponent, canActivate: [AuthGuard, BeheerderGuard]},
 
   //NON-SPECIFIED PATH REDIRECT
   {path: '**', redirectTo: '/home'},
