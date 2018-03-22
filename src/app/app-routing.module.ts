@@ -38,6 +38,10 @@ import {UserDetailsComponent} from "./components/_admin/user/user-details/user-d
 import {UserEditComponent} from "./components/_admin/user/user-edit/user-edit.component";
 import {UserDeleteComponent} from "./components/_admin/user/user-delete/user-delete.component";
 import {ChatComponent} from './components/chat/chat.component';
+import {CreateLessonComponent} from './components/_admin/lesson/create-lesson/create-lesson.component';
+import {DeleteLessonComponent} from './components/_admin/lesson/delete-lesson/delete-lesson.component';
+import {EditLessonComponent} from './components/_admin/lesson/edit-lesson/edit-lesson.component';
+import {DetailsLessonComponent} from './components/_admin/lesson/details-lesson/details-lesson.component';
 
 const routes: Routes = [
   //HOME
@@ -85,7 +89,11 @@ const routes: Routes = [
   {path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
 
   //LESSON
-  {path: 'lesson/all', component: LessonComponent, canActivate: [AuthGuard]},
+  {path: 'lesson', component: LessonComponent, canActivate: [AuthGuard]},
+  {path: 'lesson/detail/:id', component: DetailsLessonComponent},
+  {path: 'lesson/edit/:id', component: EditLessonComponent},
+  {path: 'lesson/delete/:id', component: DeleteLessonComponent},
+  {path: 'lesson/create', component: CreateLessonComponent},
 
   //ADMIN
   //navigation requires at least lesgever rights, some components require more

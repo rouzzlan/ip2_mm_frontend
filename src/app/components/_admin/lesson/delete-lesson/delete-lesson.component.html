@@ -1,3 +1,9 @@
-<p>
-  delete-lesson works!
-</p>
+<h2>Bent u zeker dat u de les van {{lesson.date.substring(0, 10).split('-').reverse().join('-')}} op {{lesson.date.substring(11, 16).split('-').reverse().join('-')}} wilt verwijderen?</h2>
+<div id="info">
+  <p class="col-sm-6 col-lg-4 title">les type</p>
+  <p class="left">{{lesson.lessonType.name}}</p>
+  <div class="ml-3">
+    <button class="btn" (click)="deleteLesson()"><span class="fa fa-remove"></span> Verwijderen</button>
+    <button class="btn" routerLink="/lesson"><span class="fa fa-arrow-left"></span> Annuleren</button>
+  </div>
+</div>
