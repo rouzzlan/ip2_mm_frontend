@@ -3,11 +3,11 @@
   <label for="eventName">Naam: </label>
   <p id="eventName">{{eventToDelete.title}}</p>
   <label for="eventDate">Datum: </label>
-  <p id="eventDate">{{eventToDelete.date}}</p>
+  <p id="eventDate">{{eventToDelete.start}}</p>
   <label for="eventBand">Band: </label>
   <p id="eventBand">{{eventToDelete.band}}</p>
   <div class="btnContainer">
-    <button id="submitBtn" type="submit" value="Verwijderen">Verwijderen</button>
-    <button id="cancelBtn" type="button" value="Terug">Terug</button>
+    <button id="submitBtn" type="submit" value="Verwijderen" (click)="deleteEvent()">Verwijderen</button>
+    <button id="cancelBtn" type="button" value="Terug" routerLink="/events/all">Terug</button>
   </div>
 </form>

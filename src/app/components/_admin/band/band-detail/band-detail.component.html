@@ -7,3 +7,14 @@
     <p>{{student}}</p>
   </li>
 </ul>
+<div class="btnContainer col-12">
+  <button id="editButton" class="btn btn-default" routerLink="/bands/editband/{{band.id}}" >
+    <span class="fa fa-edit"></span> aanpassen
+  </button>
+  <button id="deleteButton" class="btn btn-default" routerLink="/bands/deleteband/{{band.id}}">
+    <span class="fa fa-remove"></span> verwijderen
+  </button>
+  <button id="cancelButton" class="btn btn-default" routerLink="/bands">
+    <span class="fa fa-arrow-left"></span> Terug
+  </button>
+</div>

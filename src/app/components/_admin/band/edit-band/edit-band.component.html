@@ -34,8 +34,11 @@
     </p>
   </div>
   <div class="btnContainer col-12">
-    <button id="submitBtn" class="btn btn-default" type="submit" value="Verstuur">Verstuur</button>
-    <button id="cancelBtn" class="btn btn-default" type="reset" value="Stop" (click)="setAddStudentFalse()">Stop
+    <button id="submitBtn" class="btn" type="submit">
+      <span class="fa fa-check"></span> Opslaan
+    </button>
+    <button id="cancelBtn" class="btn" routerLink="/bands">
+      <span class="fa fa-arrow-left"></span> Terug
     </button>
   </div>
 </form>

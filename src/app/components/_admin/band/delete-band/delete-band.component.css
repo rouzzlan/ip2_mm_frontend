@@ -4,3 +4,9 @@
 .heading{
   font-weight: bold;
 }
+.fa-remove{
+  color: red;
+}
+.fa-arrow-left{
+  color: blue;
+}

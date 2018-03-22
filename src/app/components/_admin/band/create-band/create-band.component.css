@@ -5,6 +5,7 @@ button {
 
 label {
   margin-top: 5px;
+  font-weight: bold;
 }
 
 input, select {
@@ -20,13 +21,22 @@ h2 {
   display: inline;
 }
 
-#studentMails{
+#studentMails {
   margin-left: 11pt;
 }
 
-.fa-remove{
-  color: red;
-}
-#addedStudents{
+#addedStudents {
   margin-top: 20px;
+}
+
+.fa-check {
+  color: black;
+}
+
+.fa-plus{
+  color: green;
+}
+
+.fa-arrow-left {
+  color: blue;
 }

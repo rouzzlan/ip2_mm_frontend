@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Instrument} from '../../../../model/instrument';
 import {NgForm} from '@angular/forms';
 import {InstrumentService} from '../../../../services/instrument/instrument.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-instrumentent',
@@ -13,7 +13,7 @@ export class EditInstrumententComponent implements OnInit {
   instrument: Instrument;
   sorts = ['SNAAR', 'SLAG', 'BLAAS'];
 
-  constructor(private instrumentService: InstrumentService, private route: ActivatedRoute) {
+  constructor(private instrumentService: InstrumentService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -25,8 +25,10 @@ export class EditInstrumententComponent implements OnInit {
 
   // region REST calls
   public editInstrument(instrumentForm: NgForm): void {
-    this.instrumentService.editInstrument(this.instrument)
-      .subscribe();
+    this.instrumentService.editInstrument(this.instrument).subscribe(
+      () => this.router.navigate(['/instruments'])
+    );
   }
+
   // endregion
 }

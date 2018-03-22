@@ -2,7 +2,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Band} from '../../../../model/band';
 import {BandService} from '../../../../services/band/band.service';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-delete-band',
@@ -12,7 +12,7 @@ import {ActivatedRoute} from "@angular/router";
 export class DeleteBandComponent implements OnInit {
   bandToDelete: Band = new Band();
 
-  constructor(private bandService: BandService, private route: ActivatedRoute) {
+  constructor(private bandService: BandService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -28,7 +28,8 @@ export class DeleteBandComponent implements OnInit {
   }
 
   public deleteBand(): void {
-    this.bandService.deleteBand(this.bandToDelete).subscribe();
+    this.bandService.deleteBand(this.bandToDelete).subscribe(
+      () => this.router.navigate(['bands']));
   }
 
 // endregion

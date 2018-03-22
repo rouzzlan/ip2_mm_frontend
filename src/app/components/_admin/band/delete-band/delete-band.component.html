@@ -10,7 +10,10 @@
   </li>
 </ul>
 <div class="btnContainer col-xs-12">
-  <button id="submitBtn" class="btn btn-default" type="submit" value="Verwijder" (click)="deleteBand()">Verwijder
+  <button id="submitBtn" class="btn btn-default" (click)="deleteBand()">
+    <span class="fa fa-remove"></span>Verwijder
   </button>
-  <button id="cancelBtn" class="btn btn-default" type="Button" value="Terug">Terug</button>
+  <button id="cancelBtn" class="btn btn-default" routerLink="/bands">
+    <span class="fa fa-arrow-left"></span>Terug
+  </button>
 </div>

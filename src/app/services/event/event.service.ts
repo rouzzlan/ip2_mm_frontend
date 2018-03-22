@@ -40,8 +40,8 @@ export class EventService {
     return this.http.put<Event>(this.path + '/edit', eventToUpdate);
   }
 
-  public deleteEvent(eventId: number) {
-    return this.http.delete<Event>(this.path + '/delete/' + eventId);
+  public deleteEvent(eventToDelete: Event) {
+    return this.http.delete<Event>(this.path + '/delete/' + eventToDelete.id);
   }
 
   // endRegion

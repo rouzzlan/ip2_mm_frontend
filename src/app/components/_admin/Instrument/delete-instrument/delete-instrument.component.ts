@@ -24,9 +24,7 @@ export class DeleteInstrumentComponent implements OnInit {
 
   public deleteInstrument(): void {
     this.instrumentService.deleteInstrument(this.instrument.id)
-      .subscribe(() => {
-        },
-        () => this.router.navigate(['/instruments'])
+      .subscribe(() => this.router.navigate(['/instruments'])
       )
   }
 }

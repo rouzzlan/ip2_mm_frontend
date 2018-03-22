@@ -5,6 +5,7 @@ button {
 
 label {
   margin-top: 5px;
+  font-weight: bold;
 }
 
 input, select {

@@ -25,7 +25,6 @@ export class CreateInstrumentComponent implements OnInit {
     this.instrumentService.createInstrument(this.newInstrument)
       .subscribe(response => {
           this.router.navigate(['/instrument/detail/' + response.id]);
-          window.alert(this.newInstrument.name + " is aangemaakt");
         }
       );
   }
