@@ -1,0 +1,97 @@
+<h1>{{musicpiece.title}} - {{musicpiece.artist}}</h1>
+<table>
+  <tr>
+    <th>Titel muziekstuk</th>
+    <td>{{musicpiece.title}}</td>
+  </tr>
+  <tr>
+    <th>Artiest</th>
+    <td>{{musicpiece.artist}}</td>
+  </tr>
+  <tr>
+    <th>Genre</th>
+    <td>{{musicpiece.genre}}</td>
+  </tr>
+  <tr>
+    <th>Thema</th>
+    <td>{{musicpiece.theme}}</td>
+  </tr>
+  <tr>
+
+    <th>Taal</th>
+    <td>{{musicpiece.language}}</td>
+  </tr>
+  <tr>
+    <th>Soort muziekstuk</th>
+    <td>{{musicpiece.instrumentType}}</td>
+
+  </tr>
+  <!--<tr>
+    <th>Algemene beoordeling</th>
+    <td>{{musicpiece.rating}}</td>
+  </tr>
+  <tr>
+    <th>Jouw beoordeling</th>
+    <label *ngFor="let t of ratings">
+      <td><input type="radio" name="radiogroup" [value]="t" (change)="chosenrating(t)" ngModel="musicpiece.myRating"
+                 checked="false"> {{t}}
+      </td>
+    </label>
+  </tr>-->
+  <tr>{{musicpiece.typeofpiece}}</tr>
+</table>
+<div>
+
+
+  <div *ngIf="musicpiece.youtubeURL; then youtubepanel"></div>
+  <ng-template #youtubepanel>
+   <iframe width="420" height="315" src="musicpiece.youtubeURL">
+
+   </iframe>
+  </ng-template>
+</div>
+  <div *ngIf="musicpiece.typeofpiece == 'akkoord'; then akkpanel "></div>
+
+  <ng-template #akkpanel>
+    <div id="akk"
+         style="width: 100%; height: 100%; fontFamily: monospace"
+         [innerHtml]="getChord()"></div>
+  </ng-template>
+
+  <ng-template #mspanel>
+    <div id="menu">
+      <p>
+        <input [(ngModel)]="checkboxvalue" type="checkbox" checked>
+        with audio</p>
+      <input type="button" (click)="zoomin()" value="Zoom in">
+      <input type="button" (click)="zoomuit()" value="Zoom uit">
+      <input type="button" (click)="start()" value="set cursor">
+      <input type="button" (click)="next()" value="volgende">
+      <input type="button" (click)="reset()" value="reset">
+      <p></p>
+      <div *ngIf="isaudio">
+        <input type="button" (click)="globalStart()" value="Start">
+        <input type="button" (click)="globalstop()" value="Stop ">
+
+        <audio controls>
+          <source src="musicpiece.audio">
+        </audio>
+      </div>
+
+      <!--<select id="difficulty" required type="text" name="text">
+        <option *ngFor="let t of tempos" [value]="t" [selected]="t === 0" (change)="changedTempo(t)">{{t}}</option>
+      </select>
+
+
+    </div>
+
+
+    <div #showmp style="height: 580px; overflow-y: scroll; overflow-x: auto;" id="showmp"></div>
+  </ng-template>-->
+    </div>
+
+
+
+
+
+

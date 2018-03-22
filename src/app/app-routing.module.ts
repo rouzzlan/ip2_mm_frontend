@@ -14,6 +14,10 @@ import {InstrumentsComponent} from "./components/lib/instruments/instruments.com
 import {SearchComponent} from "./components/lib/search/search.component";
 import {UsersComponent} from "./components/_admin/users/users.component";
 import {BeheerderGuard} from "./services/guards/beheerder-guard.service";
+import {OverviewMusicSheetsComponent} from "./components/lib/music_sheets/overview-music-sheets/overview-music-sheets.component";
+import  {CreateMusicSheetComponent} from "./components/lib/music_sheets/create-music-sheet/create-music-sheet.component";
+import {EditMusicSheetComponent} from "./components/lib/music_sheets/edit-music-sheet/edit-music-sheet.component";
+import  {DetailMusicSheetComponent} from "./components/lib/music_sheets/detail-music-sheet/detail-music-sheet.component";
 
 const routes: Routes = [
   //HOME
@@ -40,6 +44,10 @@ const routes: Routes = [
   //open to authenticated users
   {path: 'lib/music', component: MusicComponent, canActivate: [AuthGuard]},
   {path: 'lib/cords', component: CordsComponent, canActivate: [AuthGuard]},
+  {path: 'lib/musicsheet', component: OverviewMusicSheetsComponent, canActivate: [AuthGuard]},
+  {path: 'lib/musicsheet/create', component: CreateMusicSheetComponent,  canActivate: [AuthGuard]},
+  {path: 'lib/musicsheet/detail/:id', component: DetailMusicSheetComponent, canActivate: [AuthGuard]},
+  {path: 'lib/musicsheet/edit/:id', component: EditMusicSheetComponent,  canActivate: [AuthGuard]},
   {path: 'lib/instruments', component: InstrumentsComponent, canActivate: [AuthGuard]},
   {path: 'lib/search', component: SearchComponent, canActivate: [AuthGuard]},
 

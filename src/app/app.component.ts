@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {ChangeDetectorRef} from '@angular/core';
 import {LoginService} from './services/account/login.service';
-
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

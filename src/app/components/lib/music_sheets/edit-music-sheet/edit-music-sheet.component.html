@@ -1,0 +1,95 @@
+<h1>Muziekstuk {{musicpiece.titel}} - {{musicpiece.artist}} aanpassen</h1>
+<form id="MusicPieceForm" #editMusicpieceForm="ngForm" (ngsubmit)="f.form.valid && editpiece(f)" novalidate>
+  <p>
+    <label for="title">Titel</label>
+    <input id="title" type="text"
+           required
+           name="title" [(ngModel)]="musicpiece.title"
+           #title="ngModel">
+  </p>
+  <div *ngIf="f.submitted && !email.valid" class="help-block">oeps, geef dit muziekstuk een titel!</div>
+
+  <p>
+    <label for="artist">Artiest</label>
+    <input id="artist" type="text"
+           required
+           name="artist" [(ngModel)]="musicpiece.artist"
+           #title="ngModel">
+  </p>
+  <p>
+    <label for="language">Taal</label>
+    <input id="language" type="text"
+           required
+           name="language" [(ngModel)]="musicpiece.language"
+           #title="ngModel">
+  </p>
+  <p>
+    <label for="genre">Genre</label>
+    <input id="genre" type="text"
+           required
+           name="genre" [(ngModel)]="musicpiece.genre"
+           #title="ngModel">
+  </p>
+  <p>
+    <label for="difficulty">Niveau</label>
+    <select id="difficulty" required type="text" name="text" [(ngModel)]="musicpiece.difficulty" #title="ngModel">
+      <option  *ngFor="let t of difficulty" [value]="t">{{t}}</option>
+    </select>
+  </p>
+  <p>
+    <label for="subject">Onderwerp</label>
+    <input id="subject" type="text"
+           required
+           name="language" [(ngModel)]="musicpiece.theme"
+           #title="ngModel">
+  </p>
+  <p>
+    <label for="type">InstrumentType</label>
+    <select id="type" required type="text" placeholder="type" name="text" [(ngModel)]="musicpiece.instrumentType" #title="ngModel">
+      <option  *ngFor="let t of types" [value]="t">{{t}}</option>
+    </select>
+  </p>
+
+
+  <!------------------------------------------------------------------------------------------------------------------->
+  <div *ngIf="musicpiece.typeofpiece=='akkoord'; then akk else sheet"></div>
+  <ng-template #akk>
+    <p>
+      <label for="youtube">Youtubelink</label>
+      <input id="youtube" type="text" name="youtube" [(ngModel)]="musicpiece.youtubeURL"
+             #title="ngModel" (ngModelChange)="Urlgiven()">
+    <p>
+  </ng-template>
+
+  <!------------------------------------------------------------------------------------------------------------------->
+  <ng-template #sheet>
+    <p>
+      <label>musicxml:</label>
+      <input type="file" id="musicxml" accept=".mxl" (change)="onmusicfilechange($event)">
+    </p><p>
+    <label>audiofile:</label>
+    <input type="file" id="audio" accept=".mp3,audio/*" (change)="onaudiofilechange($event)">
+  </p>
+  </ng-template>
+  <!-------------------------------------------------------------------------------------------------------------------->
+  <p>
+  <div className="panel">
+    <textarea id="cs-edit-title-textarea"
+              style="width: 80%; height: 200px"
+              tabindex="1"
+              [(ngModel)]="musicpiece.text"
+              class="cs-edit-content-area no-focus"
+    ></textarea>
+  </div>
+  <div className="panel">
+    <h3>resultaat</h3>
+    <div
+      style="width: 80%; height: 100%; fontFamily: monospace"
+      [innerHtml]="getResult()" ></div>
+  </div>
+
+  <div class="btnContainer">
+    <button id="submitBtn" type="submit" value="Aanmaken">Aanmaken</button>
+    <button id="cancelBtn" type="reset" value="Cancel">Cancel</button>
+  </div>
+</form>

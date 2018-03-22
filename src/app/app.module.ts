@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {LoginService} from "./services/account/login.service";
 import {TestService} from "./services/test.service";
 import {AuthService} from './services/account/auth.service';
+import {MusicSheetService} from './services/music_sheet/music-sheet.service';
 
 import {AuthGuard} from "./services/guards/auth-guard.service";
 import {BeheerderGuard} from "./services/guards/beheerder-guard.service";
@@ -31,6 +32,14 @@ import { InstrumentsComponent } from './components/lib/instruments/instruments.c
 import { SearchComponent } from './components/lib/search/search.component';
 import {AdminComponent} from "./components/_admin/admin.component";
 import { UsersComponent } from './components/_admin/users/users.component';
+import { OverviewMusicSheetsComponent } from './components/lib/music_sheets/overview-music-sheets/overview-music-sheets.component';
+import { CreateMusicSheetComponent } from './components/lib/music_sheets/create-music-sheet/create-music-sheet.component';
+import { DetailMusicSheetComponent } from './components/lib/music_sheets/detail-music-sheet/detail-music-sheet.component';
+import { EditMusicSheetComponent } from './components/lib/music_sheets/edit-music-sheet/edit-music-sheet.component';
+import { FilterInstrumentPipe } from './components/lib/search/filter-instrument.pipe';
+import { FilterMusicPiecePipe } from './components/lib/search/filter-music-piece.pipe';
+import { CommonModule } from '@angular/common';
+import {InstrumentService} from './services/instrument/instrument.service';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -50,6 +59,12 @@ export function tokenGetter() {
     InstrumentsComponent,
     SearchComponent,
     UsersComponent,
+    OverviewMusicSheetsComponent,
+    CreateMusicSheetComponent,
+    DetailMusicSheetComponent,
+    EditMusicSheetComponent,
+    FilterInstrumentPipe,
+    FilterMusicPiecePipe,
     // UserListComponent,
     // EditUserComponent,
     // CreatePageComponent,
@@ -69,6 +84,7 @@ export function tokenGetter() {
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
@@ -97,9 +113,10 @@ export function tokenGetter() {
 
     // BandService,
     // EventService,
-    // InstrumentService,
+     InstrumentService,
     // OldUserService,
     // RestService,
+    MusicSheetService,
     JwtModule
   ],
   bootstrap: [AppComponent]
