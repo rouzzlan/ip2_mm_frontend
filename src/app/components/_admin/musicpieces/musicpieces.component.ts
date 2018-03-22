@@ -15,7 +15,8 @@ export class MusicpiecesComponent implements OnInit {
   succes: Boolean;
   response = '';
 
-  @ViewChild('fileInput') fileInput: ElementRef;
+  @ViewChild('fileInput')
+  fileInput: ElementRef;
 
   ngOnInit() {
   }
