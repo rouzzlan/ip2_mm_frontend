@@ -93,9 +93,9 @@ const routes: Routes = [
       //ADMIN/USER
       {path: 'admin/users', component: UsersHomeComponent, canActivate: [AuthGuard, BeheerderGuard]},
       {path: 'admin/users/create', component: UserCreateComponent, canActivate: [AuthGuard, BeheerderGuard]},
-      {path: 'admin/users/detail/:id', component: UserDetailsComponent, canActivate: [AuthGuard, BeheerderGuard]},
-      {path: 'admin/users/edit/:id', component: UserEditComponent, canActivate: [AuthGuard, BeheerderGuard]},
-      {path: 'admin/users/delete/:id', component: UserDeleteComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/detail/:email', component: UserDetailsComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/edit/:email', component: UserEditComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/delete/:email', component: UserDeleteComponent, canActivate: [AuthGuard, BeheerderGuard]},
 
   //NON-SPECIFIED PATH REDIRECT
   {path: '**', redirectTo: '/home'},

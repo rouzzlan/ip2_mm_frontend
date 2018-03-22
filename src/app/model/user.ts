@@ -1,16 +1,14 @@
 import {Instrument} from './instrument';
+import {Role} from "./role";
 
 export class User {
   id: number;
-  username: string;
-  firstname: string;
-  lastname: string;
-  email: string;
-  password: string;
-  houseNumber: number;
-  zipcode: number;
-  city: number;
-  country: string;
+  username: String;
+  firstname: String;
+  lastname: String;
+  email: String;
+  password: String;
+  enabled: boolean;
   instruments: Instrument[];
-  roles: string[];
+  roles: String[];
 }

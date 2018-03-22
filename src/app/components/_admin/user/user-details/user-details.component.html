@@ -1,3 +1,31 @@
-<p>
-  user-details works!
-</p>
+<h2>Details van {{user.email}}</h2>
+<div id="info">
+  <p class="col-sm-4 title">Username</p>
+  <p class="detail">{{user.username}}</p>
+  <p class="col-sm-4 title">Firstname</p>
+  <p class="detail">{{user.firstname}}</p>
+  <p class="col-sm-4 title">Lastname</p>
+  <p class="detail">{{user.lastname}}</p>
+  <p class="col-sm-4 title">Enabled</p>
+  <p class="detail">{{user.enabled}}</p>
+
+  <p class="col-sm-4 title">Roles</p>
+  <ul>
+    <li *ngFor="let role of user.roles">
+      {{role.substring(5)}}
+    </li>
+  </ul>
+
+  <div class="ml-3">
+    <button class="btn btn-default" routerLink="/admin/users/edit/{{user.email}}">
+      <span class="fa fa-edit"></span>Edit
+    </button>
+    <button class="btn btn-default" routerLink="/admin//users/delete/{{user.email}}">
+      <span class="fa fa-remove"></span>Delete
+    </button>
+    <button class="btn btn-default" routerLink="/admin/users">
+      <span class="fa fa-arrow-left"></span> Back
+    </button>
+  </div>
+</div>
+
