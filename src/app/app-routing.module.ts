@@ -34,6 +34,7 @@ import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-eve
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {DeleteEventComponent} from './components/_admin/agenda/delete-event/delete-event.component';
 import {GetEventsUserComponent} from './components/_admin/agenda/get-events-User/get-events-user.component';
+import {ChatComponent} from './components/chat/chat.component';
 
 const routes: Routes = [
   //HOME
@@ -82,6 +83,9 @@ const routes: Routes = [
   {path: 'lib/cords', component: CordsComponent, canActivate: [AuthGuard]},
   {path: 'lib/instruments', component: InstrumentsComponent, canActivate: [AuthGuard]},
   {path: 'lib/search', component: SearchComponent, canActivate: [AuthGuard]},
+
+  //CHAT
+  {path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
 
   //LESSON
   {path: 'lesson/all', component: LessonComponent, canActivate: [AuthGuard]},
