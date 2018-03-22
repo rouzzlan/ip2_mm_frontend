@@ -6,7 +6,7 @@ import {Band} from '../../model/band';
 @Injectable()
 export class BandService {
 
-  private path = 'http://127.0.0.1:8080/band';
+  private path = 'http://localhost:8080/band';
 
   constructor(private http: HttpClient) {
   }
