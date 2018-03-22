@@ -14,3 +14,9 @@ h2{
 .fa{
   font-size: 150%;
 }
+.fa-remove{
+  color: red;
+}
+.fa-arrow-left{
+  color: blue;
+}

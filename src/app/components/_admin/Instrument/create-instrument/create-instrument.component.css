@@ -5,6 +5,7 @@ button {
 
 label {
   margin-top: 5px;
+  font-weight: bold;
 }
 
 input, select {
@@ -18,4 +19,10 @@ input, select {
 h2 {
   font-weight: bold;
   display: inline;
+}
+.fa-check{
+  color: green;
+}
+.fa-arrow-left{
+  color: blue;
 }

@@ -30,6 +30,24 @@ td > a {
   width: 37.45%;
 }
 
-.fa{
-  font-size: 150%;
+label {
+  font-weight: bold;
 }
+
+.fa{
+  font-size: 200%;
+}
+
+.fa-plus {
+  font-size: 150%;
+  color: green;
+}
+
+.fa-remove {
+  color: red;
+}
+
+.fa-info-circle {
+  color: black;
+}
+

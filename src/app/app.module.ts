@@ -41,7 +41,6 @@ import {UserService} from './services/user/user.service';
 import {InstrumentHomeComponent} from './components/_admin/Instrument/instrument-home/instrument-home.component';
 import {MusicpiecesComponent} from './components/_admin/musicpieces/musicpieces.component';
 import {MusicpieceService} from './services/admin/musicpiece.service';
-import {DetailsEventComponent} from './components/_admin/agenda/details-event/details-event.component';
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
 import {GetEventsComponent} from './components/_admin/agenda/get-events/get-events.component';
@@ -50,14 +49,15 @@ import {DeleteEventComponent} from './components/_admin/agenda/delete-event/dele
 import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-event.component';
 import {CalendarComponent, CalendarModule} from "ap-angular2-fullcalendar";
 import {EventService} from "./services/event/event.service";
-import {CreateLessonComponent} from './components/_admin/lesson/create-lesson/create-lesson.component';
-import {DeleteLessonComponent} from './components/_admin/lesson/delete-lesson/delete-lesson.component';
-import {DetailsLessonComponent} from './components/_admin/lesson/details-lesson/details-lesson.component';
-import {EditLessonComponent} from './components/_admin/lesson/edit-lesson/edit-lesson.component';
 import {UserEditComponent} from './components/_admin/user/user-edit/user-edit.component';
 import {UserCreateComponent} from './components/_admin/user/user-create/user-create.component';
 import {UserDetailsComponent} from './components/_admin/user/user-details/user-details.component';
 import {UserDeleteComponent} from './components/_admin/user/user-delete/user-delete.component';
+import { CreateLessonComponent } from './components/_admin/lesson/create-lesson/create-lesson.component';
+import { DeleteLessonComponent } from './components/_admin/lesson/delete-lesson/delete-lesson.component';
+import { DetailsLessonComponent } from './components/_admin/lesson/details-lesson/details-lesson.component';
+import { EditLessonComponent } from './components/_admin/lesson/edit-lesson/edit-lesson.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -99,7 +99,6 @@ export function tokenGetter() {
 
     // EVENT
     CreateEventComponent,
-    DetailsEventComponent,
     EditEventComponent,
     DeleteEventComponent,
     GetEventsUserComponent,
@@ -119,7 +118,8 @@ export function tokenGetter() {
     UserEditComponent,
     UserCreateComponent,
     UserDetailsComponent,
-    UserDeleteComponent
+    UserDeleteComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

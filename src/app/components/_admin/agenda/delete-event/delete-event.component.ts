@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Event} from '../../../../model/event';
-import {NgForm} from '@angular/forms';
 import {EventService} from '../../../../services/event/event.service';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router,} from '@angular/router';
 
 @Component({
   selector: 'app-delete-event',
@@ -10,9 +9,10 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./delete-event.component.css']
 })
 export class DeleteEventComponent implements OnInit {
+
   eventToDelete: Event;
 
-  constructor(private eventService: EventService, private route: ActivatedRoute) {
+  constructor(private eventService: EventService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -27,9 +27,10 @@ export class DeleteEventComponent implements OnInit {
     });
   }
 
-  public deleteEvent(deleteEventForm: NgForm): void {
-    this.eventService.deleteEvent(this.eventToDelete.id).subscribe();
+  public deleteEvent(): void {
+    this.eventService.deleteEvent(this.eventToDelete).subscribe(() => this.router.navigate(['/events/all']));
   }
 
   // endregion
+
 }

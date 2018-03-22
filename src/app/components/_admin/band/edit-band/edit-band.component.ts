@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Band} from '../../../../model/band';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {BandService} from "../../../../services/band/band.service";
 import {UserService} from "../../../../services/user/user.service";
@@ -19,7 +19,7 @@ export class EditBandComponent implements OnInit {
   deletedTeacher: String;
   studentMail: string;
 
-  constructor(private userService: UserService, private bandService: BandService, private route: ActivatedRoute) {
+  constructor(private userService: UserService, private bandService: BandService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -38,7 +38,8 @@ export class EditBandComponent implements OnInit {
 
   // region REST calls
   public editBand(bandForm: NgForm): void {
-    this.bandService.editBand(this.bandToEdit).subscribe();
+    this.bandService.editBand(this.bandToEdit)
+      .subscribe(() => this.router.navigate(['bands']));
   }
 
   public getUsers(): void {

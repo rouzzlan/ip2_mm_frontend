@@ -1,4 +1,4 @@
-<h1>Alle geplande evenementen/lessen</h1>
+<h1>Alle geplande evenementen</h1>
 <h2>Evenementen</h2>
 <table id="eventTable">
   <tr>
@@ -9,7 +9,7 @@
     <th>Opties</th>
   </tr>
   <tr *ngFor="let event of events">
-    <td><a routerLink="/events/detail/{{event.id}}"> {{event.title}}</a></td>
+    <td>{{event.title}}</td>
     <td>{{event.start}}</td>
     <td>{{event.place}}</td>
     <td>{{event.band}}</td>
@@ -19,21 +19,4 @@
     </td>
     </tr>
 </table>
-<h2>Lessen</h2>
-<table id="lessonTable">
-  <tr>
-    <th>Naam</th>
-    <th>Datum</th>
-    <th>Tijd</th>
-    <th>Opties</th>
-  </tr>
-  <tr *ngFor="let lesson of lessons">
-    <td><a routerLink="/lesson/detail/{{lesson.id}}">{{lesson.title}}</a></td>
-    <td>{{lesson.start}}</td>
-    <td>{{lesson.time}}</td>
-    <td>
-      <button type="button" value="Aanpassen" routerLink="/lesson/editband/{{lesson.id}}">Aanpassen</button>
-      <button type="button" value="Verwijderen" routerLink="/lesson/deleteband/{{lesson.id}}">Verwijderen</button>
-    </td>
-  </tr>
-</table>
+

@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {Band} from '../../../../model/band';
 import {BandService} from '../../../../services/band/band.service';
 import {UserService} from "../../../../services/user/user.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -20,7 +21,7 @@ export class CreateBandComponent implements OnInit {
   deletedTeacher: String;
   private deletedStudent: String;
 
-  constructor(private userService: UserService, private bandService: BandService) {
+  constructor(private userService: UserService, private bandService: BandService, private router: Router) {
 
   }
 
@@ -38,10 +39,8 @@ export class CreateBandComponent implements OnInit {
 
   public createBand(bandForm: NgForm): void {
     this.bandService.createBand(this.newBand)
-      .subscribe(createBand => {
-        bandForm.reset();
-        this.newBand = new Band();
-        this.bands.unshift(createBand);
+      .subscribe(() => {
+        this.router.navigate(['bands']);
       });
   }
 

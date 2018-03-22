@@ -28,7 +28,6 @@ import {GetBandsOfUserComponent} from "./components/_admin/band/get-bands-of-use
 import {MusicpiecesComponent} from './components/_admin/musicpieces/musicpieces.component';
 import {GetEventsComponent} from './components/_admin/agenda/get-events/get-events.component';
 import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
-import {DetailsEventComponent} from './components/_admin/agenda/details-event/details-event.component';
 import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-event.component';
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {DeleteEventComponent} from './components/_admin/agenda/delete-event/delete-event.component';
@@ -37,6 +36,7 @@ import {UserCreateComponent} from "./components/_admin/user/user-create/user-cre
 import {UserDetailsComponent} from "./components/_admin/user/user-details/user-details.component";
 import {UserEditComponent} from "./components/_admin/user/user-edit/user-edit.component";
 import {UserDeleteComponent} from "./components/_admin/user/user-delete/user-delete.component";
+import {ChatComponent} from './components/chat/chat.component';
 
 const routes: Routes = [
   //HOME
@@ -45,7 +45,6 @@ const routes: Routes = [
   //EVENT
   {path: 'events', component: GetEventsComponent},
   {path: 'events/all', component: GetAllEventsComponent},
-  {path: 'events/detail/:id', component: DetailsEventComponent},
   {path: 'events/edit/:id', component: EditEventComponent},
   {path: 'events/delete/:id', component: DeleteEventComponent},
   {path: 'events/create', component: CreateEventComponent},
@@ -79,6 +78,9 @@ const routes: Routes = [
   {path: 'lib/cords', component: CordsComponent, canActivate: [AuthGuard]},
   {path: 'lib/instruments', component: InstrumentsComponent, canActivate: [AuthGuard]},
   {path: 'lib/search', component: SearchComponent, canActivate: [AuthGuard]},
+
+  //CHAT
+  {path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
 
   //LESSON
   {path: 'lesson/all', component: LessonComponent, canActivate: [AuthGuard]},
