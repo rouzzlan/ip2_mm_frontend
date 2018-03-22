@@ -37,6 +37,7 @@ import {UserCreateComponent} from "./components/_admin/user/user-create/user-cre
 import {UserDetailsComponent} from "./components/_admin/user/user-details/user-details.component";
 import {UserEditComponent} from "./components/_admin/user/user-edit/user-edit.component";
 import {UserDeleteComponent} from "./components/_admin/user/user-delete/user-delete.component";
+import {ChatComponent} from './components/chat/chat.component';
 
 const routes: Routes = [
   //HOME
@@ -79,6 +80,9 @@ const routes: Routes = [
   {path: 'lib/cords', component: CordsComponent, canActivate: [AuthGuard]},
   {path: 'lib/instruments', component: InstrumentsComponent, canActivate: [AuthGuard]},
   {path: 'lib/search', component: SearchComponent, canActivate: [AuthGuard]},
+
+  //CHAT
+  {path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
 
   //LESSON
   {path: 'lesson/all', component: LessonComponent, canActivate: [AuthGuard]},
