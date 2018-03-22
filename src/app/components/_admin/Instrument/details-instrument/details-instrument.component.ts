@@ -9,7 +9,7 @@ import {InstrumentService} from '../../../../services/instrument/instrument.serv
   styleUrls: ['./details-instrument.component.css']
 })
 export class DetailsInstrumentComponent implements OnInit {
-  private instrument: Instrument;
+  instrument: Instrument;
 
   constructor(private instrumentService: InstrumentService, private route: ActivatedRoute) { }
 

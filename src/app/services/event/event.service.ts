@@ -6,7 +6,7 @@ import {EventLessons} from '../../model/eventLessons';
 
 @Injectable()
 export class EventService {
-  private path = 'http://127.0.0.1:8080/event';
+  private path = 'http://localhost:8080/event';
 
   constructor(private http: HttpClient) {
   }

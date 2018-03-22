@@ -12,7 +12,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class BandDetailComponent implements OnInit {
 
-  private band: Band;
+  band: Band;
 
   constructor(private bandService: BandService, private route: ActivatedRoute) {
   }

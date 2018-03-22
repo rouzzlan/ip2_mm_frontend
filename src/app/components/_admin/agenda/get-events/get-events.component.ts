@@ -38,20 +38,20 @@ export class GetEventsComponent implements OnInit, AfterViewInit {
       };
     });
   }
-
-  private getEventsLessonsOfStudents(): void {
-    this.eventService.getEventsLessonsOfStudent(2).subscribe(receivedEventsLessons => {
-      this.calOptions = {
-        monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'Novemeber', 'December'],
-        timeFormat: 'H:mm',
-        dayNamesShort: ['ZO', 'MA', 'DI', 'WO', 'DO', 'VR', 'ZA'],
-        buttonText: {
-          today: 'vandaag'
-        },
-        events: receivedEventsLessons
-      };
-    });
-  }
+    // Mag eruit (normaal al gedaan maar blijkbaar had git geen zin
+  // private getEventsLessonsOfStudents(): void {
+  //   this.eventService.getEventsLessonsOfStudent(2).subscribe(receivedEventsLessons => {
+  //     this.calOptions = {
+  //       monthNames: ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'Novemeber', 'December'],
+  //       timeFormat: 'H:mm',
+  //       dayNamesShort: ['ZO', 'MA', 'DI', 'WO', 'DO', 'VR', 'ZA'],
+  //       buttonText: {
+  //         today: 'vandaag'
+  //       },
+  //       events: receivedEventsLessons
+  //     };
+  //   });
+  // }
 
   // endRegion
 }

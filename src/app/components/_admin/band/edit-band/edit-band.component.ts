@@ -17,6 +17,7 @@ export class EditBandComponent implements OnInit {
   students: String[] = [];
   addTrigger: Boolean = false;
   deletedTeacher: String;
+  studentMail: string;
 
   constructor(private userService: UserService, private bandService: BandService, private route: ActivatedRoute) {
   }

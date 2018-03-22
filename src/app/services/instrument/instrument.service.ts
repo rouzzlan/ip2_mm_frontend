@@ -5,7 +5,7 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class InstrumentService {
-  private path = 'http://127.0.0.1:8080/instrument';
+  private path = 'http://localhost:8080/instrument';
 
   constructor(private http: HttpClient) {
   }
