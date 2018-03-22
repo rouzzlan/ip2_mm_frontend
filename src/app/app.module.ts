@@ -62,6 +62,7 @@ import { CreateLessonComponent } from './components/_admin/lesson/create-lesson/
 import { DeleteLessonComponent } from './components/_admin/lesson/delete-lesson/delete-lesson.component';
 import { DetailsLessonComponent } from './components/_admin/lesson/details-lesson/details-lesson.component';
 import { EditLessonComponent } from './components/_admin/lesson/edit-lesson/edit-lesson.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -114,7 +115,8 @@ export function tokenGetter() {
     CreateLessonComponent,
     DeleteLessonComponent,
     DetailsLessonComponent,
-    EditLessonComponent
+    EditLessonComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
