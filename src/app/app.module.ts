@@ -56,12 +56,12 @@ import {GetEventsComponent} from './components/_admin/agenda/get-events/get-even
 import {GetEventsUserComponent} from './components/_admin/agenda/get-events-User/get-events-user.component';
 import {DeleteEventComponent} from './components/_admin/agenda/delete-event/delete-event.component';
 import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-event.component';
-import {CalendarComponent} from "ap-angular2-fullcalendar";
+import {CalendarComponent, CalendarModule} from "ap-angular2-fullcalendar";
 import {EventService} from "./services/event/event.service";
-import { CreateLessonComponent } from './components/_admin/lesson/create-lesson/create-lesson.component';
-import { DeleteLessonComponent } from './components/_admin/lesson/delete-lesson/delete-lesson.component';
-import { DetailsLessonComponent } from './components/_admin/lesson/details-lesson/details-lesson.component';
-import { EditLessonComponent } from './components/_admin/lesson/edit-lesson/edit-lesson.component';
+import {CreateLessonComponent} from './components/_admin/lesson/create-lesson/create-lesson.component';
+import {DeleteLessonComponent} from './components/_admin/lesson/delete-lesson/delete-lesson.component';
+import {DetailsLessonComponent} from './components/_admin/lesson/details-lesson/details-lesson.component';
+import {EditLessonComponent} from './components/_admin/lesson/edit-lesson/edit-lesson.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -99,7 +99,6 @@ export function tokenGetter() {
     DeleteBandComponent,
 
     // EVENT
-    CalendarComponent,
     CreateEventComponent,
     DetailsEventComponent,
     EditEventComponent,
@@ -118,6 +117,7 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
+    CalendarModule,
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
