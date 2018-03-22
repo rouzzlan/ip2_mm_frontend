@@ -4,6 +4,7 @@ import {Event} from '../../../../model/event';
 import {Band} from '../../../../model/band';
 import {EventService} from '../../../../services/event/event.service';
 import {BandService} from '../../../../services/band/band.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-event',
@@ -16,7 +17,7 @@ export class CreateEventComponent implements OnInit {
   events: Event[] = [];
   bands: Band[] = [];
 
-  constructor(private eventService: EventService, private bandService: BandService) {
+  constructor(private eventService: EventService, private bandService: BandService, private router: Router) {
   }
 
   ngOnInit() {
@@ -26,14 +27,9 @@ export class CreateEventComponent implements OnInit {
   // region REST Calls
 
   public createEvent(eventForm: NgForm): void {
-    this.newEvent.start = this.newEvent.start.concat(':00');
-    console.log(this.newEvent);
     this.eventService.createEvent(this.newEvent)
-      .subscribe(createEvent => {
-        eventForm.reset();
-        this.newEvent = new Event();
-        this.events.unshift(createEvent);
-      });
+      .subscribe(() => this.router.navigate(['/events/all'])
+      );
   }
 
   public getBands(): void {

@@ -37,7 +37,7 @@ export class EventService {
   }
 
   public editEvent(eventToUpdate: Event): Observable<Event> {
-    return this.http.put<Event>(this.path + '/edit', eventToUpdate);
+    return this.http.put<Event>(this.path + '/update', eventToUpdate);
   }
 
   public deleteEvent(eventToDelete: Event) {

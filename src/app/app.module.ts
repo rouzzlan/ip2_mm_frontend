@@ -41,7 +41,6 @@ import {UserService} from './services/user/user.service';
 import {InstrumentHomeComponent} from './components/_admin/Instrument/instrument-home/instrument-home.component';
 import {MusicpiecesComponent} from './components/_admin/musicpieces/musicpieces.component';
 import {MusicpieceService} from './services/admin/musicpiece.service';
-import {DetailsEventComponent} from './components/_admin/agenda/details-event/details-event.component';
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
 import {GetEventsComponent} from './components/_admin/agenda/get-events/get-events.component';
@@ -100,7 +99,6 @@ export function tokenGetter() {
 
     // EVENT
     CreateEventComponent,
-    DetailsEventComponent,
     EditEventComponent,
     DeleteEventComponent,
     GetEventsUserComponent,
