@@ -28,7 +28,6 @@ import {GetBandsOfUserComponent} from "./components/_admin/band/get-bands-of-use
 import {MusicpiecesComponent} from './components/_admin/musicpieces/musicpieces.component';
 import {GetEventsComponent} from './components/_admin/agenda/get-events/get-events.component';
 import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
-import {DetailsEventComponent} from './components/_admin/agenda/details-event/details-event.component';
 import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-event.component';
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {DeleteEventComponent} from './components/_admin/agenda/delete-event/delete-event.component';
@@ -50,7 +49,6 @@ const routes: Routes = [
   //EVENT
   {path: 'events', component: GetEventsComponent},
   {path: 'events/all', component: GetAllEventsComponent},
-  {path: 'events/detail/:id', component: DetailsEventComponent},
   {path: 'events/edit/:id', component: EditEventComponent},
   {path: 'events/delete/:id', component: DeleteEventComponent},
   {path: 'events/create', component: CreateEventComponent},
@@ -105,9 +103,9 @@ const routes: Routes = [
       //ADMIN/USER
       {path: 'admin/users', component: UsersHomeComponent, canActivate: [AuthGuard, BeheerderGuard]},
       {path: 'admin/users/create', component: UserCreateComponent, canActivate: [AuthGuard, BeheerderGuard]},
-      {path: 'admin/users/detail/:id', component: UserDetailsComponent, canActivate: [AuthGuard, BeheerderGuard]},
-      {path: 'admin/users/edit/:id', component: UserEditComponent, canActivate: [AuthGuard, BeheerderGuard]},
-      {path: 'admin/users/delete/:id', component: UserDeleteComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/detail/:email', component: UserDetailsComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/edit/:email', component: UserEditComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/delete/:email', component: UserDeleteComponent, canActivate: [AuthGuard, BeheerderGuard]},
 
   //NON-SPECIFIED PATH REDIRECT
   {path: '**', redirectTo: '/home'},

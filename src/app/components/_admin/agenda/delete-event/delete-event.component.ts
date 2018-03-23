@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Event} from '../../../../model/event';
 import {EventService} from '../../../../services/event/event.service';
-import {ActivatedRoute,} from '@angular/router';
+import {ActivatedRoute, Router,} from '@angular/router';
 
 @Component({
   selector: 'app-delete-event',
@@ -12,7 +12,7 @@ export class DeleteEventComponent implements OnInit {
 
   eventToDelete: Event;
 
-  constructor(private eventService: EventService, private route: ActivatedRoute) {
+  constructor(private eventService: EventService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class DeleteEventComponent implements OnInit {
   }
 
   public deleteEvent(): void {
-    this.eventService.deleteEvent(this.eventToDelete).subscribe();
+    this.eventService.deleteEvent(this.eventToDelete).subscribe(() => this.router.navigate(['/events/all']));
   }
 
   // endregion

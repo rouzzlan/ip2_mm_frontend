@@ -13,23 +13,17 @@ export class GetAllEventsComponent implements OnInit {
 
   events: Event[] = [];
 
-  lessons: Lesson[] = [];
 
-  constructor(private eventService: EventService, private lessonService: LessonService) {
+  constructor(private eventService: EventService) {
   }
 
   ngOnInit() {
     this.getAllEvents();
-    this.getAllLessons();
   }
 
   // region REST calls
   public getAllEvents(): void {
     this.eventService.getEvents().subscribe(receivedEvents => this.events = receivedEvents);
-  }
-
-  public getAllLessons(): void {
-    this.lessonService.getLessons().subscribe(receivedLessons => this.lessons = receivedLessons);
   }
 
   // endRegion

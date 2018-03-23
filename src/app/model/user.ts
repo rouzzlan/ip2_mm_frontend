@@ -1,4 +1,5 @@
 import {Instrument} from './instrument';
+import {Role} from "./role";
 
 export class User {
   id: number;
@@ -7,10 +8,7 @@ export class User {
   lastname: string;
   email: string;
   password: string;
-  houseNumber: number;
-  zipcode: number;
-  city: number;
-  country: string;
+  enabled: boolean;
   instruments: Instrument[];
   roles: string[];
 }

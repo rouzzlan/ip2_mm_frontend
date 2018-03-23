@@ -1,3 +1,65 @@
-<p>
-  user-create works!
-</p>
+<h2>Maak een User aan</h2>
+
+<form id="createUserForm" class="col-12" #createUserForm="ngForm"
+      (ngSubmit)="createUser(createUserForm)">
+
+  <label class="col-12" for="email">Email</label>
+  <input id="email" class="col-12 col-sm-5 col-lg-4" type="text"
+         required
+         name="email" [(ngModel)]="newUser.email"
+         #title="ngModel"
+         #name="ngModel"
+  >
+
+  <!--firstname-->
+  <label class="col-12" for="firstname">Firstname</label>
+  <input id="firstname" class="col-12 col-sm-5 col-lg-4" type="text"
+         required
+         name="firstname" [(ngModel)]="newUser.firstname"
+         #title="ngModel"
+         #name="ngModel"
+  >
+
+  <!--lastname-->
+  <label class="col-12" for="lastname">Lastname</label>
+  <input id="lastname" class="col-12 col-sm-5 col-lg-4" type="text"
+         required
+         name="lastname" [(ngModel)]="newUser.lastname"
+         #title="ngModel"
+         #name="ngModel"
+  >
+
+  <!--username-->
+  <label class="col-12" for="username">Username</label>
+  <input id="username" class="col-12 col-sm-5 col-lg-4" type="text"
+         required
+         name="username" [(ngModel)]="newUser.username"
+         #title="ngModel"
+         #name="ngModel"
+  >
+
+  <!--roles-->
+  <label class="col-12" >Roles</label>
+  <div *ngFor="let option of options">
+    <label>
+        <input type="checkbox"
+               name="options"
+               [(ngModel)]="option.checked"/>
+        {{option.name.substring(5)}}
+    </label>
+  </div>
+
+
+  <div class="col-12">
+    <button id="submitBtn" class="btn btn-default" type="submit" value="Aanmaken"
+            [disabled]="!createUserForm.form.valid">
+      <span class="fa fa-check"></span> Aanmaken
+    </button>
+    <button id="cancelBtn" class="btn btn-default" type="reset" value="Cancel">
+      <span class="fa fa-refresh"></span> Reset
+    </button>
+    <button class="btn btn-default" routerLink="/admin/users">
+      <span class="fa fa-arrow-left"></span> Annuleren
+    </button>
+  </div>
+</form>

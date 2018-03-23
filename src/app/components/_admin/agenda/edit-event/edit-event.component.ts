@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Event} from '../../../../model/event';
 import {NgForm} from '@angular/forms';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {BandService} from "../../../../services/band/band.service";
 import {Band} from "../../../../model/band";
 import {EventService} from "../../../../services/event/event.service";
@@ -16,7 +16,7 @@ export class EditEventComponent implements OnInit {
   eventToEdit: Event = new Event();
   bands: Band[] = [];
 
-  constructor(private eventService: EventService, private bandService: BandService, private route: ActivatedRoute) {
+  constructor(private eventService: EventService, private bandService: BandService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class EditEventComponent implements OnInit {
   // region REST calls
 
   public updateEvent(eventForm: NgForm) {
-    this.eventService.editEvent(this.eventToEdit).subscribe();
+    this.eventService.editEvent(this.eventToEdit).subscribe(() => this.router.navigate(['/events/all']));
   }
 
   // endregion

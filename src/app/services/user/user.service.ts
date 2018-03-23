@@ -35,10 +35,10 @@ export class UserService {
     return this.http.put<User>(this.path + '/update', userToEdit);
   }
 
-  public deleteUser(userToDelete: User) {
+  public deleteUser(userEmail: string) {
     let params = new HttpParams();
-    params.set('email', userToDelete.email);
-    return this.http.delete<User>(this.path + '/delete', {params});
+    params = params.append('email', userEmail);
+    return this.http.delete<User>(this.path + '/delete', {params: params});
   }
 
   //ROLES
