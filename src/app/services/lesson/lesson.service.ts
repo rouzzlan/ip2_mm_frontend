@@ -6,7 +6,7 @@ import {Lesson} from '../../model/lesson';
 
 @Injectable()
 export class LessonService {
-  private baseUrl = 'http://localhost:8080/lesson';
+  private baseUrl = 'https://ip2-mm-backend.herokuapp.com/lesson';
 
   constructor(private http: HttpClient) { }
 

@@ -5,7 +5,7 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class InstrumentService {
-  private path = 'http://localhost:8080/instrument';
+  private path = 'https://ip2-mm-backend.herokuapp.com/instrument';
 
   constructor(private http: HttpClient) {
   }

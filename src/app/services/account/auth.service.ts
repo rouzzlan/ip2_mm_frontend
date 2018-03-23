@@ -6,7 +6,7 @@ import {TOKEN_AUTH_PASSWORD, TOKEN_AUTH_USERNAME} from '../../resources/auth.con
 
 @Injectable()
 export class AuthService {
-  static AUTH_URL = 'http://localhost:8080/oauth/token';
+  static AUTH_URL = 'https://ip2-mm-backend.herokuapp.com/oauth/token';
 
   constructor(private http: Http) {
   }

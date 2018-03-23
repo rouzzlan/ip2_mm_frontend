@@ -9,14 +9,14 @@ $(function () {
         if (name != '') {
             if ($('#connection').val() == 'Connect') {
                 //connecting
-                var socket = new SockJS('http://localhost:8080/chatjs');
+                var socket = new SockJS('https://ip2-mm-backend.herokuapp.com/chatjs');
                 stompClient = Stomp.over(socket);
                 stompClient.connect({}, function (frame) {
                     setConnected(true);
-                    stompClient.subscribe('ws://localhost:8080/topic/chat/1', function (message) {
+                    stompClient.subscribe('ws://ip2-mm-backend.herokuapp.com/topic/chat/1', function (message) {
                         showMessage(JSON.parse(message.body).content);
                     });
-                    stompClient.send('ws://localhost:8080/app/chat/1', {}, JSON.stringify({'name': name, 'content': ''}));
+                    stompClient.send('ws://ip2-mm-backend.herokuapp.com/app/chat/1', {}, JSON.stringify({'name': name, 'content': ''}));
                 });
             } else {
                 //disconnecting
@@ -29,7 +29,7 @@ $(function () {
     $('#send').click(function () {
         var name = $('#name').val();
         var content = $('#content').val();
-        stompClient.send('ws://localhost:8080/app/chat/1', {}, JSON.stringify({'name': name, 'content': content}));
+        stompClient.send('ws://ip2-mm-backend.herokuapp.com/app/chat/1', {}, JSON.stringify({'name': name, 'content': content}));
         $('#content').val('');
     });
 

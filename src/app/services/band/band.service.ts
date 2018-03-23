@@ -6,7 +6,7 @@ import {Band} from '../../model/band';
 @Injectable()
 export class BandService {
 
-  private path = 'http://localhost:8080/band';
+  private path = 'https://ip2-mm-backend.herokuapp.com/band';
 
   constructor(private http: HttpClient) {
   }

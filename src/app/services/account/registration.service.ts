@@ -5,8 +5,8 @@ import {TOKEN_AUTH_PASSWORD, TOKEN_AUTH_USERNAME} from "../../resources/auth.con
 
 @Injectable()
 export class RegistrationService {
-  static REGISTRATION_URL = "http://localhost:8080/account/register"
-  static CONFIRMATION_URL = "http://localhost:8080/account/confirm"
+  static REGISTRATION_URL = "https://ip2-mm-backend.herokuapp.com/account/register"
+  static CONFIRMATION_URL = "https://ip2-mm-backend.herokuapp.com/account/confirm"
 
   constructor(private http: Http) {
   }

@@ -132,8 +132,8 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost:8080','127.0.0.1:8080'],        // TODO: Add heroku to whilelist
-        blacklistedRoutes: ['localhost:8080/oauth/',]                   // TODO: Add heroku to blacklist
+        whitelistedDomains: ['localhost:8080','127.0.0.1:8080','ip2-mm-backend.herokuapp.com'],        // TODO: Add heroku to whilelist
+        blacklistedRoutes: ['localhost:8080/oauth/','ip2-mm-backend.herokuapp.com/oauth']                   // TODO: Add heroku to blacklist
       }
     })
   ],
