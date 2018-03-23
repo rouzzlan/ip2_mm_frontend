@@ -9,7 +9,14 @@ import {LessonService} from '../../../../services/lesson/lesson.service';
   styleUrls: ['./delete-lesson.component.css']
 })
 export class DeleteLessonComponent implements OnInit {
-  lesson = new Lesson();
+  lesson: Lesson = {
+    id: 0,
+    date: '',
+    state: '',
+    time: 0,
+    price: 0,
+    lessonType: ''
+  };
 
   constructor(private lessonService: LessonService,
               private route: ActivatedRoute,

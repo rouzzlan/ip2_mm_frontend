@@ -15,18 +15,12 @@ export class CreateLessonComponent implements OnInit {
     date: '',
     state: '',
     time: 0,
-    seriesOfLessons: null,
-    playlist: null,
     price: 0,
-    lessonType: {
-      name: '',
-      description: '',
-      id: 0,
-      instrument: '',
-      price: 0
-    }
+    lessonType: ''
   };
   lessonTypes: LessonType[];
+  lessonDate: string;
+  lessonHour: string;
 
   constructor(private lessonService: LessonService) {
   }
@@ -36,7 +30,9 @@ export class CreateLessonComponent implements OnInit {
   }
 
   public createLesson(lessonForm: NgForm): void {
-    console.log('les aangemaakt');
+    let tmpString = this.lessonDate.split('/').reverse().join('-').concat('T' + this.lessonHour + ':00.000');
+    this.newLesson.date = tmpString;
+
     this.lessonService.addLesson(this.newLesson).subscribe(result => {
       lessonForm.reset();
       this.newLesson = new Lesson();
