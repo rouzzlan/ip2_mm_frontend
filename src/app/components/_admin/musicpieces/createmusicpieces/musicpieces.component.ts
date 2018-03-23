@@ -62,7 +62,7 @@ export class MusicpiecesComponent implements OnInit {
       .subscribe(
          (res) => {
            console.log(res.status);
-            if(res.status === 201) {
+            if(res.status === 200 || res.status === 201) {
               this.succes = true;
               this.loading = false;
               this.response = 'File succesvol toegevoegd';
