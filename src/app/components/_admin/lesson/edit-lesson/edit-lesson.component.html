@@ -31,7 +31,7 @@
     <option *ngFor="let type of lessonTypes" [value]="type.id">{{type.name}}</option>
   </select>
   <div class="btnContainer">
-    <button id="submitBtn" type="submit" class="btn btn-default" (click)="updateLesson(updateLessonForm)" routerLink="/lesson" value="Aanpassen">Aanmaken
+    <button id="submitBtn" type="submit" class="btn btn-default" (click)="updateLesson(updateLessonForm)" routerLink="/lesson" value="Aanpassen">Aanpassen
     </button>
     <button id="cancelBtn" type="reset" class="btn btn-default" routerLink="/lesson" value="Cancel">Cancel</button>
   </div>
