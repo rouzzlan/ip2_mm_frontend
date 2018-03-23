@@ -1,4 +1,3 @@
-///<reference path="../../../../../../node_modules/@angular/router/src/router.d.ts"/>
 import {Component, OnInit} from '@angular/core';
 import {Band} from '../../../../model/band';
 import {BandService} from '../../../../services/band/band.service';

@@ -3,7 +3,7 @@
   <span class="fa fa-plus "></span> nieuwe user</a>
 <div class="d-block d-sm-none">
   <div *ngFor="let user of users">
-    <div class="details">
+    <div class="details mb-2">
       <div class="d-flex">
         <p class="col-6 title">ID</p>
         <p>{{user.id}}</p>
@@ -40,9 +40,9 @@
     <td class="col-2">{{user.firstname}}</td>
     <td class="col-2">{{user.lastname}}</td>
     <td class="col-3 d-flex">
-      <a class="fa fa-info-circle col-4 RUDlink" routerLink="/admin/users/detail/{{user.id}}"></a>
-      <a class="fa fa-edit col-4 RUDlink" routerLink="/admin/users/edit/{{user.id}}"></a>
-      <a class="fa fa-remove col-4 RUDlink" routerLink="/admin/users/delete/{{user.id}}"></a>
+      <a class="fa fa-info-circle col-4 RUDlink" routerLink="/admin/users/detail/{{user.email}}"></a>
+      <a class="fa fa-edit col-4 RUDlink" routerLink="/admin/users/edit/{{user.email}}"></a>
+      <a class="fa fa-remove col-4 RUDlink" routerLink="/admin/users/delete/{{user.email}}"></a>
     </td>
   </tr>
   </tbody>

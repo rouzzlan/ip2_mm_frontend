@@ -25,7 +25,7 @@ import {EditBandComponent} from "./components/_admin/band/edit-band/edit-band.co
 import {DeleteBandComponent} from "./components/_admin/band/delete-band/delete-band.component";
 import {CreateBandComponent} from "./components/_admin/band/create-band/create-band.component";
 import {GetBandsOfUserComponent} from "./components/_admin/band/get-bands-of-user/get-bands-of-user.component";
-import {MusicpiecesComponent} from './components/_admin/musicpieces/musicpieces.component';
+import {MusicpiecesComponent} from './components/_admin/musicpieces/createmusicpieces/musicpieces.component';
 import {GetEventsComponent} from './components/_admin/agenda/get-events/get-events.component';
 import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
 import {EditEventComponent} from './components/_admin/agenda/edit-event/edit-event.component';
@@ -37,6 +37,11 @@ import {UserDetailsComponent} from "./components/_admin/user/user-details/user-d
 import {UserEditComponent} from "./components/_admin/user/user-edit/user-edit.component";
 import {UserDeleteComponent} from "./components/_admin/user/user-delete/user-delete.component";
 import {ChatComponent} from './components/chat/chat.component';
+import {CreateLessonComponent} from './components/_admin/lesson/create-lesson/create-lesson.component';
+import {DeleteLessonComponent} from './components/_admin/lesson/delete-lesson/delete-lesson.component';
+import {EditLessonComponent} from './components/_admin/lesson/edit-lesson/edit-lesson.component';
+import {DetailsLessonComponent} from './components/_admin/lesson/details-lesson/details-lesson.component';
+import {AllmusicpiecesComponent} from './components/_admin/musicpieces/allmusicpieces/allmusicpieces.component';
 
 const routes: Routes = [
   //HOME
@@ -83,21 +88,26 @@ const routes: Routes = [
   {path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
 
   //LESSON
-  {path: 'lesson/all', component: LessonComponent, canActivate: [AuthGuard]},
+  {path: 'lesson', component: LessonComponent, canActivate: [AuthGuard]},
+  {path: 'lesson/detail/:id', component: DetailsLessonComponent, canActivate: [AuthGuard]},
+  {path: 'lesson/edit/:id', component: EditLessonComponent, canActivate: [AuthGuard]},
+  {path: 'lesson/delete/:id', component: DeleteLessonComponent, canActivate: [AuthGuard]},
+  {path: 'lesson/create', component: CreateLessonComponent, canActivate: [AuthGuard]},
 
   //ADMIN
   //navigation requires at least lesgever rights, some components require more
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard, LesgeverGuard]},
 
       //ADMIN/MUSICPIECES
-      {path: 'admin/musicpieces', component: MusicpiecesComponent, canActivate: [AuthGuard, LesgeverGuard]},
+  {path: 'admin/musicpieces', component: AllmusicpiecesComponent, canActivate: [AuthGuard, LesgeverGuard]},
+  {path: 'admin/musicpieces/create', component: MusicpiecesComponent, canActivate: [AuthGuard, LesgeverGuard]},
 
       //ADMIN/USER
       {path: 'admin/users', component: UsersHomeComponent, canActivate: [AuthGuard, BeheerderGuard]},
       {path: 'admin/users/create', component: UserCreateComponent, canActivate: [AuthGuard, BeheerderGuard]},
-      {path: 'admin/users/detail/:id', component: UserDetailsComponent, canActivate: [AuthGuard, BeheerderGuard]},
-      {path: 'admin/users/edit/:id', component: UserEditComponent, canActivate: [AuthGuard, BeheerderGuard]},
-      {path: 'admin/users/delete/:id', component: UserDeleteComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/detail/:email', component: UserDetailsComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/edit/:email', component: UserEditComponent, canActivate: [AuthGuard, BeheerderGuard]},
+      {path: 'admin/users/delete/:email', component: UserDeleteComponent, canActivate: [AuthGuard, BeheerderGuard]},
 
   //NON-SPECIFIED PATH REDIRECT
   {path: '**', redirectTo: '/home'},

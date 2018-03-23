@@ -1,0 +1,38 @@
+button {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+label {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+input, select {
+  margin-left: 15px;
+}
+
+.alert-danger {
+  margin-top: 5px;
+}
+
+h2 {
+  font-weight: bold;
+  display: inline;
+}
+
+#students {
+  font-weight: bold;
+}
+.fa-plus{
+  color: green;
+}
+
+.fa-check{
+  color: green;
+}
+
+.fa-arrow-left{
+  color: blue;
+}
+

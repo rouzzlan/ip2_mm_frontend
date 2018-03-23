@@ -39,7 +39,7 @@ import {BandService} from './services/band/band.service';
 import {InstrumentService} from './services/instrument/instrument.service';
 import {UserService} from './services/user/user.service';
 import {InstrumentHomeComponent} from './components/_admin/Instrument/instrument-home/instrument-home.component';
-import {MusicpiecesComponent} from './components/_admin/musicpieces/musicpieces.component';
+import {MusicpiecesComponent} from './components/_admin/musicpieces/createmusicpieces/musicpieces.component';
 import {MusicpieceService} from './services/admin/musicpiece.service';
 import {CreateEventComponent} from './components/_admin/agenda/create-event/create-event.component';
 import {GetAllEventsComponent} from './components/_admin/agenda/get-all-events/get-all-events.component';
@@ -58,6 +58,7 @@ import { DeleteLessonComponent } from './components/_admin/lesson/delete-lesson/
 import { DetailsLessonComponent } from './components/_admin/lesson/details-lesson/details-lesson.component';
 import { EditLessonComponent } from './components/_admin/lesson/edit-lesson/edit-lesson.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { AllmusicpiecesComponent } from './components/_admin/musicpieces/allmusicpieces/allmusicpieces.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -105,6 +106,7 @@ export function tokenGetter() {
     GetEventsComponent,
     GetAllEventsComponent,
     MusicpiecesComponent,
+    AllmusicpiecesComponent,
 
     //LESSON
     LessonComponent,

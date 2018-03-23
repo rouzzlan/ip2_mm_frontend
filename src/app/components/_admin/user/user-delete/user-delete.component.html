@@ -1,3 +1,28 @@
-<p>
-  user-delete works!
-</p>
+<h2>User to delete</h2>
+<div id="info">
+  <p class="col-sm-4 title">Email</p>
+  <p class="detail">{{userToDelete.email}}</p>
+  <p class="col-sm-4 title">Username</p>
+  <p class="detail">{{userToDelete.username}}</p>
+  <p class="col-sm-4 title">Firstname</p>
+  <p class="detail">{{userToDelete.firstname}}</p>
+  <p class="col-sm-4 title">Lastname</p>
+  <p class="detail">{{userToDelete.lastname}}</p>
+  <p class="col-sm-4 title">Enabled</p>
+  <p class="detail">{{userToDelete.enabled}}</p>
+
+  <p class="col-sm-4 title">Roles</p>
+  <ul>
+    <li *ngFor="let role of userToDelete.roles">
+      {{role.substring(5)}}
+    </li>
+  </ul>
+</div>
+<div class="btnContainer col-xs-12">
+  <button id="submitBtn" class="btn btn-default" (click)="deleteUser()">
+    <span class="fa fa-remove"></span>Verwijder
+  </button>
+  <button id="cancelBtn" class="btn btn-default" routerLink="/admin/users">
+    <span class="fa fa-arrow-left"></span>Terug
+  </button>
+</div>

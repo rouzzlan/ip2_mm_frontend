@@ -1,3 +1,59 @@
-<p>
-  user-edit works!
-</p>
+<h2>Pas {{user.email}} aan</h2>
+<form id="editUserForm" class="col-12" #editUserForm="ngForm"
+      (ngSubmit)="editUser(editUserForm)">
+
+  <label class="col-12" for="bandName">Email</label>
+  <input id="bandName" class="col-12 col-sm-5 col-lg-4"
+         type="text" placeholder="naam"
+         required
+         name="newBand.name" [(ngModel)]="user.email"
+         #title="ngModel">
+
+  <!--firstname-->
+  <label class="col-12" for="firstname">Firstname</label>
+  <input id="firstname" class="col-12 col-sm-5 col-lg-4" type="text"
+         required
+         name="firstname" [(ngModel)]="user.firstname"
+         #title="ngModel"
+         #name="ngModel"
+  >
+
+  <!--lastname-->
+  <label class="col-12" for="lastname">Lastname</label>
+  <input id="lastname" class="col-12 col-sm-5 col-lg-4" type="text"
+         required
+         name="lastname" [(ngModel)]="user.lastname"
+         #title="ngModel"
+         #name="ngModel"
+  >
+
+  <!--username-->
+  <label class="col-12" for="username">Username</label>
+  <input id="username" class="col-12 col-sm-5 col-lg-4" type="text"
+         required
+         name="username" [(ngModel)]="user.username"
+         #title="ngModel"
+         #name="ngModel"
+  >
+
+  <label class="col-12" >Roles</label>
+  <p class="col-12" >{{selectedRoles}}</p>
+  <div *ngFor="let option of options">
+    <label>
+      <input type="checkbox"
+             name="options"
+             [(ngModel)]="option.checked"/>
+      {{option.name.substring(5)}}
+    </label>
+  </div>
+
+
+  <div class="btnContainer col-12">
+    <button id="submitBtn" class="btn" type="submit">
+      <span class="fa fa-check"></span> Opslaan
+    </button>
+    <button id="cancelBtn" class="btn btn-default" routerLink="/admin/users">
+      <span class="fa fa-arrow-left"></span> Terug
+    </button>
+  </div>
+</form>
