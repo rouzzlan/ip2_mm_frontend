@@ -5,11 +5,34 @@ button {
 
 label {
   margin-top: 5px;
+  font-weight: bold;
 }
 
-input, select{
+input, select {
   margin-left: 15px;
 }
-.alert-danger{
+
+.alert-danger {
   margin-top: 5px;
 }
+
+h2 {
+  font-weight: bold;
+  display: inline;
+}
+
+#students {
+  font-weight: bold;
+}
+.fa-plus{
+  color: green;
+}
+
+.fa-check{
+  color: green;
+}
+
+.fa-arrow-left{
+  color: blue;
+}
+
