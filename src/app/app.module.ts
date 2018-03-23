@@ -26,6 +26,7 @@ import {BandService} from './services/band/band.service';
 import {EventService} from './services/event/event.service';
 import {InstrumentService} from './services/instrument/instrument.service';
 import {RestService} from './services/rest/rest.service';
+import {MusicpieceService} from './services/musicpiece/musicpiece.service';
 import {UserListComponent} from './components/CRUD/users/user-list/user-list.component';
 import {EditUserComponent} from './components/CRUD/users/edit-user/edit-user.component';
 import {CreatePageComponent} from './components/CRUD/users/create-page/create-page.component';
@@ -46,6 +47,13 @@ import {GetBandsOfUserComponent} from './components/CRUD/band/get-bands-of-user/
 import {EditBandComponent} from './components/CRUD/band/edit-band/edit-band.component';
 import {DeleteBandComponent} from './components/CRUD/band/delete-band/delete-band.component';
 import {BandDetailComponent} from './components/CRUD/band/band-detail/band-detail.component';
+import { CreateMusicpieceComponent } from './components/CRUD/musicpiece/create-musicpiece/create-musicpiece.component';
+import { DetailMusicpieceComponent } from './components/CRUD/musicpiece/detail-musicpiece/detail-musicpiece.component';
+import { ListMusicpieceComponent } from './components/CRUD/musicpiece/list-musicpiece/list-musicpiece.component';
+import { EditMusicpieceComponent } from './components/CRUD/musicpiece/edit-musicpiece/edit-musicpiece.component';
+import { SearchbarComponent } from './components/searchbar/searchbar/searchbar.component';
+import { FilterInstrumentsPipe } from './components/searchbar/filter-instruments.pipe';
+import { FilterMusicpiecePipe } from './components/searchbar/filter-musicpiece.pipe';
 
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -87,7 +95,14 @@ export function authHttpServiceFactory(http: Http) {
     InstrumentHomeComponent,
     DetailsInstrumentComponent,
     EditInstrumententComponent,
-    DeleteInstrumentComponent
+    DeleteInstrumentComponent,
+    CreateMusicpieceComponent,
+    DetailMusicpieceComponent,
+    ListMusicpieceComponent,
+    EditMusicpieceComponent,
+    SearchbarComponent,
+    FilterInstrumentsPipe,
+    FilterMusicpiecePipe
   ],
   imports: [
     BrowserModule,
@@ -108,7 +123,8 @@ export function authHttpServiceFactory(http: Http) {
     BandService,
     EventService,
     InstrumentService,
-    RestService
+    RestService,
+    MusicpieceService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,38 @@
+.glyphicon {
+  font-size: 200%
+}
+
+.instrumentDetails {
+  border: 2px solid darkslategray;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+h2 {
+  display: inline;
+}
+
+.glyphicon-plus {
+  font-size: 150%;
+  color: darkgreen;
+}
+
+.glyphicon-info-sign {
+  color: black;
+}
+
+.glyphicon-remove-circle {
+  color: orangered;
+}
+
+#addinstr {
+  border-width: 1px;
+  border-color: lightgreen;
+  border-radius: 3px 3px 0 0;
+  align-content: center;
+  vertical-align: center;
+  font-weight: bold;
+}
+
+
+

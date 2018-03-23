@@ -25,11 +25,18 @@ import {BandDetailComponent} from "./components/CRUD/band/band-detail/band-detai
 import {EditBandComponent} from "./components/CRUD/band/edit-band/edit-band.component";
 import {DeleteBandComponent} from "./components/CRUD/band/delete-band/delete-band.component";
 import {GetBandsOfUserComponent} from "./components/CRUD/band/get-bands-of-user/get-bands-of-user.component";
+import {CreateMusicpieceComponent} from "./components/CRUD/musicpiece/create-musicpiece/create-musicpiece.component";
+import {ListMusicpieceComponent} from "./components/CRUD/musicpiece/list-musicpiece/list-musicpiece.component";
+import {DetailMusicpieceComponent} from "./components/CRUD/musicpiece/detail-musicpiece/detail-musicpiece.component";
+import {EditMusicpieceComponent} from "./components/CRUD/musicpiece/edit-musicpiece/edit-musicpiece.component";
+import {SearchbarComponent} from "./components/searchbar/searchbar/searchbar.component"
 
 const routes: Routes = [
   //HOME
   {path: 'home', component: HomeComponent},
 
+  //SEARCH
+  {path: 'search', component: SearchbarComponent},
   //region CRUD
 
   //region USERS
@@ -59,7 +66,14 @@ const routes: Routes = [
   {path: 'bands/createband', component: CreateBandComponent},
   {path: 'bands/:userId', component: GetBandsOfUserComponent},
   //endregion
+
+  //regio MUSICPIECES
+  {path: 'musicpiece', component: ListMusicpieceComponent },
+  {path: 'musicpiece/detail/:id', component: DetailMusicpieceComponent} ,
+  {path: 'musicpiece/create', component: CreateMusicpieceComponent},
+  {path: 'musicpiece/edit/:id', component: EditMusicpieceComponent},
   // endregion
+
 
   // ACCOUNT
   {path: 'register', component: RegistrationComponent},
