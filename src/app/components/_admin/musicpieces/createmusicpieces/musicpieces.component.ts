@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {MusicpieceService} from "../../../services/admin/musicpiece.service";
-import {MusicPiece} from "../../../model/musicpiece";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MusicpieceService} from '../../../../services/admin/musicpiece.service';
+import {MusicPiece} from '../../../../model/musicpiece';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-musicpieces',
@@ -65,9 +65,9 @@ export class MusicpiecesComponent implements OnInit {
             if(res.status === 201) {
               this.succes = true;
               this.loading = false;
-              this.response = "File succesvol toegevoegd";
+              this.response = 'File succesvol toegevoegd';
             } else {
-              this.response = res.status + ": " + res.statusText;
+              this.response = res.status + ': ' + res.statusText;
             }
         },
         (err:HttpErrorResponse) => {
@@ -76,7 +76,7 @@ export class MusicpiecesComponent implements OnInit {
           // if (err.status === 409) {
           //   this.response = "gepaste foutmelding"
           // } else {
-            this.response = err.status + ": " + err.statusText;
+            this.response = err.status + ': ' + err.statusText;
           //}
         });
 
