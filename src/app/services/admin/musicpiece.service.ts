@@ -12,6 +12,6 @@ export class MusicpieceService {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
 
-    return this.http.post('http://localhost:8080/music_library/upload/music_piece', formData, {headers: headers, observe: 'response'});
+    return this.http.post('http://localhost:8080/music_library/upload/music_piece_2', formData, {headers: headers, observe: 'response'});
   }
 }

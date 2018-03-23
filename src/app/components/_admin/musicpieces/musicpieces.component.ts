@@ -51,7 +51,7 @@ export class MusicpiecesComponent implements OnInit {
     const jsonbody: string = JSON.stringify(musicPiece);
     input.append('musicpiece_info', jsonbody);
     const file: File = this.form.get('file').value;
-    input.append('file', file, file.name);
+    input.append('music_file', file, file.name);
     return input;
   }
 
@@ -61,7 +61,7 @@ export class MusicpiecesComponent implements OnInit {
     this.service.createMusicPiece(data)
       .subscribe(
          (res) => {
-           console.log(res.status)
+           console.log(res.status);
             if(res.status === 201) {
               this.succes = true;
               this.loading = false;
