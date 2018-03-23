@@ -59,6 +59,12 @@ import { DetailsLessonComponent } from './components/_admin/lesson/details-lesso
 import { EditLessonComponent } from './components/_admin/lesson/edit-lesson/edit-lesson.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { AllmusicpiecesComponent } from './components/_admin/musicpieces/allmusicpieces/allmusicpieces.component';
+import { FilterMusicpiecePipe } from './components/searchbar/filter-musicpiece.pipe';
+import { FilterInstrumentsPipe } from './components/searchbar/filter-instruments.pipe';
+import { SearchbarComponent } from './components/searchbar/searchbar/searchbar.component';
+import { EditMusicpieceComponent } from './components/CRUD/musicpiece/edit-musicpiece/edit-musicpiece.component';
+import { ListMusicpieceComponent } from './components/CRUD/musicpiece/list-musicpiece/list-musicpiece.component';
+import { CreateMusicpieceComponent } from './components/CRUD/musicpiece/create-musicpiece/create-musicpiece.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -122,6 +128,13 @@ export function tokenGetter() {
     UserDetailsComponent,
     UserDeleteComponent,
     ChatComponent
+    FilterMusicpiecePipe
+    FilterInstrumentsPipe,
+    SearchbarComponent,
+    EditMusicpieceComponent,
+    ListMusicpieceComponent,
+    DetailMusicpieceComponent,
+    CreateMusicpieceComponent,
   ],
   imports: [
     BrowserModule,

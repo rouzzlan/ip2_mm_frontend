@@ -43,6 +43,11 @@ import {EditLessonComponent} from './components/_admin/lesson/edit-lesson/edit-l
 import {DetailsLessonComponent} from './components/_admin/lesson/details-lesson/details-lesson.component';
 import {AllmusicpiecesComponent} from './components/_admin/musicpieces/allmusicpieces/allmusicpieces.component';
 
+import {SearchbarComponent} from "./components/searchbar/searchbar/searchbar.component"
+import {EditMusicpieceComponent} from "./components/CRUD/musicpiece/edit-musicpiece/edit-musicpiece.component";
+import {DetailMusicpieceComponent} from "./components/CRUD/musicpiece/detail-musicpiece/detail-musicpiece.component";
+import {ListMusicpieceComponent} from "./components/CRUD/musicpiece/list-musicpiece/list-musicpiece.component";
+import {CreateMusicpieceComponent} from "./components/CRUD/musicpiece/create-musicpiece/create-musicpiece.component";
 const routes: Routes = [
   //HOME
   {path: 'home', component: HomeComponent},
@@ -54,6 +59,9 @@ const routes: Routes = [
   {path: 'events/delete/:id', component: DeleteEventComponent},
   {path: 'events/create', component: CreateEventComponent},
   {path: 'events/user/:id', component: GetEventsUserComponent},
+  //SEARCH
+  {path: 'search', component: SearchbarComponent},
+  //region CRUD
 
   //INSTRUMENTS
   {path: 'instruments', component: InstrumentHomeComponent},
@@ -69,6 +77,14 @@ const routes: Routes = [
   {path: 'bands/deleteband/:id', component: DeleteBandComponent},
   {path: 'bands/createband', component: CreateBandComponent},
   {path: 'bands/:userId', component: GetBandsOfUserComponent},
+  //endregion
+
+  //regio MUSICPIECES
+  {path: 'musicpiece', component: ListMusicpieceComponent },
+  {path: 'musicpiece/detail/:id', component: DetailMusicpieceComponent} ,
+  {path: 'musicpiece/create', component: CreateMusicpieceComponent},
+  {path: 'musicpiece/edit/:id', component: EditMusicpieceComponent},
+  // endregion
 
 
   //ACCOUNT

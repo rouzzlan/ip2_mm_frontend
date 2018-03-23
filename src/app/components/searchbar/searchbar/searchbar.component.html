@@ -1,0 +1,45 @@
+<input type="text" [(ngModel)]="searchText"/>
+<ul>
+    <table class="col-sm-12 table table-striped table-bordered hidden-xs">
+      <tr class="bigBorder">
+        <th class="text-center">Naam</th>
+        <th class="text-center">Soort</th>
+        <th class="text-center">Type</th>
+        <th class="text-center">Uitvoering</th>
+        <th class="text-center">Opties</th>
+      </tr>
+      <tr *ngFor="let d of instruments | filterInstruments : searchText">
+        <td class="col-sm-3">{{d.name}}</td>
+        <td class="col-sm-2 ">{{d.sort}}</td>
+        <td class="col-sm-2">{{d.type}}</td>
+        <td class="col-sm-2">{{d.version}}</td>
+        <td class="col-sm-3">
+          <a class="glyphicon glyphicon-info-sign col-sm-4" routerLink="/instrument/detail/{{d.id}}"></a>
+        </td>
+      </tr>
+    </table>
+
+</ul>
+<ul>
+  <table class="col-sm-12 table table-striped table-bordered hidden-xs">
+    <tr class="bigBorder">
+      <th class="text-center">Titel</th>
+      <th class="text-center">Artiest</th>
+      <th class="text-center">Type</th>
+      <th class="text-center">Thema</th>
+      <th class="text-center">Genre</th>
+      <th class="text-center">Taal</th>
+    </tr>
+    <tr *ngFor="let c of pieces | filterMusicpiece : searchText">
+      <td class="col-sm-3">{{c.title}}</td>
+      <td class="col-sm-2">{{c.artist}}</td>
+      <td class="col-sm-2">{{c.instrumentType}}</td>
+      <td class="col-sm-1">{{c.theme}}</td>
+      <td class="col-sm-1">{{c.genre}}</td>
+      <td class="col-sm-2">{{c.language}}</td>
+      <td class="col-sm-1">
+        <a class="glyphicon glyphicon-info-sign col-sm-4" routerLink="/musicpiece/detail/{{c.id}}"></a>
+      </td>
+    </tr>
+  </table>
+ </ul>

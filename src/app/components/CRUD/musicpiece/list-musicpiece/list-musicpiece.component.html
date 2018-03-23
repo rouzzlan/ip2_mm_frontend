@@ -1,0 +1,30 @@
+<h1>Alle muziekstukken</h1>
+<table>
+
+<tr class="bigBorder">
+  <th class="text-center">Titel</th>
+  <th class="text-center">Artiest</th>
+  <th class="text-center">Type</th>
+  <th class="text-center">Instrument</th>
+  <th class="text-center">Genre</th>
+  <th class="text-center">Thema</th>
+  <th class="text-center">Taal</th>
+
+</tr>
+<tr *ngFor="let m of pieces">
+  <td class="col-sm-2">{{m.title}}</td>
+  <td class="col-sm-2">{{m.artist}}</td>
+  <td class="col-sm-2">{{m.typeofpiece}}</td>
+  <td class="col-sm-2">{{m.instrumentType}}</td>
+  <td class="col-sm-1">{{m.genre}}</td>
+  <td class="col-sm-1">{{m.theme}}</td>
+  <td class="col-sm-2">{{m.language}}</td>
+  <td class="col-sm-1">
+    <a class="glyphicon glyphicon-info-sign col-sm-4" routerLink="/musicpiece/detail/{{m.id}}"></a>
+    <a class="glyphicon glyphicon-edit col-sm-4" routerLink="/musicpiece/edit/{{m.id}}"></a>
+
+  </td>
+</tr>
+</table>
+
+<button routerLink="/musicpiece/create">Nieuw muziekstyk</button>
